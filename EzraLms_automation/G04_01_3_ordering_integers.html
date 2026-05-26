@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordering Integers - G4 NATIONAL</title>
+    <style>
+        :root {
+            --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --color-border-tertiary: #e0e0e0;
+            --color-border-secondary: #ccc;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --color-text-primary: #222;
+            --color-text-secondary: #555;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: #f0f2f5; color: var(--color-text-primary); }
+        .wrap { padding: 0 0 2rem; max-width: 820px; margin: 20px auto; background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+        .lang-btn { display: flex; gap: 4px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); overflow: hidden; padding: 2px; }
+        .lang-btn button { padding: 6px 14px; font-size: 13px; font-weight: 500; border: none; border-radius: 6px; cursor: pointer; background: transparent; color: var(--color-text-secondary); transition: all 0.15s; }
+        .lang-btn button.active { background: var(--color-background-primary); color: var(--color-text-primary); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .hero { background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 100%); padding: 28px 24px 20px; text-align: center; border-bottom: 0.5px solid var(--color-border-tertiary); }
+        .hero h1 { font-size: 26px; font-weight: 500; color: var(--color-text-primary); }
+        .hero p { font-size: 15px; color: var(--color-text-secondary); margin-top: 6px; }
+        .tabs { display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary); padding: 0 20px; background: var(--color-background-primary); overflow-x: auto; }
+        .tab-btn { padding: 12px 18px; font-size: 14px; font-weight: 500; border: none; background: transparent; cursor: pointer; color: var(--color-text-secondary); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: all 0.15s; }
+        .tab-btn.active { color: #2E7D32; border-bottom-color: #2E7D32; }
+        .section { display: none; padding: 24px 20px; }
+        .section.active { display: block; }
+        .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 16px; }
+        .card h2 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; }
+        .card p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; }
+        .order-box { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 20px 0; flex-wrap: wrap; padding: 16px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); }
+        .order-box .num { font-size: 22px; font-weight: 600; padding: 8px 14px; border-radius: 8px; min-width: 60px; text-align: center; }
+        .order-box .num.pos { background: #E3F2FD; color: #1565C0; }
+        .order-box .num.neg { background: #FFEBEE; color: #C62828; }
+        .order-box .arrow { font-size: 24px; color: #2E7D32; }
+        .order-box .label { font-size: 14px; font-weight: 500; color: var(--color-text-secondary); }
+        .nline { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 20px; margin: 16px 0; position: relative; }
+        .nline-container { position: relative; height: 80px; margin: 20px 0; }
+        .nline-bar { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: #ccc; transform: translateY(-50%); border-radius: 2px; }
+        .nline-arrow { position: absolute; top: 50%; right: -2px; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #ccc; transform: translateY(-50%); }
+        .nline-tick { position: absolute; top: 50%; width: 2px; height: 20px; background: #555; transform: translate(-50%, -50%); }
+        .nline-label { position: absolute; top: 50%; font-size: 13px; font-weight: 600; color: var(--color-text-primary); transform: translate(-50%, 20px); }
+        .nline-point { position: absolute; top: 50%; width: 20px; height: 20px; border-radius: 50%; transform: translate(-50%, -50%); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: white; z-index: 2; }
+        .nline-point.pos { background: #1565C0; }
+        .nline-point.neg { background: #C62828; }
+        .nline-point.zero { background: #2E7D32; }
+        .example-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 12px 0; padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); flex-wrap: wrap; }
+        .example-row .num { font-size: 24px; font-weight: 600; padding: 8px 16px; border-radius: 8px; }
+        .example-row .num.pos { background: #E3F2FD; color: #1565C0; }
+        .example-row .num.neg { background: #FFEBEE; color: #C62828; }
+        .example-row .arrow { font-size: 28px; color: #2E7D32; }
+        .example-row .result { font-size: 16px; font-weight: 500; color: var(--color-text-secondary); }
+        .tip-box { background: #E8F5E9; border: 0.5px solid #81C784; border-radius: var(--border-radius-md); padding: 12px 16px; font-size: 14px; color: #1B5E20; margin-top: 12px; }
+        .life-example { background: #FFF8E1; border: 0.5px solid #FFB74D; border-radius: var(--border-radius-md); padding: 16px; margin: 12px 0; }
+        .life-example h4 { font-size: 14px; color: #E65100; margin-bottom: 8px; }
+        .life-example p { font-size: 14px; color: #555; line-height: 1.6; }
+        .q-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 12px; }
+        .q-card h3 { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 14px; }
+        .answer-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .ans-btn { padding: 10px 20px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); background: var(--color-background-secondary); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.15s; color: var(--color-text-primary); }
+        .ans-btn:hover { background: var(--color-background-primary); border-color: #2E7D32; }
+        .ans-btn.correct { background: #E8F5E9; border-color: #2E7D32; color: #1B5E20; }
+        .ans-btn.wrong { background: #FFEBEE; border-color: #C62828; color: #B71C1C; }
+        .feedback { padding: 12px 16px; border-radius: var(--border-radius-md); font-size: 14px; line-height: 1.6; margin-top: 8px; display: none; }
+        .feedback.show { display: block; }
+        .feedback.correct { background: #E8F5E9; color: #1B5E20; border: 0.5px solid #2E7D32; }
+        .feedback.wrong { background: #FFEBEE; color: #B71C1C; border: 0.5px solid #C62828; }
+        .score-bar { display: flex; align-items: center; gap: 12px; padding: 12px 20px; background: var(--color-background-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+        .score-badge { background: #E8F5E9; color: #2E7D32; border-radius: var(--border-radius-md); padding: 4px 12px; font-size: 13px; font-weight: 500; }
+        .progress-wrap { flex: 1; height: 6px; background: var(--color-border-tertiary); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #2E7D32; border-radius: 3px; transition: width 0.3s; }
+        .section-title { font-size: 19px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #2E7D32; display: inline-block; }
+        .icon-emoji { font-size: 24px; margin-right: 8px; }
+        .rules-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px; margin: 12px 0; }
+        .rule-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .rule-item:last-child { margin-bottom: 0; }
+        .rule-icon { font-size: 20px; }
+        .rule-text { font-size: 14px; color: var(--color-text-secondary); line-height: 1.5; }
+        .steps-box { background: #E3F2FD; border: 0.5px solid #90CAF9; border-radius: var(--border-radius-md); padding: 16px; margin: 12px 0; }
+        .step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+        .step:last-child { margin-bottom: 0; }
+        .step-num { background: #1565C0; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+        .step-text { font-size: 14px; color: #1565C0; line-height: 1.5; }
+        .logo { height: 40px; object-fit: contain; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="topbar">
+        <div class="lang-btn">
+            <button class="active" onclick="setLang('en')" id="btn-en">English</button>
+            <button onclick="setLang('id')" id="btn-id">Indonesia</button>
+        </div>
+        <img class="logo" src="https://i.imgur.com/3lLW585.png" alt="Logo" onerror="this.style.display='none'">
+    </div>
+    <div class="hero">
+        <h1 id="h-title">Ordering Integers</h1>
+        <p id="h-sub">Cambridge Grade 4 Mathematics — Numbers</p>
+    </div>
+    <div class="score-bar">
+        <span class="score-badge" id="score-label">Score: 0 / 0</span>
+        <div class="progress-wrap"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+        <span style="font-size:13px;color:var(--color-text-secondary)" id="prog-label">0%</span>
+    </div>
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab(0)" id="tab0">Understanding</button>
+        <button class="tab-btn" onclick="showTab(1)" id="tab1">Number Line</button>
+        <button class="tab-btn" onclick="showTab(2)" id="tab2">Examples</button>
+        <button class="tab-btn" onclick="showTab(3)" id="tab3">Practice</button>
+    </div>
+    <div class="section active" id="sec0">
+        <div class="section-title"><span class="dot"></span> <span id="t0-title">What is Ordering Integers?</span></div>
+        <div class="card">
+            <p id="t0-intro">Ordering integers means putting numbers in a sequence — either from <strong>smallest to largest</strong> or from <strong>largest to smallest</strong>.</p>
+        </div>
+        <div class="order-box">
+            <div class="symbol-item" style="background:#FFEBEE;border:2px solid #C62828;padding:16px 24px;border-radius:12px;text-align:center;">
+                <div style="font-size:36px;font-weight:600;color:#C62828;" id="t0-asc-sym">↑</div>
+                <div class="label" id="t0-asc-label">Ascending</div>
+                <div style="font-size:13px;color:#C62828;" id="t0-asc-sub">Smallest → Largest</div>
+            </div>
+            <div class="symbol-item" style="background:#E3F2FD;border:2px solid #1565C0;padding:16px 24px;border-radius:12px;text-align:center;">
+                <div style="font-size:36px;font-weight:600;color:#1565C0;" id="t0-desc-sym">↓</div>
+                <div class="label" id="t0-desc-label">Descending</div>
+                <div style="font-size:13px;color:#1565C0;" id="t0-desc-sub">Largest → Smallest</div>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t0-key">Key Idea</h2>
+            <div class="tip-box">
+                <span class="icon-emoji">🔑</span>
+                <span id="t0-tip">On a number line, numbers to the RIGHT are GREATER. Numbers to the LEFT are SMALLER.</span>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t0-steps-title">Steps to Order Integers</h2>
+            <div class="steps-box">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text" id="t0-step1">Find each number's position on the number line</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text" id="t0-step2">Identify negative numbers (left of zero) and positive numbers (right of zero)</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text" id="t0-step3">For ascending: start from the leftmost (most negative), move right</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text" id="t0-step4">For descending: start from the rightmost (largest positive), move left</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="sec1">
+        <div class="section-title"><span class="dot"></span> <span id="t1-title">Using the Number Line</span></div>
+        <div class="card">
+            <p id="t1-intro">A number line helps us see the order of integers clearly. Numbers increase from left to right!</p>
+        </div>
+        <div class="nline">
+            <div style="text-align:center;font-size:14px;color:#555;margin-bottom:12px;" id="t1-nline-label">Number Line</div>
+            <div class="nline-container" id="nline1"></div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#888;margin-top:8px;">
+                <span id="t1-neg-dir">← Negative (smaller)</span>
+                <span id="t1-pos-dir">Positive (greater) →</span>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t1-rule-title">Ordering Rules</h2>
+            <div class="rules-box">
+                <div class="rule-item"><span class="rule-icon">📍</span><span class="rule-text" id="t1-rule1">Numbers on the RIGHT are always GREATER than numbers on the LEFT</span></div>
+            </div>
+            <div class="rules-box">
+                <div class="rule-item"><span class="rule-icon">❄️</span><span class="rule-text" id="t1-rule2">For negative numbers: the one closer to ZERO is GREATER (-2 > -5)</span></div>
+            </div>
+            <div class="rules-box">
+                <div class="rule-item"><span class="rule-icon">☀️</span><span class="rule-text" id="t1-rule3">Every positive is greater than zero. Every negative is less than zero.</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="sec2">
+        <div class="section-title"><span class="dot"></span> <span id="t2-title">Examples</span></div>
+        <div class="card">
+            <h2 id="t2-asc-title">Ascending Order (Smallest to Largest)</h2>
+            <div class="example-row">
+                <span class="num neg">-5</span>
+                <span class="arrow"><</span>
+                <span class="num neg">-2</span>
+                <span class="arrow"><</span>
+                <span class="num pos">3</span>
+                <span class="arrow"><</span>
+                <span class="num pos">7</span>
+            </div>
+            <p style="text-align:center;font-size:14px;color:#555;margin-top:8px;" id="t2-asc-note">-5, -2, 3, 7 → From most negative to most positive</p>
+        </div>
+        <div class="card">
+            <h2 id="t2-desc-title">Descending Order (Largest to Smallest)</h2>
+            <div class="example-row">
+                <span class="num pos">8</span>
+                <span class="arrow">></span>
+                <span class="num pos">4</span>
+                <span class="arrow">></span>
+                <span class="num neg">-1</span>
+                <span class="arrow">></span>
+                <span class="num neg">-6</span>
+            </div>
+            <p style="text-align:center;font-size:14px;color:#555;margin-top:8px;" id="t2-desc-note">8, 4, -1, -6 → From largest positive to most negative</p>
+        </div>
+        <div class="card">
+            <h2 id="t2-mix-title">Mixed Positive and Negative</h2>
+            <div class="example-row">
+                <span class="num neg">-7</span>
+                <span class="arrow"><</span>
+                <span class="num neg">-3</span>
+                <span class="arrow"><</span>
+                <span class="num pos">0</span>
+                <span class="arrow"><</span>
+                <span class="num pos">5</span>
+            </div>
+            <p style="text-align:center;font-size:14px;color:#555;margin-top:8px;" id="t2-mix-note">Always: negative numbers < zero < positive numbers</p>
+        </div>
+        <div class="life-example">
+            <h4 id="t2-life">🏆 Temperature Ranking</h4>
+            <p id="t2-life-desc">Four cities had these temperatures: -5°C, 8°C, -12°C, 3°C. In ascending order: -12°C < -5°C < 3°C < 8°C. The coldest city had the lowest temperature!</p>
+        </div>
+    </div>
+    <div class="section" id="sec3">
+        <div class="section-title"><span class="dot"></span> <span id="t3-title">Practice Quiz</span></div>
+        <div class="q-card">
+            <h3 id="q1-text">Q1. Order from smallest to largest: -3, 5, -7, 2</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1a">-7, -3, 2, 5</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1b">5, 2, -3, -7</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'correct','q1fb')" id="q1c">-3, -7, 2, 5</button>
+            </div>
+            <div class="feedback" id="q1fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q2-text">Q2. Which shows descending order?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q2',this,'correct','q2fb')" id="q2a">8, 4, 1, -3</button>
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2b">-3, 1, 4, 8</button>
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2c">-5, -2, 0, 3</button>
+            </div>
+            <div class="feedback" id="q2fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q3-text">Q3. Which is the correct ascending order?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3a">5 > 2 > -1 > -4</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3b">-4 > -1 > 2 > 5</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'correct','q3fb')" id="q3c">-4 < -1 < 2 < 5</button>
+            </div>
+            <div class="feedback" id="q3fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q4-text">Q4. In a game, scores were: 150, -80, 40, -200. What is the order from smallest to largest?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4a">150, 40, -80, -200</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4b">-200, -80, 40, 150</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'correct','q4fb')" id="q4c">-200, -80, 40, 150</button>
+            </div>
+            <div class="feedback" id="q4fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q5-text">Q5. Which statement is TRUE?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5a">-5 > -2</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'correct','q5fb')" id="q5b">-5 < -2</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5c">-5 = -2</button>
+            </div>
+            <div class="feedback" id="q5fb"></div>
+        </div>
+    </div>
+</div>
+<script>
+    let lang = 'en';
+    let score = 0, total = 0;
+    const answered = {};
+    const TX = {
+        en: {
+            htitle:'Ordering Integers', hsub:'Cambridge Grade 4 Mathematics — Numbers',
+            tab0:'Understanding', tab1:'Number Line', tab2:'Examples', tab3:'Practice', score:'Score',
+            t0title:'What is Ordering Integers?', t0intro:'Ordering integers means putting numbers in a sequence — either from <strong>smallest to largest</strong> or from <strong>largest to smallest</strong>.',
+            t0ascsym:'↑', t0asc:'Ascending', t0ascsub:'Smallest → Largest', t0descsym:'↓', t0desc:'Descending', t0descsub:'Largest → Smallest',
+            t0key:'Key Idea', t0tip:'On a number line, numbers to the RIGHT are GREATER. Numbers to the LEFT are SMALLER.',
+            t0stepstitle:'Steps to Order Integers', t0step1:'Find each number\'s position on the number line', t0step2:'Identify negative numbers (left of zero) and positive numbers (right of zero)', t0step3:'For ascending: start from the leftmost (most negative), move right', t0step4:'For descending: start from the rightmost (largest positive), move left',
+            t1title:'Using the Number Line', t1intro:'A number line helps us see the order of integers clearly. Numbers increase from left to right!', t1nlinelabel:'Number Line', t1negdir:'← Negative (smaller)', t1posdir:'Positive (greater) →',
+            t1ruletitle:'Ordering Rules', t1rule1:'Numbers on the RIGHT are always GREATER than numbers on the LEFT', t1rule2:'For negative numbers: the one closer to ZERO is GREATER (-2 > -5)', t1rule3:'Every positive is greater than zero. Every negative is less than zero.',
+            t2title:'Examples', t2asctitle:'Ascending Order (Smallest to Largest)', t2ascnote:'-5, -2, 3, 7 → From most negative to most positive',
+            t2desctitle:'Descending Order (Largest to Smallest)', t2descnote:'8, 4, -1, -6 → From largest positive to most negative',
+            t2mixtitle:'Mixed Positive and Negative', t2mixnote:'Always: negative numbers < zero < positive numbers',
+            t2life:'Temperature Ranking', t2lifedesc:'Four cities had these temperatures: -5°C, 8°C, -12°C, 3°C. In ascending order: -12°C < -5°C < 3°C < 8°C. The coldest city had the lowest temperature!',
+            t3title:'Practice Quiz',
+            q1:'Q1. Order from smallest to largest: -3, 5, -7, 2', q1a:'-7, -3, 2, 5', q1b:'5, 2, -3, -7', q1c:'-3, -7, 2, 5', q1cr:'Correct! -7 < -3 < 2 < 5', q1wr:'Wrong. Smallest to largest: -7, -3, 2, 5',
+            q2:'Q2. Which shows descending order?', q2a:'8, 4, 1, -3', q2b:'-3, 1, 4, 8', q2c:'-5, -2, 0, 3', q2cr:'Correct! 8 > 4 > 1 > -3 (largest to smallest)', q2wr:'Wrong. Descending means largest to smallest: 8, 4, 1, -3',
+            q3:'Q3. Which is the correct ascending order?', q3a:'5 > 2 > -1 > -4', q3b:'-4 > -1 > 2 > 5', q3c:'-4 < -1 < 2 < 5', q3cr:'Correct! -4 < -1 < 2 < 5 (ascending)', q3wr:'Wrong. Ascending uses <: -4 < -1 < 2 < 5',
+            q4:'Q4. In a game, scores were: 150, -80, 40, -200. What is the order from smallest to largest?', q4a:'150, 40, -80, -200', q4b:'-200, -80, 40, 150', q4c:'-200, -80, 40, 150', q4cr:'Correct! -200 < -80 < 40 < 150', q4wr:'Wrong. Smallest to largest: -200, -80, 40, 150',
+            q5:'Q5. Which statement is TRUE?', q5a:'-5 > -2', q5b:'-5 < -2', q5c:'-5 = -2', q5cr:'Correct! -5 < -2 (closer to zero means greater)', q5wr:'Wrong. -5 < -2 because -5 is farther from zero'
+        },
+        id: {
+            htitle:'Mengurutkan Bilangan Bulat', hsub:'Matematika Cambridge Kelas 4 — Bilangan',
+            tab0:'Pemahaman', tab1:'Garis Bilangan', tab2:'Contoh', tab3:'Latihan', score:'Skor',
+            t0title:'Apa itu Mengurutkan Bilangan Bulat?', t0intro:'Mengurutkan bilangan bulat berarti menempatkan bilangan dalam urutan — dari <strong>terkecil ke terbesar</strong> atau dari <strong>terbesar ke terkecil</strong>.',
+            t0ascsym:'↑', t0asc:'Menaik', t0ascsub:'Terenkecil → Terbesar', t0descsym:'↓', t0desc:'Menurun', t0descsub:'Terbesar → Terkecil',
+            t0key:'Ide Utama', t0tip:'Di garis bilangan, bilangan di KANAN lebih BESAR. Bilangan di KIRI lebih KECIL.',
+            t0stepstitle:'Langkah Mengurutkan Bilangan Bulat', t0step1:'Temukan posisi setiap bilangan di garis bilangan', t0step2:'Identifikasi bilangan negatif (kiri nol) dan positif (kanan nol)', t0step3:'Untuk naik: mulai dari kiri (paling negatif), bergerak kanan', t0step4:'Untuk turun: mulai dari kanan (paling positif), bergerak kiri',
+            t1title:'Menggunakan Garis Bilangan', t1intro:'Garis bilangan membantu kita melihat urutan bilangan dengan jelas. Bilangan meningkat dari kiri ke kanan!', t1nlinelabel:'Garis Bilangan', t1negdir:'← Negatif (lebih kecil)', t1posdir:'Positif (lebih besar) →',
+            t1ruletitle:'Aturan Mengurutkan', t1rule1:'Bilangan di KANAN selalu LEBIH BESAR dari bilangan di KIRI', t1rule2:'Untuk bilangan negatif: yang lebih dekat ke NOL adalah LEBIH BESAR (-2 > -5)', t1rule3:'Setiap bilangan positif lebih besar dari nol. Setiap bilangan negatif lebih kecil dari nol.',
+            t2title:'Contoh', t2asctitle:'Urutan Menaik (Terenkecil ke Terbesar)', t2ascnote:'-5, -2, 3, 7 → Dari paling negatif ke paling positif',
+            t2desctitle:'Urutan Menurun (Terbesar ke Terkecil)', t2descnote:'8, 4, -1, -6 → Dari terbesar positif ke paling negatif',
+            t2mixtitle:'Campuran Positif dan Negatif', t2mixnote:'Selalu: bilangan negatif < nol < bilangan positif',
+            t2life:'Peringkat Suhu', t2lifedesc:'Empat kota memiliki suhu: -5°C, 8°C, -12°C, 3°C. Urutan naik: -12°C < -5°C < 3°C < 8°C. Kota terdingin memiliki suhu terendah!',
+            t3title:'Latihan Soal',
+            q1:'S1. Urutkan dari terkecil ke terbesar: -3, 5, -7, 2', q1a:'-7, -3, 2, 5', q1b:'5, 2, -3, -7', q1c:'-3, -7, 2, 5', q1cr:'Benar! -7 < -3 < 2 < 5', q1wr:'Salah. Dari terkecil ke terbesar: -7, -3, 2, 5',
+            q2:'S2. Mana yang menunjukkan urutan menurun?', q2a:'8, 4, 1, -3', q2b:'-3, 1, 4, 8', q2c:'-5, -2, 0, 3', q2cr:'Benar! 8 > 4 > 1 > -3 (terbesar ke terkecil)', q2wr:'Salah. Menurun artinya terbesar ke terkecil: 8, 4, 1, -3',
+            q3:'S3. Mana yang urutan naik yang benar?', q3a:'5 > 2 > -1 > -4', q3b:'-4 > -1 > 2 > 5', q3c:'-4 < -1 < 2 < 5', q3cr:'Benar! -4 < -1 < 2 < 5 (naik)', q3wr:'Salah. Naik pakai <: -4 < -1 < 2 < 5',
+            q4:'S4. Dalam game, skor: 150, -80, 40, -200. Urutan dari terkecil ke terbesar?', q4a:'150, 40, -80, -200', q4b:'-200, -80, 40, 150', q4c:'-200, -80, 40, 150', q4cr:'Benar! -200 < -80 < 40 < 150', q4wr:'Salah. Dari terkecil ke terbesar: -200, -80, 40, 150',
+            q5:'S5. Pernyataan mana yang BENAR?', q5a:'-5 > -2', q5b:'-5 < -2', q5c:'-5 = -2', q5cr:'Benar! -5 < -2 (lebih dekat ke nol berarti lebih besar)', q5wr:'Salah. -5 < -2 karena -5 lebih jauh dari nol'
+        }
+    };
+    function t(k) { return TX[lang][k] || ''; }
+    function setLang(l) { lang = l; document.getElementById('btn-en').className = l==='en' ? 'active' : ''; document.getElementById('btn-id').className = l==='id' ? 'active' : ''; applyLang(); }
+    function applyLang() {
+        document.getElementById('h-title').textContent = t('htitle');
+        document.getElementById('h-sub').textContent = t('hsub');
+        document.getElementById('tab0').textContent = t('tab0');
+        document.getElementById('tab1').textContent = t('tab1');
+        document.getElementById('tab2').textContent = t('tab2');
+        document.getElementById('tab3').textContent = t('tab3');
+        document.getElementById('t0-title').textContent = t('t0title');
+        document.getElementById('t0-intro').innerHTML = t('t0intro');
+        document.getElementById('t0-asc-label').textContent = t('t0asc');
+        document.getElementById('t0-asc-sub').textContent = t('t0ascsub');
+        document.getElementById('t0-desc-label').textContent = t('t0desc');
+        document.getElementById('t0-desc-sub').textContent = t('t0descsub');
+        document.getElementById('t0-key').textContent = t('t0key');
+        document.getElementById('t0-tip').textContent = t('t0tip');
+        document.getElementById('t0-steps-title').textContent = t('t0stepstitle');
+        document.getElementById('t0-step1').textContent = t('t0step1');
+        document.getElementById('t0-step2').textContent = t('t0step2');
+        document.getElementById('t0-step3').textContent = t('t0step3');
+        document.getElementById('t0-step4').textContent = t('t0step4');
+        document.getElementById('t1-title').textContent = t('t1title');
+        document.getElementById('t1-intro').textContent = t('t1intro');
+        document.getElementById('t1-nline-label').textContent = t('t1nlinelabel');
+        document.getElementById('t1-neg-dir').textContent = t('t1negdir');
+        document.getElementById('t1-pos-dir').textContent = t('t1posdir');
+        document.getElementById('t1-rule-title').textContent = t('t1ruletitle');
+        document.getElementById('t1-rule1').textContent = t('t1rule1');
+        document.getElementById('t1-rule2').textContent = t('t1rule2');
+        document.getElementById('t1-rule3').textContent = t('t1rule3');
+        document.getElementById('t2-title').textContent = t('t2title');
+        document.getElementById('t2-asc-title').textContent = t('t2asctitle');
+        document.getElementById('t2-asc-note').textContent = t('t2ascnote');
+        document.getElementById('t2-desc-title').textContent = t('t2desctitle');
+        document.getElementById('t2-desc-note').textContent = t('t2descnote');
+        document.getElementById('t2-mix-title').textContent = t('t2mixtitle');
+        document.getElementById('t2-mix-note').textContent = t('t2mixnote');
+        document.getElementById('t2-life').textContent = t('t2life');
+        document.getElementById('t2-life-desc').textContent = t('t2lifedesc');
+        document.getElementById('t3-title').textContent = t('t3title');
+        for(let i=1; i<=5; i++) { document.getElementById('q'+i+'-text').textContent = t('q'+i); }
+        updateScore();
+        drawNLine();
+    }
+    function showTab(idx) { document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active', i===idx)); document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active', i===idx)); }
+    function updateScore() { document.getElementById('score-label').textContent = t('score')+': '+score+' / '+total; const pct = total>0?Math.round(score/total*100):0; document.getElementById('prog').style.width=pct+'%'; document.getElementById('prog-label').textContent=pct+'%'; }
+    function mcq(qid, btn, res, fbid) { if(answered[qid]) return; answered[qid] = true; total++; const fb = document.getElementById(fbid); fb.className = 'feedback show '+res; if(res==='correct') { score++; fb.textContent = t(qid+'cr'); btn.classList.add('correct'); } else { fb.textContent = t(qid+'wr'); btn.classList.add('wrong'); } updateScore(); }
+    function drawNLine() {
+        const container = document.getElementById('nline1');
+        if (!container) return;
+        const points = [
+            {v:-6, label:'-6'}, {v:-4, label:'-4'}, {v:-2, label:'-2'}, {v:0, label:'0'},
+            {v:2, label:'2'}, {v:4, label:'4'}, {v:6, label:'6'}
+        ];
+        const totalWidth = 100;
+        const step = totalWidth / (points.length - 1);
+        let html = '<div class="nline-bar"></div><div class="nline-arrow"></div>';
+        points.forEach((p, i) => {
+            const left = i * step;
+            const cls = p.v < 0 ? 'neg' : (p.v > 0 ? 'pos' : 'zero');
+            html += `<div class="nline-tick" style="left:${left}%"></div>`;
+            html += `<div class="nline-point ${cls}" style="left:${left}%">${p.label}</div>`;
+        });
+        container.innerHTML = html;
+    }
+    drawNLine();
+</script>
+</body>
+</html>

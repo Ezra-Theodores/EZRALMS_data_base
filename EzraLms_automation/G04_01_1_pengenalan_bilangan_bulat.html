@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Integers - G4 SMPK</title>
+    <style>
+        :root {
+            --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --color-border-tertiary: #e0e0e0;
+            --color-border-secondary: #ccc;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --color-text-primary: #222;
+            --color-text-secondary: #555;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: #f0f2f5; color: var(--color-text-primary); }
+
+        .wrap { padding: 0 0 2rem; max-width: 820px; margin: 20px auto; background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        .topbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 20px; border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .lang-btn {
+            display: flex; gap: 4px; background: var(--color-background-secondary);
+            border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md);
+            overflow: hidden; padding: 2px;
+        }
+        .lang-btn button {
+            padding: 6px 14px; font-size: 13px; font-weight: 500; border: none;
+            border-radius: 6px; cursor: pointer; background: transparent;
+            color: var(--color-text-secondary); transition: all 0.15s;
+        }
+        .lang-btn button.active {
+            background: var(--color-background-primary);
+            color: var(--color-text-primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 100%);
+            padding: 28px 24px 20px;
+            text-align: center;
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .hero h1 { font-size: 26px; font-weight: 500; color: var(--color-text-primary); }
+        .hero p { font-size: 15px; color: var(--color-text-secondary); margin-top: 6px; }
+
+        .tabs {
+            display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary);
+            padding: 0 20px; background: var(--color-background-primary);
+            overflow-x: auto;
+        }
+        .tab-btn {
+            padding: 12px 18px; font-size: 14px; font-weight: 500; border: none;
+            background: transparent; cursor: pointer; color: var(--color-text-secondary);
+            border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap;
+            transition: all 0.15s;
+        }
+        .tab-btn.active { color: #2E7D32; border-bottom-color: #2E7D32; }
+
+        .section { display: none; padding: 24px 20px; }
+        .section.active { display: block; }
+
+        .card {
+            background: var(--color-background-primary);
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg);
+            padding: 20px; margin-bottom: 16px;
+        }
+        .card h2 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; }
+        .card p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; }
+
+        .number-line {
+            position: relative; height: 100px; margin: 20px 0;
+            background: var(--color-background-secondary);
+            border-radius: var(--border-radius-md); padding: 15px 20px;
+        }
+        .line-container { position: relative; height: 50px; }
+        .line {
+            position: absolute; top: 50%; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #1565C0, #2E7D32); transform: translateY(-50%);
+        }
+        .number-marker {
+            position: absolute; top: 50%; transform: translate(-50%, -50%);
+            width: 36px; height: 36px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 14px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .number-marker.positive { background: #E3F2FD; color: #1565C0; border: 2px solid #1565C0; }
+        .number-marker.negative { background: #FFEBEE; color: #C62828; border: 2px solid #C62828; }
+        .number-marker.zero { background: #E8F5E9; color: #2E7D32; border: 2px solid #2E7D32; }
+        .number-marker:hover { transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .number-marker.selected { transform: translate(-50%, -50%) scale(1.2); box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.3); }
+
+        .num-labels {
+            display: flex; justify-content: space-between;
+            padding: 0 5px; margin-top: 4px;
+        }
+        .num-labels span { font-size: 12px; font-weight: 500; }
+        .num-labels .neg { color: #C62828; }
+        .num-labels .zero { color: #2E7D32; }
+        .num-labels .pos { color: #1565C0; }
+
+        .number-display {
+            text-align: center; font-size: 52px; font-weight: 600;
+            padding: 20px; margin: 16px 0; border-radius: var(--border-radius-md);
+        }
+        .number-display.positive { background: #E3F2FD; color: #1565C0; }
+        .number-display.negative { background: #FFEBEE; color: #C62828; }
+        .number-display.zero { background: #E8F5E9; color: #2E7D32; }
+
+        .color-box {
+            display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap;
+        }
+        .color-item {
+            flex: 1; min-width: 140px; padding: 16px; border-radius: var(--border-radius-md);
+            text-align: center;
+        }
+        .color-item.positive { background: #E3F2FD; border: 2px solid #1565C0; }
+        .color-item.zero { background: #E8F5E9; border: 2px solid #2E7D32; }
+        .color-item.negative { background: #FFEBEE; border: 2px solid #C62828; }
+        .color-item .emoji { font-size: 28px; margin-bottom: 6px; }
+        .color-item .label { font-size: 14px; font-weight: 600; }
+        .color-item.positive .label { color: #1565C0; }
+        .color-item.zero .label { color: #2E7D32; }
+        .color-item.negative .label { color: #C62828; }
+        .color-item .desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
+
+        .life-example {
+            background: #FFF8E1;
+            border: 0.5px solid #FFB74D;
+            border-radius: var(--border-radius-md);
+            padding: 16px; margin: 12px 0;
+        }
+        .life-example h4 { font-size: 14px; color: #E65100; margin-bottom: 8px; }
+        .life-example p { font-size: 14px; color: #555; line-height: 1.6; }
+
+        .tip-box {
+            background: #E3F2FD; border: 0.5px solid #90CAF9; border-radius: var(--border-radius-md);
+            padding: 12px 16px; font-size: 14px; color: #0D47A1; margin-top: 12px;
+        }
+
+        .q-card {
+            background: var(--color-background-primary);
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 12px;
+        }
+        .q-card h3 { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 14px; }
+        .answer-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .ans-btn {
+            padding: 10px 20px; border: 0.5px solid var(--color-border-secondary);
+            border-radius: var(--border-radius-md); background: var(--color-background-secondary);
+            font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.15s;
+            color: var(--color-text-primary);
+        }
+        .ans-btn:hover { background: var(--color-background-primary); border-color: #1565C0; }
+        .ans-btn.correct { background: #E8F5E9; border-color: #2E7D32; color: #1B5E20; }
+        .ans-btn.wrong { background: #FFEBEE; border-color: #C62828; color: #B71C1C; }
+
+        .feedback {
+            padding: 12px 16px; border-radius: var(--border-radius-md); font-size: 14px;
+            line-height: 1.6; margin-top: 8px; display: none;
+        }
+        .feedback.show { display: block; }
+        .feedback.correct { background: #E8F5E9; color: #1B5E20; border: 0.5px solid #2E7D32; }
+        .feedback.wrong { background: #FFEBEE; color: #B71C1C; border: 0.5px solid #C62828; }
+
+        .score-bar {
+            display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+            background: var(--color-background-secondary);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .score-badge {
+            background: #E8F5E9; color: #2E7D32; border-radius: var(--border-radius-md);
+            padding: 4px 12px; font-size: 13px; font-weight: 500;
+        }
+        .progress-wrap { flex: 1; height: 6px; background: var(--color-border-tertiary); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #2E7D32; border-radius: 3px; transition: width 0.3s; }
+
+        .section-title {
+            font-size: 19px; font-weight: 500; color: var(--color-text-primary);
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #2E7D32; display: inline-block; }
+
+        .icon-emoji { font-size: 24px; margin-right: 8px; }
+
+        .arrow-info {
+            display: flex; align-items: center; gap: 20px; margin: 16px 0;
+            padding: 12px; background: var(--color-background-secondary);
+            border-radius: var(--border-radius-md);
+        }
+        .arrow-item { text-align: center; flex: 1; }
+        .arrow-item .symbol { font-size: 28px; font-weight: 600; }
+        .arrow-item .meaning { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
+        .arrow-item.right .symbol { color: #1565C0; }
+        .arrow-item.left .symbol { color: #C62828; }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="topbar">
+        <div class="lang-btn">
+            <button class="active" onclick="setLang('en')" id="btn-en">English</button>
+            <button onclick="setLang('id')" id="btn-id">Indonesia</button>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1 id="h-title">Introduction to Integers</h1>
+        <p id="h-sub">Cambridge Grade 4 Mathematics — Numbers</p>
+    </div>
+
+    <div class="score-bar">
+        <span class="score-badge" id="score-label">Score: 0 / 0</span>
+        <div class="progress-wrap"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+        <span style="font-size:13px;color:var(--color-text-secondary)" id="prog-label">0%</span>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab(0)" id="tab0">Understanding</button>
+        <button class="tab-btn" onclick="showTab(1)" id="tab1">Number Line</button>
+        <button class="tab-btn" onclick="showTab(2)" id="tab2">Examples</button>
+        <button class="tab-btn" onclick="showTab(3)" id="tab3">Practice</button>
+    </div>
+
+    <div class="section active" id="sec0">
+        <div class="section-title"><span class="dot"></span> <span id="t0-title">What are Integers?</span></div>
+
+        <div class="card">
+            <p id="t0-intro"><strong>Integers</strong> are whole numbers that include positive numbers, negative numbers, and zero. Unlike fractions or decimals, integers have no parts — they are complete numbers!</p>
+        </div>
+
+        <div class="card">
+            <h2 id="t0-types">Types of Integers</h2>
+            <div class="color-box">
+                <div class="color-item positive">
+                    <div class="emoji">📈</div>
+                    <div class="label" id="t0-pos-label">Positive</div>
+                    <div class="desc" id="t0-pos-desc">Above zero<br>+, 1, 2, 3, 100...</div>
+                </div>
+                <div class="color-item zero">
+                    <div class="emoji">0️⃣</div>
+                    <div class="label" id="t0-zero-label">Zero</div>
+                    <div class="desc" id="t0-zero-desc">Neither + nor -<br>Just 0</div>
+                </div>
+                <div class="color-item negative">
+                    <div class="emoji">📉</div>
+                    <div class="label" id="t0-neg-label">Negative</div>
+                    <div class="desc" id="t0-neg-desc">Below zero<br>-, -1, -2, -3...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 id="t0-symbols">Symbols</h2>
+            <div class="arrow-info">
+                <div class="arrow-item right">
+                    <div class="symbol">+</div>
+                    <div class="meaning" id="t0-sym-pos">Positive / Plus</div>
+                </div>
+                <div class="arrow-item">
+                    <div class="symbol">−</div>
+                    <div class="meaning" id="t0-sym-neg">Negative / Minus</div>
+                </div>
+                <div class="arrow-item left">
+                    <div class="symbol">0</div>
+                    <div class="meaning" id="t0-sym-zero">Zero</div>
+                </div>
+            </div>
+            <div class="tip-box" id="t0-tip">
+                <span class="icon-emoji">💡</span> <span id="t0-tip-text">The + sign is often not written for positive numbers. We write 5, not +5. But for negative numbers, we must write the − sign: −5.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="sec1">
+        <div class="section-title"><span class="dot"></span> <span id="t1-title">Number Line</span></div>
+
+        <div class="card">
+            <p id="t1-intro">A number line helps us see where integers are located. Tap a number to learn about it!</p>
+            <div class="number-line" id="num-line">
+                <div class="line-container">
+                    <div class="line"></div>
+                    <div class="number-marker negative" style="left:5%" onclick="selectNum(-10)" id="m-10">-10</div>
+                    <div class="number-marker negative" style="left:14%" onclick="selectNum(-7)" id="m-7">-7</div>
+                    <div class="number-marker negative" style="left:23%" onclick="selectNum(-5)" id="m-5">-5</div>
+                    <div class="number-marker negative" style="left:32%" onclick="selectNum(-3)" id="m-3">-3</div>
+                    <div class="number-marker negative" style="left:41%" onclick="selectNum(-1)" id="m-1">-1</div>
+                    <div class="number-marker zero" style="left:50%" onclick="selectNum(0)" id="m0">0</div>
+                    <div class="number-marker positive" style="left:59%" onclick="selectNum(1)" id="m1">1</div>
+                    <div class="number-marker positive" style="left:68%" onclick="selectNum(3)" id="m3">3</div>
+                    <div class="number-marker positive" style="left:77%" onclick="selectNum(5)" id="m5">5</div>
+                    <div class="number-marker positive" style="left:86%" onclick="selectNum(7)" id="m7">7</div>
+                    <div class="number-marker positive" style="left:95%" onclick="selectNum(10)" id="m10">10</div>
+                </div>
+                <div class="num-labels">
+                    <span class="neg">-10</span>
+                    <span class="neg">-7</span>
+                    <span class="neg">-5</span>
+                    <span class="neg">-3</span>
+                    <span class="neg">-1</span>
+                    <span class="zero">0</span>
+                    <span class="pos">1</span>
+                    <span class="pos">3</span>
+                    <span class="pos">5</span>
+                    <span class="pos">7</span>
+                    <span class="pos">10</span>
+                </div>
+            </div>
+            <div class="number-display zero" id="num-display">
+                <span id="selected-num">0</span>
+            </div>
+            <p style="text-align:center;font-size:14px;color:#555;margin-top:8px" id="num-desc">Tap a number on the line above!</p>
+        </div>
+
+        <div class="card">
+            <h2 id="t1-rules">Number Line Rules</h2>
+            <div class="tip-box" id="t1-rule1"><span class="icon-emoji">➡️</span> <span id="t1-rule1-text">Numbers to the RIGHT are GREATER (larger)</span></div>
+            <div class="tip-box" id="t1-rule2"><span class="icon-emoji">⬅️</span> <span id="t1-rule2-text">Numbers to the LEFT are SMALLER (less)</span></div>
+            <div class="tip-box" id="t1-rule3"><span class="icon-emoji">🔢</span> <span id="t1-rule3-text">Every positive number has a negative partner on the opposite side of zero</span></div>
+        </div>
+    </div>
+
+    <div class="section" id="sec2">
+        <div class="section-title"><span class="dot"></span> <span id="t2-title">Real Life Examples</span></div>
+
+        <div class="life-example">
+            <h4 id="t2-life1">🌡️ Temperature</h4>
+            <p id="t2-life1-desc">In winter, Jakarta might be +32°C (hot). In the mountains, it can be −5°C (cold, below freezing). Temperature uses integers to show how hot or cold it is!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t2-life2">🏔️ Altitude</h4>
+            <p id="t2-life2-desc">Mount Everest is +8,849 meters above sea level. The Dead Sea is −430 meters below sea level. Altitude uses integers to measure height and depth!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t2-life3">💰 Money</h4>
+            <p id="t2-life3-desc">If you have Rp 50,000 in your account, your balance is +50,000. If you owe someone Rp 30,000, we can write that as −30,000. Integers help us track money!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t2-life4">📊 Business</h4>
+            <p id="t2-life4-desc">A store that earns money has +Rp 1,000,000 (profit). A store that loses money has −Rp 300,000 (loss). Integers help businesses track their success!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t2-life5">🎮 Game Scores</h4>
+            <p id="t2-life5-desc">In some games, you can have a score of +500 points (ahead) or −200 points (behind). Integers make it easy to see who's winning!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t2-life6">📏 Floor Numbers</h4>
+            <p id="t2-life6-desc">In some countries, ground floor is 0, floors above are +1, +2, +3... Floors below ground (parking) are −1, −2, −3... Buildings use integers too!</p>
+        </div>
+    </div>
+
+    <div class="section" id="sec3">
+        <div class="section-title"><span class="dot"></span> <span id="t3-title">Practice Quiz</span></div>
+
+        <div class="q-card">
+            <h3 id="q1-text">Q1. Which is a positive integer?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1a">−5</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1b">0</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'correct','q1fb')" id="q1c">+7</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1d">−12</button>
+            </div>
+            <div class="feedback" id="q1fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q2-text">Q2. Which number is greater: +3 or +8?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2a">+3</button>
+                <button class="ans-btn" onclick="mcq('q2',this,'correct','q2fb')" id="q2b">+8</button>
+            </div>
+            <div class="feedback" id="q2fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q3-text">Q3. Which is smaller: −5 or −2?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q3',this,'correct','q3fb')" id="q3a">−5</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3b">−2</button>
+            </div>
+            <div class="feedback" id="q3fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q4-text">Q4. The temperature is −3°C and rises to +5°C. What happened?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4a">It got colder</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'correct','q4fb')" id="q4b">It got warmer</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4c">Stayed the same</button>
+            </div>
+            <div class="feedback" id="q4fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q5-text">Q5. A submarine is at −100m (100m below sea level). It goes deeper to −150m. What happened?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5a">It rose up</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'correct','q5fb')" id="q5b">It dived deeper</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5c">It stayed the same</button>
+            </div>
+            <div class="feedback" id="q5fb"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let lang = 'en';
+    let score = 0, total = 0;
+    const answered = {};
+
+    const TX = {
+        en: {
+            htitle:'Introduction to Integers', hsub:'Cambridge Grade 4 Mathematics — Numbers',
+            tab0:'Understanding', tab1:'Number Line', tab2:'Examples', tab3:'Practice',
+            score:'Score',
+            t0title:'What are Integers?', t0intro:'<strong>Integers</strong> are whole numbers that include positive numbers, negative numbers, and zero. Unlike fractions or decimals, integers have no parts — they are complete numbers!',
+            t0types:'Types of Integers', t0poslabel:'Positive', t0posdesc:'Above zero<br>+, 1, 2, 3, 100...',
+            t0zerolabel:'Zero', t0zerodesc:'Neither + nor -<br>Just 0', t0neglabel:'Negative', t0negdesc:'Below zero<br>-1, -2, -3...',
+            t0symbols:'Symbols', tsympos:'Positive / Plus', tsymneg:'Negative / Minus', tsymzero:'Zero',
+            t0tip:'The + sign is often not written for positive numbers. We write 5, not +5. But for negative numbers, we must write the sign: 5.',
+            t1title:'Number Line', t1intro:'A number line helps us see where integers are located. Tap a number to learn about it!',
+            t1rules:'Number Line Rules',
+            t1rule1:'Numbers to the RIGHT are GREATER (larger)',
+            t1rule2:'Numbers to the LEFT are SMALLER (less)',
+            t1rule3:'Every positive number has a negative partner on the opposite side of zero',
+            t2title:'Real Life Examples',
+            t2life1:'Temperature', t2life1desc:'In winter, Jakarta might be +32C (hot). In the mountains, it can be 5C (cold, below freezing). Temperature uses integers to show how hot or cold it is!',
+            t2life2:'Altitude', t2life2desc:'Mount Everest is +8,849 meters above sea level. The Dead Sea is 430 meters below sea level. Altitude uses integers to measure height and depth!',
+            t2life3:'Money', t2life3desc:'If you have Rp 50,000 in your account, your balance is +50,000. If you owe someone Rp 30,000, we can write that as 30,000. Integers help us track money!',
+            t2life4:'Business', t2life4desc:'A store that earns money has +Rp 1,000,000 (profit). A store that loses money has Rp 300,000 (loss). Integers help businesses track their success!',
+            t2life5:'Game Scores', t2life5desc:'In some games, you can have a score of +500 points (ahead) or 200 points (behind). Integers make it easy to see whos winning!',
+            t2life6:'Floor Numbers', t2life6desc:'In some countries, ground floor is 0, floors above are +1, +2, +3... Floors below ground (parking) are 1, 2, 3... Buildings use integers too!',
+            t3title:'Practice Quiz',
+            q1:'Q1. Which is a positive integer?', q1a:'-5', q1b:'0', q1c:'+7', q1d:'-12', q1cr:'Correct! +7 is a positive integer', q1wr:'Wrong. +7 is positive. -5 and -12 are negative, 0 is neither.',
+            q2:'Q2. Which number is greater: +3 or +8?', q2a:'+3', q2b:'+8', q2cr:'Correct! +8 is greater than +3', q2wr:'Wrong. On the number line, +8 is to the right of +3, so +8 is greater.',
+            q3:'Q3. Which is smaller: -5 or -2?', q3a:'-5', q3b:'-2', q3cr:'Correct! -5 is smaller than -2', q3wr:'Wrong. On the number line, -5 is to the left of -2, so -5 is smaller.',
+            q4:'Q4. The temperature is -3C and rises to +5C. What happened?', q4a:'It got colder', q4b:'It got warmer', q4c:'Stayed the same', q4cr:'Correct! The temperature went from -3 to +5, which is an increase', q4wr:'Wrong. Going from -3 to +5 means it got warmer (increased).',
+            q5:'Q5. A submarine is at -100m and goes deeper to -150m. What happened?', q5a:'It rose up', q5b:'It dived deeper', q5c:'It stayed the same', q5cr:'Correct! Going from -100m to -150m means diving deeper', q5wr:'Wrong. -150m is further below sea level than -100m, so it dived deeper.'
+        },
+        id: {
+            htitle:'Pengenalan Bilangan Bulat', hsub:'Matematika Cambridge Kelas 4 — Bilangan',
+            tab0:'Memahami', tab1:'Garis Bilangan', tab2:'Contoh', tab3:'Latihan',
+            score:'Skor',
+            t0title:'Apa itu Bilangan Bulat?', t0intro:'<strong>Bilangan bulat</strong> adalah angka keseluruhan yang meliputi bilangan positif, bilangan negatif, dan nol. Berbeda dengan pecahan atau desimal, bilangan bulat tidak punya bagian — mereka adalah angka utuh!',
+            t0types:'Jenis Bilangan Bulat', t0poslabel:'Positif', t0posdesc:'Di atas nol<br>+, 1, 2, 3, 100...',
+            t0zerolabel:'Nol', t0zerodesc:'Bukan + maupun -<br>Hanya 0', t0neglabel:'Negatif', t0negdesc:'Di bawah nol<br>-1, -2, -3...',
+            t0symbols:'Simbol', tsympos:'Positif / Tambah', tsymneg:'Negatif / Kurang', tsymzero:'Nol',
+            t0tip:'Tanda + sering tidak ditulis untuk bilangan positif. Kita tulis 5, bukan +5. Tapi untuk bilangan negatif, kita harus menulis tanda: -5.',
+            t1title:'Garis Bilangan', t1intro:'Garis bilangan membantu kita melihat di mana bilangan bulat berada. Ketuk angka untuk belajar tentang itu!',
+            t1rules:'Aturan Garis Bilangan',
+            t1rule1:'Angka di KANAN lebih BESAR',
+            t1rule2:'Angka di KIRI lebih KECIL',
+            t1rule3:'Setiap bilangan positif punya pasangan negatif di sisi lain nol',
+            t2title:'Contoh Sehari-hari',
+            t2life1:'Suhu', t2life1desc:'Di musim dingin, Jakarta bisa +32C (panas). Di pegunungan, bisa -5C (dingin, di bawah nol). Suhu pakai bilangan bulat untuk menunjukkan panas atau dingin!',
+            t2life2:'Ketinggian', t2life2desc:'Gunung Everest +8.849 meter di atas permukaan laut. Laut Mati -430 meter di bawah permukaan laut. Ketinggian pakai bilangan bulat untuk mengukur tinggi dan dalam!',
+            t2life3:'Uang', t2life3desc:'Kalau kamu punya Rp 50.000 di rekening, saldonya +50.000. Kalau kamu hutang Rp 30.000, bisa ditulis -30.000. Bilangan bulat bantu kita mencatat uang!',
+            t2life4:'Bisnis', t2life4desc:'Toko yang untung punya +Rp 1.000.000 (laba). Toko yang rugi punya -Rp 300.000 (rugi). Bilangan bulat bantu bisnis menghitung успех!',
+            t2life5:'Skor Game', t2life5desc:'Di beberapa game, skor bisa +500 poin (mendahului) atau -200 poin (tertinggal). Bilangan bulat bikin mudah lihat siapa menang!',
+            t2life6:'Lantai Bangunan', t2life6desc:'Di beberapa negara, lantai dasar 0, lantai di atas +, +2, +3... Lantai di bawah tanah (parkiran) -1, -2, -3... Gedung juga pakai bilangan bulat!',
+            t3title:'Latihan Soal',
+            q1:'S1. Mana yang bilangan bulat positif?', q1a:'-5', q1b:'0', q1c:'+7', q1d:'-12', q1cr:'Benar! +7 bilangan bulat positif', q1wr:'Salah. +7 itu positif. -5 dan -12 negatif, 0 bukan keduanya.',
+            q2:'S2. Mana yang lebih besar: +3 atau +8?', q2a:'+3', q2b:'+8', q2cr:'Benar! +8 lebih besar dari +3', q2wr:'Salah. Di garis bilangan, +8 ada di kanan +3, jadi +8 lebih besar.',
+            q3:'S3. Mana yang lebih kecil: -5 atau -2?', q3a:'-5', q3b:'-2', q3cr:'Benar! -5 lebih kecil dari -2', q3wr:'Salah. Di garis bilangan, -5 ada di kiri -2, jadi -5 lebih kecil.',
+            q4:'S4. Suhu -3C naik ke +5C. Apa yang terjadi?', q4a:'Lebih dingin', q4b:'Lebih panas', q4c:'Tetap sama', q4cr:'Benar! Suhu naik dari -3 ke +5, berarti lebih panas', q4wr:'Salah. Dari -3 ke +5 berarti suhunya naik (lebih panas).',
+            q5:'S5. Kapal selam di -100m lalu menyelam lebih dalam ke -150m. Apa yang terjadi?', q5a:'Naik ke atas', q5b:'Menyelam lebih dalam', q5c:'Tetap sama', q5cr:'Benar! Dari -100m ke -150m berarti menyelam lebih dalam', q5wr:'Salah. -150m lebih dalam dari -100m, jadi menyelam lebih dalam.'
+        }
+    };
+
+    function t(k) { return TX[lang][k] || ''; }
+
+    function setLang(l) {
+        lang = l;
+        document.getElementById('btn-en').className = l==='en' ? 'active' : '';
+        document.getElementById('btn-id').className = l==='id' ? 'active' : '';
+        applyLang();
+    }
+
+    function applyLang() {
+        document.getElementById('h-title').textContent = t('htitle');
+        document.getElementById('h-sub').textContent = t('hsub');
+        document.getElementById('tab0').textContent = t('tab0');
+        document.getElementById('tab1').textContent = t('tab1');
+        document.getElementById('tab2').textContent = t('tab2');
+        document.getElementById('tab3').textContent = t('tab3');
+        document.getElementById('t0-title').textContent = t('t0title');
+        document.getElementById('t0-intro').innerHTML = t('t0intro');
+        document.getElementById('t0-types').textContent = t('t0types');
+        document.getElementById('t0-pos-label').textContent = t('t0poslabel');
+        document.getElementById('t0-pos-desc').innerHTML = t('t0posdesc');
+        document.getElementById('t0-zero-label').textContent = t('t0zerolabel');
+        document.getElementById('t0-zero-desc').innerHTML = t('t0zerodesc');
+        document.getElementById('t0-neg-label').textContent = t('t0neglabel');
+        document.getElementById('t0-neg-desc').innerHTML = t('t0negdesc');
+        document.getElementById('t0-symbols').textContent = t('t0symbols');
+        document.getElementById('t0-sym-pos').textContent = t('tsympos');
+        document.getElementById('t0-sym-neg').textContent = t('tsymneg');
+        document.getElementById('t0-sym-zero').textContent = t('tsymzero');
+        document.getElementById('t0-tip-text').textContent = t('t0tip');
+        document.getElementById('t1-title').textContent = t('t1title');
+        document.getElementById('t1-intro').textContent = t('t1intro');
+        document.getElementById('t1-rules').textContent = t('t1rules');
+        document.getElementById('t1-rule1-text').textContent = t('t1rule1');
+        document.getElementById('t1-rule2-text').textContent = t('t1rule2');
+        document.getElementById('t1-rule3-text').textContent = t('t1rule3');
+        document.getElementById('t2-title').textContent = t('t2title');
+        document.getElementById('t2-life1').textContent = t('t2life1');
+        document.getElementById('t2-life1-desc').textContent = t('t2life1desc');
+        document.getElementById('t2-life2').textContent = t('t2life2');
+        document.getElementById('t2-life2-desc').textContent = t('t2life2desc');
+        document.getElementById('t2-life3').textContent = t('t2life3');
+        document.getElementById('t2-life3-desc').textContent = t('t2life3desc');
+        document.getElementById('t2-life4').textContent = t('t2life4');
+        document.getElementById('t2-life4-desc').textContent = t('t2life4desc');
+        document.getElementById('t2-life5').textContent = t('t2life5');
+        document.getElementById('t2-life5-desc').textContent = t('t2life5desc');
+        document.getElementById('t2-life6').textContent = t('t2life6');
+        document.getElementById('t2-life6-desc').textContent = t('t2life6desc');
+        document.getElementById('t3-title').textContent = t('t3title');
+        for(let i=1; i<=5; i++) {
+            document.getElementById('q'+i+'-text').textContent = t('q'+i);
+        }
+        updateNumDisplay();
+        updateScore();
+    }
+
+    function selectNum(n) {
+        document.querySelectorAll('.number-marker').forEach(m => m.classList.remove('selected'));
+        document.getElementById('selected-num').textContent = n > 0 ? '+' + n : n;
+        const display = document.getElementById('num-display');
+        display.className = 'number-display ' + (n > 0 ? 'positive' : n < 0 ? 'negative' : 'zero');
+
+        const markerMap = {-10:'m-10',-7:'m-7',-5:'m-5',-3:'m-3',-1:'m-1',0:'m0',1:'m1',3:'m3',5:'m5',7:'m7',10:'m10'};
+        if(markerMap[n]) document.getElementById(markerMap[n]).classList.add('selected');
+
+        let desc = '';
+        if(n > 0) desc = lang==='en' ? 'Positive! This number is above zero.' : 'Positif! Angka ini di atas nol.';
+        else if(n < 0) desc = lang==='en' ? 'Negative! This number is below zero.' : 'Negatif! Angka ini di bawah nol.';
+        else desc = lang==='en' ? 'Zero! Neither positive nor negative.' : 'Nol! Bukan positif maupun negatif.';
+        document.getElementById('num-desc').textContent = desc;
+    }
+
+    function updateNumDisplay() {
+        const el = document.getElementById('selected-num');
+        let n = parseInt(el.textContent);
+        if(el.textContent.startsWith('+')) n = parseInt(el.textContent.substring(1));
+        selectNum(n);
+    }
+
+    function showTab(idx) {
+        document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active', i===idx));
+        document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active', i===idx));
+    }
+
+    function updateScore() {
+        document.getElementById('score-label').textContent = t('score')+': '+score+' / '+total;
+        const pct = total>0?Math.round(score/total*100):0;
+        document.getElementById('prog').style.width=pct+'%';
+        document.getElementById('prog-label').textContent=pct+'%';
+    }
+
+    function mcq(qid, btn, res, fbid) {
+        if(answered[qid]) return;
+        answered[qid] = true;
+        total++;
+        const fb = document.getElementById(fbid);
+        fb.className = 'feedback show '+res;
+        if(res==='correct') { score++; fb.textContent = t(qid+'cr'); btn.classList.add('correct'); }
+        else { fb.textContent = t(qid+'wr'); btn.classList.add('wrong'); }
+        updateScore();
+    }
+</script>
+
+</body>
+</html>

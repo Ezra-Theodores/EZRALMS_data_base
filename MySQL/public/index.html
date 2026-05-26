@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Database - Quiz Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/charts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="assets/logo.svg" alt="EZRA" class="logo-img">
+                    <span>EZRA RAG</span>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item active" data-page="dashboard">
+                    <a href="#dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="search">
+                    <a href="#search">
+                        <i class="fas fa-search"></i>
+                        <span>Search & Filter</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="editor">
+                    <a href="#editor">
+                        <i class="fas fa-edit"></i>
+                        <span>Question Editor</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="assembler">
+                    <a href="#assembler">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Quiz Assembler</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="quizzes">
+                    <a href="#quizzes">
+                        <i class="fas fa-list-check"></i>
+                        <span>My Quizzes</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="stats-mini">
+                    <span id="total-questions-mini">0</span> questions
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Quick search..." id="quickSearch">
+                    </div>
+                    <button class="btn btn-primary" id="createQuizBtn">
+                        <i class="fas fa-plus"></i> New Quiz
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content" id="pageContent">
+                <!-- Dashboard Page -->
+                <div class="page active" id="dashboard-page">
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-questions">0</h3>
+                                <p>Total Questions</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-quizzes">0</h3>
+                                <p>Total Quizzes</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-topics">11</h3>
+                                <p>Topics</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="my-quizzes-count">0</h3>
+                                <p>My Quizzes</p>
+                            </div>
+                        </div>
+                        <div class="card dashboard-actions">
+                        <div class="card-header">
+                            <h3>Database Actions</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="action-buttons">
+                                <button class="btn btn-primary btn-block" onclick="activateSQL()">
+                                    <i class="fas fa-database"></i> Activate SQL (Check Connection)
+                                </button>
+                                <button class="btn btn-success btn-block" onclick="syncWithFirebase()">
+                                    <i class="fas fa-sync-alt"></i> Synchronize with Firebase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Questions by Topic</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="topic-chart" class="chart-container">
+                                    <!-- Chart will be rendered here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Questions by Grade</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="grade-chart" class="chart-container">
+                                    <!-- Chart will be rendered here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card recent-activity">
+                        <div class="card-header">
+                            <h3>Recent Quizzes</h3>
+                            <a href="#quizzes" class="view-all">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div id="recent-quizzes-list" class="quiz-list">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Page -->
+                <div class="page" id="search-page">
+                    <div class="search-panel">
+                        <div class="filters-section">
+                            <h3>Filters</h3>
+                            <div class="filter-group">
+                                <label>Grade</label>
+                                <select id="filter-grade" multiple>
+                                    <option value="1">Grade 1</option>
+                                    <option value="2">Grade 2</option>
+                                    <option value="3">Grade 3</option>
+                                    <option value="4">Grade 4</option>
+                                    <option value="5">Grade 5</option>
+                                    <option value="6">Grade 6</option>
+                                    <option value="7">Grade 7</option>
+                                    <option value="8">Grade 8</option>
+                                    <option value="9">Grade 9</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Topic</label>
+                                <select id="filter-topic" multiple>
+                                    <option value="Bilangan">Bilangan</option>
+                                    <option value="Aritmatika">Aritmatika</option>
+                                    <option value="Geometri">Geometri</option>
+                                    <option value="Pengukuran">Pengukuran</option>
+                                    <option value="Statistika">Statistika</option>
+                                    <option value="Rasio">Rasio</option>
+                                    <option value="Peluang">Peluang</option>
+                                    <option value="Aljabar">Aljabar</option>
+                                    <option value="Logika">Logika</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Difficulty</label>
+                                <select id="filter-difficulty">
+                                    <option value="">All</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Has Image</label>
+                                <select id="filter-hasImage">
+                                    <option value="">All</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                            <button class="btn btn-secondary" id="clearFilters">Clear</button>
+                        </div>
+
+                        <div class="results-section">
+                            <div class="results-header">
+                                <div class="header-left">
+                                    <h3>Search Results <span id="results-count">(0)</span></h3>
+                                    <div class="pagination-limit">
+                                        <label>Show:</label>
+                                        <select id="itemsPerPage" onchange="changeLimit(this.value)">
+                                            <option value="10">10</option>
+                                            <option value="20" selected>20</option>
+                                            <option value="30">30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="results-actions">
+                                    <div class="bulk-edit-group" id="bulk-edit-ui" style="display: none;">
+                                        <select id="bulk-topic" class="btn btn-sm btn-secondary">
+                                            <option value="">Change Topic to...</option>
+                                            <option value="Aljabar">Aljabar</option>
+                                            <option value="Geometri">Geometri</option>
+                                            <option value="Statistika">Statistika</option>
+                                            <option value="Pengukuran">Pengukuran</option>
+                                            <option value="Bilangan">Bilangan</option>
+                                            <option value="Peluang">Peluang</option>
+                                            <option value="Logika">Logika</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-warning" onclick="bulkUpdateTopic()">
+                                            Update Selected
+                                        </button>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary" id="selectAllResults" onclick="toggleSelectAll()">
+                                        <i class="fas fa-check-square"></i> Select All
+                                    </button>
+                                    <button class="btn btn-sm btn-secondary" id="clearSelection" onclick="clearSelection()" style="display: none;">
+                                        <i class="fas fa-times-circle"></i> Clear
+                                    </button>
+                                    <button class="btn btn-sm btn-success" id="addToQuiz">
+                                        <i class="fas fa-plus"></i> Add to Quiz
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="search-results" class="questions-list">
+                                <!-- Results will be populated here -->
+                            </div>
+                            <div class="pagination" id="pagination">
+                                <!-- Pagination will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editor Page -->
+                <div class="page" id="editor-page">
+                    <div class="editor-container">
+                        <div class="editor-sidebar">
+                            <h3>Question List</h3>
+                            <div class="editor-filters">
+                                <input type="text" placeholder="Search questions..." id="editor-search">
+                                <select id="editor-filter-topic">
+                                    <option value="">All Topics</option>
+                                    <!-- Will be populated -->
+                                </select>
+                            </div>
+                            <div id="editor-question-list" class="editor-question-list">
+                                <!-- Question list will be populated -->
+                            </div>
+                        </div>
+
+                        <div class="editor-main">
+                            <div class="editor-header">
+                                <h2>Edit Question</h2>
+                                <div class="editor-actions">
+                                    <button class="btn btn-secondary" id="editor-cancel">
+                                        <i class="fas fa-times"></i> Cancel
+                                    </button>
+                                    <button class="btn btn-primary" id="editor-save">
+                                        <i class="fas fa-save"></i> Save Changes
+                                    </button>
+                                </div>
+                            </div>
+
+                            <form id="question-editor-form" class="editor-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Question ID</label>
+                                        <input type="text" id="edit-id" readonly class="readonly">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quiz Title</label>
+                                        <input type="text" id="edit-quizTitle">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Grade</label>
+                                        <select id="edit-grade">
+                                            <option value="1">Grade 1</option>
+                                            <option value="2">Grade 2</option>
+                                            <option value="3">Grade 3</option>
+                                            <option value="4">Grade 4</option>
+                                            <option value="5">Grade 5</option>
+                                            <option value="6">Grade 6</option>
+                                            <option value="7">Grade 7</option>
+                                            <option value="8">Grade 8</option>
+                                            <option value="9">Grade 9</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Topic</label>
+                                        <select id="edit-topic">
+                                            <option value="Bilangan">Bilangan</option>
+                                            <option value="Aritmatika">Aritmatika</option>
+                                            <option value="Geometri">Geometri</option>
+                                            <option value="Pengukuran">Pengukuran</option>
+                                            <option value="Statistika">Statistika</option>
+                                            <option value="Rasio">Rasio</option>
+                                            <option value="Peluang">Peluang</option>
+                                            <option value="Aljabar">Aljabar</option>
+                                            <option value="Logika">Logika</option>
+                                            <option value="Unclassified">Unclassified</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Difficulty</label>
+                                        <select id="edit-difficulty">
+                                            <option value="easy">Easy</option>
+                                            <option value="medium">Medium</option>
+                                            <option value="hard">Hard</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Question (Indonesian)</label>
+                                    <textarea id="edit-id_q" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Question (English)</label>
+                                    <textarea id="edit-en_q" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Options (one per line)</label>
+                                    <textarea id="edit-options" rows="5" placeholder="Option A&#10;Option B&#10;Option C&#10;Option D"></textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Correct Answer Index</label>
+                                        <input type="number" id="edit-correctAnswerIndex" min="0" max="4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Has Image</label>
+                                        <input type="checkbox" id="edit-hasImage">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Explanation (Indonesian)</label>
+                                    <textarea id="edit-id_exp" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Explanation (English)</label>
+                                    <textarea id="edit-en_exp" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assembler Page -->
+                <div class="page" id="assembler-page">
+                    <div class="assembler-container">
+                        <div class="assembler-config">
+                            <h3>Quiz Configuration</h3>
+                            <form id="assembler-form">
+                                <div class="form-group">
+                                    <label>Quiz Name</label>
+                                    <input type="text" id="asm-name" placeholder="e.g., Grade 6 Geometry Practice">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Grade</label>
+                                        <select id="asm-grade" multiple size="4">
+                                            <option value="1">Grade 1</option>
+                                            <option value="2">Grade 2</option>
+                                            <option value="3">Grade 3</option>
+                                            <option value="4">Grade 4</option>
+                                            <option value="5">Grade 5</option>
+                                            <option value="6" selected>Grade 6</option>
+                                            <option value="7">Grade 7</option>
+                                            <option value="8">Grade 8</option>
+                                            <option value="9">Grade 9</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Topic</label>
+                                        <select id="asm-topic" multiple size="4">
+                                            <option value="Bilangan">Bilangan</option>
+                                            <option value="Aritmatika">Aritmatika</option>
+                                            <option value="Geometri" selected>Geometri</option>
+                                            <option value="Pengukuran">Pengukuran</option>
+                                            <option value="Statistika">Statistika</option>
+                                            <option value="Rasio">Rasio</option>
+                                            <option value="Peluang">Peluang</option>
+                                            <option value="Aljabar">Aljabar</option>
+                                            <option value="Logika">Logika</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Difficulty</label>
+                                        <select id="asm-difficulty">
+                                            <option value="">All</option>
+                                            <option value="easy">Easy</option>
+                                            <option value="medium" selected>Medium</option>
+                                            <option value="hard">Hard</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Question Count</label>
+                                        <input type="number" id="asm-count" value="20" min="1" max="100">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Additional Filters</label>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox" id="asm-hasImage"> Has Image</label>
+                                        <label><input type="checkbox" id="asm-noImage"> No Image</label>
+                                        <label><input type="checkbox" id="asm-bilingual" checked> Bilingual</label>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-block" id="previewQuizBtn">
+                                    <i class="fas fa-eye"></i> Preview Questions
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="assembler-preview">
+                            <h3>Preview <span id="preview-count">(0 questions)</span></h3>
+                            <div id="assembler-preview-list" class="preview-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <p>Click "Preview Questions" to see matching questions</p>
+                                </div>
+                            </div>
+                            <div class="assembler-actions" id="assembler-actions" style="display: none;">
+                                <button class="btn btn-secondary" id="shuffleQuestions">
+                                    <i class="fas fa-random"></i> Shuffle
+                                </button>
+                                <button class="btn btn-success" id="saveQuizBtn">
+                                    <i class="fas fa-save"></i> Save Quiz
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quizzes Page -->
+                <div class="page" id="quizzes-page">
+                    <div class="quizzes-header">
+                        <h2>My Quizzes</h2>
+                        <button class="btn btn-primary" id="createNewQuizBtn">
+                            <i class="fas fa-plus"></i> Create New Quiz
+                        </button>
+                    </div>
+                    <div id="quizzes-grid" class="quizzes-grid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Question Detail Modal -->
+    <div class="modal" id="questionModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Question Detail</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="questionModalBody">
+                <!-- Will be populated -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeQuestionModal">Close</button>
+                <button class="btn btn-primary" id="editQuestionBtn">Edit Question</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Quiz Modal -->
+    <div class="modal" id="saveQuizModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Save Quiz</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Quiz Name</label>
+                    <input type="text" id="final-quiz-name" placeholder="Enter quiz name">
+                </div>
+                <div class="form-group">
+                    <label>Description (Optional)</label>
+                    <textarea id="final-quiz-description" rows="3" placeholder="Enter description"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelSaveQuiz">Cancel</button>
+                <button class="btn btn-success" id="confirmSaveQuiz">
+                    <i class="fas fa-save"></i> Save Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

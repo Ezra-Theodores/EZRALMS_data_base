@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "unified-app",
+      "runtimeExecutable": "py",
+      "runtimeArgs": ["-3", "unified_app.py"],
+      "port": 5000
+    }
+  ]
+}

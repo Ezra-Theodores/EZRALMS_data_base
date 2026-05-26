@@ -1,0 +1,934 @@
+<!DOCTYPE html><html lang="en" class="light"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gement System •  EZRA - Learning Mana</title>
+    <style data-fullcalendar=""></style><script>
+      (function() {
+        var titleText = " EZRA - Learning Management System \u2022 ";
+        setInterval(function() {
+          titleText = titleText.substring(1) + titleText[0];
+          document.title = titleText;
+        }, 300);
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$']],
+          processEscapes: true
+        },
+        chtml: { scale: 1.15 },
+        startup: {
+          pageReady: () => {
+            return MathJax.startup.defaultPageReady();
+          }
+        }
+      };
+    </script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" crossorigin="" src="/assets/index-D4_RzgFC.js"></script>
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-firebase-C5OnOzZP.js">
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-react-B5euRvjc.js">
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-query-CKjJbAEt.js">
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-ui-3w7HN0mB.js">
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-katex-CdCLdKXh.js">
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-dnd-kit-CM2tudDc.js">
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-calendar-EHnjJnCD.js">
+    <link rel="stylesheet" crossorigin="" href="/assets/vendor-katex-CBmFCdgC.css">
+    <link rel="stylesheet" crossorigin="" href="/assets/index-BEhORW0Q.css">
+  <style type="text/css">[data-sonner-toaster][dir=ltr],html[dir=ltr]{--toast-icon-margin-start:-3px;--toast-icon-margin-end:4px;--toast-svg-margin-start:-1px;--toast-svg-margin-end:0px;--toast-button-margin-start:auto;--toast-button-margin-end:0;--toast-close-button-start:0;--toast-close-button-end:unset;--toast-close-button-transform:translate(-35%, -35%)}[data-sonner-toaster][dir=rtl],html[dir=rtl]{--toast-icon-margin-start:4px;--toast-icon-margin-end:-3px;--toast-svg-margin-start:0px;--toast-svg-margin-end:-1px;--toast-button-margin-start:0;--toast-button-margin-end:auto;--toast-close-button-start:unset;--toast-close-button-end:0;--toast-close-button-transform:translate(35%, -35%)}[data-sonner-toaster]{position:fixed;width:var(--width);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;--gray1:hsl(0, 0%, 99%);--gray2:hsl(0, 0%, 97.3%);--gray3:hsl(0, 0%, 95.1%);--gray4:hsl(0, 0%, 93%);--gray5:hsl(0, 0%, 90.9%);--gray6:hsl(0, 0%, 88.7%);--gray7:hsl(0, 0%, 85.8%);--gray8:hsl(0, 0%, 78%);--gray9:hsl(0, 0%, 56.1%);--gray10:hsl(0, 0%, 52.3%);--gray11:hsl(0, 0%, 43.5%);--gray12:hsl(0, 0%, 9%);--border-radius:8px;box-sizing:border-box;padding:0;margin:0;list-style:none;outline:0;z-index:999999999;transition:transform .4s ease}@media (hover:none) and (pointer:coarse){[data-sonner-toaster][data-lifted=true]{transform:none}}[data-sonner-toaster][data-x-position=right]{right:var(--offset-right)}[data-sonner-toaster][data-x-position=left]{left:var(--offset-left)}[data-sonner-toaster][data-x-position=center]{left:50%;transform:translateX(-50%)}[data-sonner-toaster][data-y-position=top]{top:var(--offset-top)}[data-sonner-toaster][data-y-position=bottom]{bottom:var(--offset-bottom)}[data-sonner-toast]{--y:translateY(100%);--lift-amount:calc(var(--lift) * var(--gap));z-index:var(--z-index);position:absolute;opacity:0;transform:var(--y);touch-action:none;transition:transform .4s,opacity .4s,height .4s,box-shadow .2s;box-sizing:border-box;outline:0;overflow-wrap:anywhere}[data-sonner-toast][data-styled=true]{padding:16px;background:var(--normal-bg);border:1px solid var(--normal-border);color:var(--normal-text);border-radius:var(--border-radius);box-shadow:0 4px 12px rgba(0,0,0,.1);width:var(--width);font-size:13px;display:flex;align-items:center;gap:6px}[data-sonner-toast]:focus-visible{box-shadow:0 4px 12px rgba(0,0,0,.1),0 0 0 2px rgba(0,0,0,.2)}[data-sonner-toast][data-y-position=top]{top:0;--y:translateY(-100%);--lift:1;--lift-amount:calc(1 * var(--gap))}[data-sonner-toast][data-y-position=bottom]{bottom:0;--y:translateY(100%);--lift:-1;--lift-amount:calc(var(--lift) * var(--gap))}[data-sonner-toast][data-styled=true] [data-description]{font-weight:400;line-height:1.4;color:#3f3f3f}[data-rich-colors=true][data-sonner-toast][data-styled=true] [data-description]{color:inherit}[data-sonner-toaster][data-sonner-theme=dark] [data-description]{color:#e8e8e8}[data-sonner-toast][data-styled=true] [data-title]{font-weight:500;line-height:1.5;color:inherit}[data-sonner-toast][data-styled=true] [data-icon]{display:flex;height:16px;width:16px;position:relative;justify-content:flex-start;align-items:center;flex-shrink:0;margin-left:var(--toast-icon-margin-start);margin-right:var(--toast-icon-margin-end)}[data-sonner-toast][data-promise=true] [data-icon]>svg{opacity:0;transform:scale(.8);transform-origin:center;animation:sonner-fade-in .3s ease forwards}[data-sonner-toast][data-styled=true] [data-icon]>*{flex-shrink:0}[data-sonner-toast][data-styled=true] [data-icon] svg{margin-left:var(--toast-svg-margin-start);margin-right:var(--toast-svg-margin-end)}[data-sonner-toast][data-styled=true] [data-content]{display:flex;flex-direction:column;gap:2px}[data-sonner-toast][data-styled=true] [data-button]{border-radius:4px;padding-left:8px;padding-right:8px;height:24px;font-size:12px;color:var(--normal-bg);background:var(--normal-text);margin-left:var(--toast-button-margin-start);margin-right:var(--toast-button-margin-end);border:none;font-weight:500;cursor:pointer;outline:0;display:flex;align-items:center;flex-shrink:0;transition:opacity .4s,box-shadow .2s}[data-sonner-toast][data-styled=true] [data-button]:focus-visible{box-shadow:0 0 0 2px rgba(0,0,0,.4)}[data-sonner-toast][data-styled=true] [data-button]:first-of-type{margin-left:var(--toast-button-margin-start);margin-right:var(--toast-button-margin-end)}[data-sonner-toast][data-styled=true] [data-cancel]{color:var(--normal-text);background:rgba(0,0,0,.08)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-styled=true] [data-cancel]{background:rgba(255,255,255,.3)}[data-sonner-toast][data-styled=true] [data-close-button]{position:absolute;left:var(--toast-close-button-start);right:var(--toast-close-button-end);top:0;height:20px;width:20px;display:flex;justify-content:center;align-items:center;padding:0;color:var(--gray12);background:var(--normal-bg);border:1px solid var(--gray4);transform:var(--toast-close-button-transform);border-radius:50%;cursor:pointer;z-index:1;transition:opacity .1s,background .2s,border-color .2s}[data-sonner-toast][data-styled=true] [data-close-button]:focus-visible{box-shadow:0 4px 12px rgba(0,0,0,.1),0 0 0 2px rgba(0,0,0,.2)}[data-sonner-toast][data-styled=true] [data-disabled=true]{cursor:not-allowed}[data-sonner-toast][data-styled=true]:hover [data-close-button]:hover{background:var(--gray2);border-color:var(--gray5)}[data-sonner-toast][data-swiping=true]::before{content:'';position:absolute;left:-100%;right:-100%;height:100%;z-index:-1}[data-sonner-toast][data-y-position=top][data-swiping=true]::before{bottom:50%;transform:scaleY(3) translateY(50%)}[data-sonner-toast][data-y-position=bottom][data-swiping=true]::before{top:50%;transform:scaleY(3) translateY(-50%)}[data-sonner-toast][data-swiping=false][data-removed=true]::before{content:'';position:absolute;inset:0;transform:scaleY(2)}[data-sonner-toast][data-expanded=true]::after{content:'';position:absolute;left:0;height:calc(var(--gap) + 1px);bottom:100%;width:100%}[data-sonner-toast][data-mounted=true]{--y:translateY(0);opacity:1}[data-sonner-toast][data-expanded=false][data-front=false]{--scale:var(--toasts-before) * 0.05 + 1;--y:translateY(calc(var(--lift-amount) * var(--toasts-before))) scale(calc(-1 * var(--scale)));height:var(--front-toast-height)}[data-sonner-toast]>*{transition:opacity .4s}[data-sonner-toast][data-x-position=right]{right:0}[data-sonner-toast][data-x-position=left]{left:0}[data-sonner-toast][data-expanded=false][data-front=false][data-styled=true]>*{opacity:0}[data-sonner-toast][data-visible=false]{opacity:0;pointer-events:none}[data-sonner-toast][data-mounted=true][data-expanded=true]{--y:translateY(calc(var(--lift) * var(--offset)));height:var(--initial-height)}[data-sonner-toast][data-removed=true][data-front=true][data-swipe-out=false]{--y:translateY(calc(var(--lift) * -100%));opacity:0}[data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=true]{--y:translateY(calc(var(--lift) * var(--offset) + var(--lift) * -100%));opacity:0}[data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=false]{--y:translateY(40%);opacity:0;transition:transform .5s,opacity .2s}[data-sonner-toast][data-removed=true][data-front=false]::before{height:calc(var(--initial-height) + 20%)}[data-sonner-toast][data-swiping=true]{transform:var(--y) translateY(var(--swipe-amount-y,0)) translateX(var(--swipe-amount-x,0));transition:none}[data-sonner-toast][data-swiped=true]{user-select:none}[data-sonner-toast][data-swipe-out=true][data-y-position=bottom],[data-sonner-toast][data-swipe-out=true][data-y-position=top]{animation-duration:.2s;animation-timing-function:ease-out;animation-fill-mode:forwards}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=left]{animation-name:swipe-out-left}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=right]{animation-name:swipe-out-right}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=up]{animation-name:swipe-out-up}[data-sonner-toast][data-swipe-out=true][data-swipe-direction=down]{animation-name:swipe-out-down}@keyframes swipe-out-left{from{transform:var(--y) translateX(var(--swipe-amount-x));opacity:1}to{transform:var(--y) translateX(calc(var(--swipe-amount-x) - 100%));opacity:0}}@keyframes swipe-out-right{from{transform:var(--y) translateX(var(--swipe-amount-x));opacity:1}to{transform:var(--y) translateX(calc(var(--swipe-amount-x) + 100%));opacity:0}}@keyframes swipe-out-up{from{transform:var(--y) translateY(var(--swipe-amount-y));opacity:1}to{transform:var(--y) translateY(calc(var(--swipe-amount-y) - 100%));opacity:0}}@keyframes swipe-out-down{from{transform:var(--y) translateY(var(--swipe-amount-y));opacity:1}to{transform:var(--y) translateY(calc(var(--swipe-amount-y) + 100%));opacity:0}}@media (max-width:600px){[data-sonner-toaster]{position:fixed;right:var(--mobile-offset-right);left:var(--mobile-offset-left);width:100%}[data-sonner-toaster][dir=rtl]{left:calc(var(--mobile-offset-left) * -1)}[data-sonner-toaster] [data-sonner-toast]{left:0;right:0;width:calc(100% - var(--mobile-offset-left) * 2)}[data-sonner-toaster][data-x-position=left]{left:var(--mobile-offset-left)}[data-sonner-toaster][data-y-position=bottom]{bottom:var(--mobile-offset-bottom)}[data-sonner-toaster][data-y-position=top]{top:var(--mobile-offset-top)}[data-sonner-toaster][data-x-position=center]{left:var(--mobile-offset-left);right:var(--mobile-offset-right);transform:none}}[data-sonner-toaster][data-sonner-theme=light]{--normal-bg:#fff;--normal-border:var(--gray4);--normal-text:var(--gray12);--success-bg:hsl(143, 85%, 96%);--success-border:hsl(145, 92%, 87%);--success-text:hsl(140, 100%, 27%);--info-bg:hsl(208, 100%, 97%);--info-border:hsl(221, 91%, 93%);--info-text:hsl(210, 92%, 45%);--warning-bg:hsl(49, 100%, 97%);--warning-border:hsl(49, 91%, 84%);--warning-text:hsl(31, 92%, 45%);--error-bg:hsl(359, 100%, 97%);--error-border:hsl(359, 100%, 94%);--error-text:hsl(360, 100%, 45%)}[data-sonner-toaster][data-sonner-theme=light] [data-sonner-toast][data-invert=true]{--normal-bg:#000;--normal-border:hsl(0, 0%, 20%);--normal-text:var(--gray1)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-invert=true]{--normal-bg:#fff;--normal-border:var(--gray3);--normal-text:var(--gray12)}[data-sonner-toaster][data-sonner-theme=dark]{--normal-bg:#000;--normal-bg-hover:hsl(0, 0%, 12%);--normal-border:hsl(0, 0%, 20%);--normal-border-hover:hsl(0, 0%, 25%);--normal-text:var(--gray1);--success-bg:hsl(150, 100%, 6%);--success-border:hsl(147, 100%, 12%);--success-text:hsl(150, 86%, 65%);--info-bg:hsl(215, 100%, 6%);--info-border:hsl(223, 43%, 17%);--info-text:hsl(216, 87%, 65%);--warning-bg:hsl(64, 100%, 6%);--warning-border:hsl(60, 100%, 9%);--warning-text:hsl(46, 87%, 65%);--error-bg:hsl(358, 76%, 10%);--error-border:hsl(357, 89%, 16%);--error-text:hsl(358, 100%, 81%)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button]{background:var(--normal-bg);border-color:var(--normal-border);color:var(--normal-text)}[data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button]:hover{background:var(--normal-bg-hover);border-color:var(--normal-border-hover)}[data-rich-colors=true][data-sonner-toast][data-type=success]{background:var(--success-bg);border-color:var(--success-border);color:var(--success-text)}[data-rich-colors=true][data-sonner-toast][data-type=success] [data-close-button]{background:var(--success-bg);border-color:var(--success-border);color:var(--success-text)}[data-rich-colors=true][data-sonner-toast][data-type=info]{background:var(--info-bg);border-color:var(--info-border);color:var(--info-text)}[data-rich-colors=true][data-sonner-toast][data-type=info] [data-close-button]{background:var(--info-bg);border-color:var(--info-border);color:var(--info-text)}[data-rich-colors=true][data-sonner-toast][data-type=warning]{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning-text)}[data-rich-colors=true][data-sonner-toast][data-type=warning] [data-close-button]{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning-text)}[data-rich-colors=true][data-sonner-toast][data-type=error]{background:var(--error-bg);border-color:var(--error-border);color:var(--error-text)}[data-rich-colors=true][data-sonner-toast][data-type=error] [data-close-button]{background:var(--error-bg);border-color:var(--error-border);color:var(--error-text)}.sonner-loading-wrapper{--size:16px;height:var(--size);width:var(--size);position:absolute;inset:0;z-index:10}.sonner-loading-wrapper[data-visible=false]{transform-origin:center;animation:sonner-fade-out .2s ease forwards}.sonner-spinner{position:relative;top:50%;left:50%;height:var(--size);width:var(--size)}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite;background:var(--gray11);border-radius:6px;height:8%;left:-10%;position:absolute;top:-3.9%;width:24%}.sonner-loading-bar:first-child{animation-delay:-1.2s;transform:rotate(.0001deg) translate(146%)}.sonner-loading-bar:nth-child(2){animation-delay:-1.1s;transform:rotate(30deg) translate(146%)}.sonner-loading-bar:nth-child(3){animation-delay:-1s;transform:rotate(60deg) translate(146%)}.sonner-loading-bar:nth-child(4){animation-delay:-.9s;transform:rotate(90deg) translate(146%)}.sonner-loading-bar:nth-child(5){animation-delay:-.8s;transform:rotate(120deg) translate(146%)}.sonner-loading-bar:nth-child(6){animation-delay:-.7s;transform:rotate(150deg) translate(146%)}.sonner-loading-bar:nth-child(7){animation-delay:-.6s;transform:rotate(180deg) translate(146%)}.sonner-loading-bar:nth-child(8){animation-delay:-.5s;transform:rotate(210deg) translate(146%)}.sonner-loading-bar:nth-child(9){animation-delay:-.4s;transform:rotate(240deg) translate(146%)}.sonner-loading-bar:nth-child(10){animation-delay:-.3s;transform:rotate(270deg) translate(146%)}.sonner-loading-bar:nth-child(11){animation-delay:-.2s;transform:rotate(300deg) translate(146%)}.sonner-loading-bar:nth-child(12){animation-delay:-.1s;transform:rotate(330deg) translate(146%)}@keyframes sonner-fade-in{0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(1)}}@keyframes sonner-fade-out{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.8)}}@keyframes sonner-spin{0%{opacity:1}100%{opacity:.15}}@media (prefers-reduced-motion){.sonner-loading-bar,[data-sonner-toast],[data-sonner-toast]>*{transition:none!important;animation:none!important}}.sonner-loader{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transform-origin:center;transition:opacity .2s,transform .2s}.sonner-loader[data-visible=false]{opacity:0;transform:scale(.8) translate(-50%,-50%)}</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+  <body>
+    <div id="root"><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></section><div class="h-screen overflow-hidden bg-background-light dark:bg-background-dark flex text-gray-900 dark:text-gray-100 font-body"><div class="fixed inset-0 z-20 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden opacity-0 pointer-events-none"></div><aside class="flex flex-col w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-gray-200 dark:border-gray-700/60 fixed inset-y-0 left-0 z-30 transition-transform duration-300 ease-out lg:static lg:inset-auto lg:z-auto lg:translate-x-0 -translate-x-full"><div class="h-16 flex items-center px-5 border-b border-gray-200 dark:border-gray-700/60 flex-shrink-0"><img alt="EzraLMS" class="h-9 w-auto" src="/ezra_logo_light.png"><div class="ml-2.5"><span class="block text-xl font-black tracking-tight leading-tight text-gray-900 dark:text-white uppercase">EZRA</span><span class="block text-[8px] font-bold tracking-[0.15em] uppercase text-gray-500 dark:text-gray-400 leading-tight">Learning Management System</span></div><button class="lg:hidden p-1.5 ml-auto rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="Close sidebar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><div class="px-5 pt-4 pb-1"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest bg-primary/10 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap w-3 h-3" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>admin</span></div><nav class="flex-1 px-3 py-3 space-y-0.5 overflow-y-auto"><a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white" href="/tutor-dashboard" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard mr-3 h-4.5 w-4.5 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg><span class="flex-1 leading-none">Dashboard</span></a><a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white" href="/classes" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers mr-3 h-4.5 w-4.5 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg><span class="flex-1 leading-none">Classes</span></a><a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white" href="/calendar" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar mr-3 h-4.5 w-4.5 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg><span class="flex-1 leading-none">Calendar</span></a><div><button class="group flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-library mr-3 h-4 w-4 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path d="M8 8v12"></path><path d="M4 4v16"></path></svg><span class="flex-1 leading-none text-left">Subtopics</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 transition-transform duration-200" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div><a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white" href="/students" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users mr-3 h-4.5 w-4.5 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg><span class="flex-1 leading-none">Students</span></a><a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white" href="/tasks" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list mr-3 h-4.5 w-4.5 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg><span class="flex-1 leading-none">Tasks</span></a><a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white" href="/staff" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield mr-3 h-4.5 w-4.5 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg><span class="flex-1 leading-none">Staff</span></a><a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-xl transition-all duration-150 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white" href="/admin/test-panel" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity mr-3 h-4.5 w-4.5 flex-shrink-0 transition-colors text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg><span class="flex-1 leading-none">Test Panel</span></a></nav><div class="p-3 border-t border-gray-200 dark:border-gray-700/60 space-y-0.5 flex-shrink-0"><button class="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/70 hover:text-gray-900 dark:hover:text-white rounded-xl transition-all duration-150"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon mr-3 h-4 w-4 text-indigo-500" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>Dark Mode</button><button class="flex items-center w-full px-3 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 rounded-xl transition-all duration-150"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out mr-3 h-4 w-4" aria-hidden="true"><path d="m16 17 5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg>Sign Out</button></div></aside><div class="flex-1 flex flex-col min-w-0 overflow-hidden"><header class="h-16 bg-card-light dark:bg-card-dark border-b border-gray-200 dark:border-gray-700/60 flex items-center justify-between px-4 sm:px-6 flex-shrink-0"><div class="flex items-center gap-3"><button id="sidebar-open-btn" class="lg:hidden p-2 -ml-1 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 focus:outline-none transition-colors" aria-label="Open navigation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div><div class="flex items-center gap-2"><div class="flex items-center gap-2.5 pl-2 border-l border-gray-200 dark:border-gray-700/60 ml-1"><span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:block max-w-[140px] truncate">EzraT</span><div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm flex-shrink-0">M</div></div></div></header><main class="flex-1 overflow-auto bg-background-light dark:bg-background-dark p-4 sm:p-6 lg:p-8 md:pb-20 pb-24"><div class="flex flex-col h-[100dvh] md:h-[calc(100vh-4rem)] bg-white dark:bg-gray-950"><div class="flex-none bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 p-3 lg:px-6"><div class="flex items-center gap-3"><button class="text-primary hover:underline font-medium">Back</button><h1 class="text-lg font-semibold text-gray-900 dark:text-white truncate">G8-01.2 Sequences and Functions</h1></div></div><div class="flex-1 w-full bg-gray-50 dark:bg-black/50 overflow-hidden"><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;G8-01.2 Sequences and Functions&lt;/title&gt;
+    &lt;style&gt;
+        :root {
+            --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+            --color-border-tertiary: #e0e0e0;
+            --color-border-secondary: #ccc;
+            --color-border-primary: #333;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --color-text-primary: #222;
+            --color-text-secondary: #555;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: #f0f2f5; color: var(--color-text-primary); }
+        
+        .wrap { padding: 0 0 2rem; max-width: 820px; margin: 20px auto; background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        .topbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 20px; border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .lang-btn {
+            display: flex; gap: 4px; background: var(--color-background-secondary);
+            border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md);
+            overflow: hidden; padding: 2px;
+        }
+        .lang-btn button {
+            padding: 6px 14px; font-size: 13px; font-weight: 500; border: none;
+            border-radius: 6px; cursor: pointer; background: transparent;
+            color: var(--color-text-secondary); transition: all 0.15s;
+        }
+        .lang-btn button.active {
+            background: var(--color-background-primary);
+            color: var(--color-text-primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo { height: 40px; object-fit: contain; }
+
+        .hero {
+            background: linear-gradient(135deg, #E6F1FB 0%, #EAF3DE 100%);
+            padding: 28px 24px 20px;
+            text-align: center;
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .hero h1 { font-size: 28px; font-weight: 500; color: var(--color-text-primary); }
+        .hero p { font-size: 15px; color: var(--color-text-secondary); margin-top: 6px; }
+
+        .tabs {
+            display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary);
+            padding: 0 20px; background: var(--color-background-primary);
+            overflow-x: auto;
+        }
+        .tab-btn {
+            padding: 12px 18px; font-size: 14px; font-weight: 500; border: none;
+            background: transparent; cursor: pointer; color: var(--color-text-secondary);
+            border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap;
+            transition: all 0.15s;
+        }
+        .tab-btn.active { color: #185FA5; border-bottom-color: #185FA5; }
+
+        .section { display: none; padding: 24px 20px; }
+        .section.active { display: block; }
+
+        .card {
+            background: var(--color-background-primary);
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg);
+            padding: 20px; margin-bottom: 16px;
+        }
+        .card h2 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; }
+        .card p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; }
+
+        .concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .concept-item {
+            background: var(--color-background-secondary);
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-md); padding: 16px;
+        }
+        .concept-item h3 { font-size: 14px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 8px; }
+        .concept-item p { font-size: 13px; color: var(--color-text-secondary); }
+
+        .example-box {
+            background: #E6F1FB; border: 0.5px solid #85B7EB; border-radius: var(--border-radius-md);
+            padding: 16px; margin: 12px 0;
+        }
+        .example-box h4 { font-size: 14px; font-weight: 600; color: #0C447C; margin-bottom: 8px; }
+
+        .math-display {
+            font-family: var(--font-mono); font-size: 18px;
+            background: white; padding: 12px 16px; border-radius: 6px;
+            margin: 8px 0; border: 1px solid var(--color-border-tertiary);
+            text-align: center;
+        }
+
+        .sequence-viz {
+            display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+            margin: 16px 0; align-items: center;
+        }
+        .seq-term {
+            width: 48px; height: 48px; border-radius: var(--border-radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: 500;
+        }
+        .seq-term:nth-child(odd) { background: #E6F1FB; color: #185FA5; border: 2px solid #85B7EB; }
+        .seq-term:nth-child(even) { background: #EAF3DE; color: #085041; border: 2px solid #5DCAA5; }
+        .seq-term:last-child { background: #FFF8E1; color: #C47F00; border: 2px solid #FFE082; }
+        .seq-arrow { font-size: 20px; color: var(--color-text-secondary); }
+
+        .q-card {
+            background: var(--color-background-primary);
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 12px;
+        }
+        .q-card h3 { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 14px; }
+        .answer-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .ans-btn {
+            padding: 10px 20px; border: 0.5px solid var(--color-border-secondary);
+            border-radius: var(--border-radius-md); background: var(--color-background-secondary);
+            font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.15s;
+            color: var(--color-text-primary);
+        }
+        .ans-btn:hover { background: var(--color-background-primary); border-color: #378ADD; }
+        .ans-btn.correct { background: #EAF3DE; border-color: #639922; color: #3B6D11; }
+        .ans-btn.wrong { background: #FCEBEB; border-color: #A32D2D; color: #791F1F; }
+
+        .feedback {
+            padding: 12px 16px; border-radius: var(--border-radius-md); font-size: 14px;
+            line-height: 1.6; margin-top: 8px; display: none;
+        }
+        .feedback.show { display: block; }
+        .feedback.correct { background: #EAF3DE; color: #27500A; border: 0.5px solid #639922; }
+        .feedback.wrong { background: #FCEBEB; color: #791F1F; border: 0.5px solid #A32D2D; }
+
+        .score-bar {
+            display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+            background: var(--color-background-secondary);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .score-badge {
+            background: #E6F1FB; color: #185FA5; border-radius: var(--border-radius-md);
+            padding: 4px 12px; font-size: 13px; font-weight: 500;
+        }
+        .progress-wrap { flex: 1; height: 6px; background: var(--color-border-tertiary); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #185FA5; border-radius: 3px; transition: width 0.3s; }
+
+        .section-title {
+            font-size: 19px; font-weight: 500; color: var(--color-text-primary);
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #378ADD; display: inline-block; }
+
+        .tip-box {
+            background: #E6F1FB; border: 0.5px solid #85B7EB; border-radius: var(--border-radius-md);
+            padding: 12px 16px; font-size: 14px; color: #0C447C; margin-top: 12px;
+        }
+
+        .formula-box {
+            background: #F5F5F5; border-left: 4px solid #185FA5; padding: 12px 16px; margin: 12px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .formula-box h4 { font-size: 14px; font-weight: 600; color: #185FA5; margin-bottom: 6px; }
+
+        .fn-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        .fn-table th, .fn-table td { padding: 10px 14px; text-align: center; border: 0.5px solid var(--color-border-tertiary); }
+        .fn-table th { background: #E6F1FB; color: #185FA5; }
+        .fn-table tr:nth-child(even) td { background: var(--color-background-secondary); }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;wrap&quot;&gt;
+    &lt;div class=&quot;topbar&quot;&gt;
+        &lt;div class=&quot;lang-btn&quot;&gt;
+            &lt;button class=&quot;active&quot; onclick=&quot;setLang('en')&quot; id=&quot;btn-en&quot;&gt;English&lt;/button&gt;
+            &lt;button onclick=&quot;setLang('id')&quot; id=&quot;btn-id&quot;&gt;Indonesia&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;img class=&quot;logo&quot; src=&quot;https://i.imgur.com/3lLW585.png&quot; alt=&quot;Logo&quot; onerror=&quot;this.style.display='none'&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;hero&quot;&gt;
+        &lt;h1 id=&quot;h-title&quot;&gt;G8-01.2 Sequences and Functions&lt;/h1&gt;
+        &lt;p id=&quot;h-sub&quot;&gt;Cambridge Grade 8 Mathematics — Number and Algebra&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;score-bar&quot;&gt;
+        &lt;span class=&quot;score-badge&quot; id=&quot;score-label&quot;&gt;Score: 0 / 0&lt;/span&gt;
+        &lt;div class=&quot;progress-wrap&quot;&gt;&lt;div class=&quot;progress-fill&quot; id=&quot;prog&quot; style=&quot;width:0%&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;span style=&quot;font-size:13px;color:var(--color-text-secondary)&quot; id=&quot;prog-label&quot;&gt;0%&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;tabs&quot;&gt;
+        &lt;button class=&quot;tab-btn active&quot; onclick=&quot;showTab(0)&quot; id=&quot;tab0&quot;&gt;Arithmetic Sequences&lt;/button&gt;
+        &lt;button class=&quot;tab-btn&quot; onclick=&quot;showTab(1)&quot; id=&quot;tab1&quot;&gt;Geometric Sequences&lt;/button&gt;
+        &lt;button class=&quot;tab-btn&quot; onclick=&quot;showTab(2)&quot; id=&quot;tab2&quot;&gt;Functions&lt;/button&gt;
+        &lt;button class=&quot;tab-btn&quot; onclick=&quot;showTab(3)&quot; id=&quot;tab3&quot;&gt;Practice&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;section active&quot; id=&quot;sec0&quot;&gt;
+        &lt;div class=&quot;section-title&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt; &lt;span id=&quot;t0-title&quot;&gt;Arithmetic Sequences&lt;/span&gt;&lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2 id=&quot;t0-def&quot;&gt;What is an Arithmetic Sequence?&lt;/h2&gt;
+            &lt;p id=&quot;t0-p1&quot;&gt;An arithmetic sequence is a list of numbers where the same amount is added each time to get the next number. This amount is called the &lt;strong&gt;common difference&lt;/strong&gt;.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2&gt;Visual Example&lt;/h2&gt;
+            &lt;div class=&quot;sequence-viz&quot;&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;2&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;→&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;5&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;→&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;8&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;→&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;11&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;→&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;14&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;p style=&quot;text-align:center;font-size:14px;color:var(--color-text-secondary)&quot;&gt;Starts at 2, adds 3 each time. Common difference = 3&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2&gt;Formula&lt;/h2&gt;
+            &lt;div class=&quot;formula-box&quot;&gt;
+                &lt;h4&gt; nth term = a + (n-1)d &lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;p style=&quot;margin-top:10px&quot;&gt;Where: &lt;strong&gt;a&lt;/strong&gt; = first term, &lt;strong&gt;d&lt;/strong&gt; = common difference, &lt;strong&gt;n&lt;/strong&gt; = term number&lt;/p&gt;
+            &lt;div class=&quot;example-box&quot;&gt;
+                &lt;h4&gt;Example:&lt;/h4&gt;
+                &lt;div class=&quot;math-display&quot;&gt;Find the 10th term of: 5, 9, 13, 17, ...&lt;/div&gt;
+                &lt;div class=&quot;math-display&quot;&gt;a = 5, d = 4, n = 10&lt;/div&gt;
+                &lt;div class=&quot;math-display&quot;&gt;Term₁₀ = 5 + (10-1)×4 = 5 + 36 = 41&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;tip-box&quot;&gt;
+            &lt;strong&gt;Remember:&lt;/strong&gt; To find the common difference, subtract any term from the next term: d = term₂ - term₁
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;section&quot; id=&quot;sec1&quot;&gt;
+        &lt;div class=&quot;section-title&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt; &lt;span id=&quot;t1-title&quot;&gt;Geometric Sequences&lt;/span&gt;&lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2 id=&quot;t1-def&quot;&gt;What is a Geometric Sequence?&lt;/h2&gt;
+            &lt;p id=&quot;t1-p1&quot;&gt;A geometric sequence is a list of numbers where each term is multiplied by the same amount to get the next term. This amount is called the &lt;strong&gt;common ratio&lt;/strong&gt;.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2&gt;Visual Example&lt;/h2&gt;
+            &lt;div class=&quot;sequence-viz&quot;&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;3&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;×&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;6&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;×&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;12&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;×&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;24&lt;/div&gt;
+                &lt;div class=&quot;seq-arrow&quot;&gt;×&lt;/div&gt;
+                &lt;div class=&quot;seq-term&quot;&gt;48&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;p style=&quot;text-align:center;font-size:14px;color:var(--color-text-secondary)&quot;&gt;Starts at 3, multiplies by 2 each time. Common ratio = 2&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2&gt;Formula&lt;/h2&gt;
+            &lt;div class=&quot;formula-box&quot;&gt;
+                &lt;h4&gt; nth term = arⁿ⁻¹ &lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;p style=&quot;margin-top:10px&quot;&gt;Where: &lt;strong&gt;a&lt;/strong&gt; = first term, &lt;strong&gt;r&lt;/strong&gt; = common ratio, &lt;strong&gt;n&lt;/strong&gt; = term number&lt;/p&gt;
+            &lt;div class=&quot;example-box&quot;&gt;
+                &lt;h4&gt;Example:&lt;/h4&gt;
+                &lt;div class=&quot;math-display&quot;&gt;Find the 5th term of: 2, 6, 18, 54, ...&lt;/div&gt;
+                &lt;div class=&quot;math-display&quot;&gt;a = 2, r = 3, n = 5&lt;/div&gt;
+                &lt;div class=&quot;math-display&quot;&gt;Term₅ = 2 × 3⁵⁻¹ = 2 × 3⁴ = 2 × 81 = 162&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;tip-box&quot;&gt;
+            &lt;strong&gt;Remember:&lt;/strong&gt; To find the common ratio, divide any term by the previous term: r = term₂ ÷ term₁
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;section&quot; id=&quot;sec2&quot;&gt;
+        &lt;div class=&quot;section-title&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt; &lt;span id=&quot;t2-title&quot;&gt;Introduction to Functions&lt;/span&gt;&lt;/div&gt;
+        
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2 id=&quot;t2-def&quot;&gt;What is a Function?&lt;/h2&gt;
+            &lt;p id=&quot;t2-p1&quot;&gt;A function is a rule that relates each input value to exactly one output value. We often write it as &lt;strong&gt;f(x)&lt;/strong&gt; which means &quot;f of x&quot;.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2&gt;Function Table&lt;/h2&gt;
+            &lt;p&gt;For f(x) = 2x + 1:&lt;/p&gt;
+            &lt;table class=&quot;fn-table&quot;&gt;
+                &lt;tr&gt;&lt;th&gt;x&lt;/th&gt;&lt;th&gt;Calculation&lt;/th&gt;&lt;th&gt;f(x)&lt;/th&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;2(0) + 1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2(1) + 1&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;2(2) + 1&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;2(3) + 1&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;card&quot;&gt;
+            &lt;h2&gt;Linear Functions&lt;/h2&gt;
+            &lt;p&gt;Linear functions create straight lines when graphed. General form:&lt;/p&gt;
+            &lt;div class=&quot;formula-box&quot;&gt;
+                &lt;h4&gt; f(x) = mx + c &lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;p style=&quot;margin-top:10px&quot;&gt;Where: &lt;strong&gt;m&lt;/strong&gt; = gradient/slope, &lt;strong&gt;c&lt;/strong&gt; = y-intercept&lt;/p&gt;
+            &lt;div class=&quot;example-box&quot;&gt;
+                &lt;h4&gt;Example:&lt;/h4&gt;
+                &lt;div class=&quot;math-display&quot;&gt;f(x) = 3x - 2&lt;/div&gt;
+                &lt;p&gt;Gradient = 3, y-intercept = -2&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;tip-box&quot;&gt;
+            &lt;strong&gt;Remember:&lt;/strong&gt; The gradient tells you how steep the line is. Positive gradient goes up, negative gradient goes down.
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;section&quot; id=&quot;sec3&quot;&gt;
+        &lt;div class=&quot;section-title&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt; &lt;span id=&quot;t3-title&quot;&gt;Practice&lt;/span&gt;&lt;/div&gt;
+        
+        &lt;div class=&quot;q-card&quot;&gt;
+            &lt;h3 id=&quot;q1-text&quot;&gt;Q1. What is the common difference in: 4, 9, 14, 19, ...?&lt;/h3&gt;
+            &lt;div class=&quot;answer-row&quot;&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q1',this,'wrong')&quot; id=&quot;q1a&quot;&gt;4&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q1',this,'wrong')&quot; id=&quot;q1b&quot;&gt;5&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q1',this,'correct')&quot; id=&quot;q1c&quot;&gt;5&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q1',this,'wrong')&quot; id=&quot;q1d&quot;&gt;19&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;feedback&quot; id=&quot;q1fb&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;q-card&quot;&gt;
+            &lt;h3 id=&quot;q2-text&quot;&gt;Q2. Find the 8th term of: 3, 7, 11, 15, ...&lt;/h3&gt;
+            &lt;div class=&quot;answer-row&quot;&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q2',this,'wrong')&quot; id=&quot;q2a&quot;&gt;27&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q2',this,'wrong')&quot; id=&quot;q2b&quot;&gt;31&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q2',this,'correct')&quot; id=&quot;q2c&quot;&gt;31&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q2',this,'wrong')&quot; id=&quot;q2d&quot;&gt;35&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;feedback&quot; id=&quot;q2fb&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;q-card&quot;&gt;
+            &lt;h3 id=&quot;q3-text&quot;&gt;Q3. What is the common ratio in: 5, 15, 45, 135, ...?&lt;/h3&gt;
+            &lt;div class=&quot;answer-row&quot;&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q3',this,'wrong')&quot; id=&quot;q3a&quot;&gt;3&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q3',this,'correct')&quot; id=&quot;q3b&quot;&gt;3&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q3',this,'wrong')&quot; id=&quot;q3c&quot;&gt;10&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q3',this,'wrong')&quot; id=&quot;q3d&quot;&gt;5&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;feedback&quot; id=&quot;q3fb&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;q-card&quot;&gt;
+            &lt;h3 id=&quot;q4-text&quot;&gt;Q4. If f(x) = 4x + 1, what is f(3)?&lt;/h3&gt;
+            &lt;div class=&quot;answer-row&quot;&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q4',this,'wrong')&quot; id=&quot;q4a&quot;&gt;12&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q4',this,'wrong')&quot; id=&quot;q4b&quot;&gt;13&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q4',this,'correct')&quot; id=&quot;q4c&quot;&gt;13&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q4',this,'wrong')&quot; id=&quot;q4d&quot;&gt;7&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;feedback&quot; id=&quot;q4fb&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;q-card&quot;&gt;
+            &lt;h3 id=&quot;q5-text&quot;&gt;Q5. Find the 6th term of: 2, 6, 18, 54, ...&lt;/h3&gt;
+            &lt;div class=&quot;answer-row&quot;&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q5',this,'wrong')&quot; id=&quot;q5a&quot;&gt;324&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q5',this,'wrong')&quot; id=&quot;q5b&quot;&gt;486&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q5',this,'correct')&quot; id=&quot;q5c&quot;&gt;486&lt;/button&gt;
+                &lt;button class=&quot;ans-btn&quot; onclick=&quot;mcq('q5',this,'wrong')&quot; id=&quot;q5d&quot;&gt;729&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;feedback&quot; id=&quot;q5fb&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let lang = 'en';
+    let score = 0, total = 0;
+    const answered = {};
+
+    const TX = {
+        en: {
+            htitle:'G8-01.2 Sequences and Functions', hsub:'Cambridge Grade 8 Mathematics — Number and Algebra',
+            tab0:'Arithmetic Sequences', tab1:'Geometric Sequences', tab2:'Functions', tab3:'Practice',
+            t0title:'Arithmetic Sequences', t0def:'What is an Arithmetic Sequence?', t0p1:'An arithmetic sequence adds the same amount each time.',
+            t1title:'Geometric Sequences', t1def:'What is a Geometric Sequence?', t1p1:'A geometric sequence multiplies by the same amount each time.',
+            t2title:'Introduction to Functions', t2def:'What is a Function?', t2p1:'A function relates each input to exactly one output.',
+            score:'Score',
+            q1:'Q1. What is the common difference in: 4, 9, 14, 19, ...?', q1a:'4', q1b:'5', q1c:'5', q1d:'19',
+            q1cr:'Correct! 9-4 = 5', q1wr:'Wrong! d = 9 - 4 = 5',
+            q2:'Q2. Find the 8th term of: 3, 7, 11, 15, ...', q2a:'27', q2b:'31', q2c:'31', q2d:'35',
+            q2cr:'Correct! a+(n-1)d = 3+(8-1)×4 = 31', q2wr:'Wrong! Use a+(n-1)d = 3+(7)×4 = 31',
+            q3:'Q3. What is the common ratio in: 5, 15, 45, 135, ...?', q3a:'3', q3b:'3', q3c:'10', q3d:'5',
+            q3cr:'Correct! r = 15/5 = 3', q3wr:'Wrong! r = 15 ÷ 5 = 3',
+            q4:'Q4. If f(x) = 4x + 1, what is f(3)?', q4a:'12', q4b:'13', q4c:'13', q4d:'7',
+            q4cr:'Correct! f(3) = 4(3) + 1 = 13', q4wr:'Wrong! f(3) = 4×3 + 1 = 13',
+            q5:'Q5. Find the 6th term of: 2, 6, 18, 54, ...', q5a:'324', q5b:'486', q5c:'486', q5d:'729',
+            q5cr:'Correct! ar⁵ = 2×3⁵ = 486', q5wr:'Wrong! ar⁵ = 2×3⁵ = 486'
+        },
+        id: {
+            htitle:'G8-01.2 Barisan dan Fungsi', hsub:'Cambridge Matematika Kelas 8 — Bilangan dan Aljabar',
+            tab0:'Barisan Aritmatika', tab1:'Barisan Geometri', tab2:'Fungsi', tab3:'Latihan',
+            t0title:'Barisan Aritmatika', t0def:'Apa itu Barisan Aritmatika?', t0p1:'Barisan aritmatika menambahkan jumlah yang sama setiap kali.',
+            t1title:'Barisan Geometri', t1def:'Apa itu Barisan Geometri?', t1p1:'Barisan geometri mengalikan jumlah yang sama setiap kali.',
+            t2title:'Pengantar Fungsi', t2def:'Apa itu Fungsi?', t2p1:'Fungsi menghubungkan setiap input ke tepat satu output.',
+            score:'Skor',
+            q1:'S1. Berapa beda umum dalam: 4, 9, 14, 19, ...?', q1a:'4', q1b:'5', q1c:'5', q1d:'19',
+            q1cr:'Benar! 9-4 = 5', q1wr:'Salah! d = 9 - 4 = 5',
+            q2:'S2. Cari suku ke-8 dari: 3, 7, 11, 15, ...', q2a:'27', q2b:'31', q2c:'31', q2d:'35',
+            q2cr:'Benar! a+(n-1)d = 3+(8-1)×4 = 31', q2wr:'Salah! Gunakan a+(n-1)d = 3+(7)×4 = 31',
+            q3:'S3. Berapa rasio umum dalam: 5, 15, 45, 135, ...?', q3a:'3', q3b:'3', q3c:'10', q3d:'5',
+            q3cr:'Benar! r = 15/5 = 3', q3wr:'Salah! r = 15 ÷ 5 = 3',
+            q4:'S4. Jika f(x) = 4x + 1, berapak f(3)?', q4a:'12', q4b:'13', q4c:'13', q4d:'7',
+            q4cr:'Benar! f(3) = 4(3) + 1 = 13', q4wr:'Salah! f(3) = 4×3 + 1 = 13',
+            q5:'S5. Cari suku ke-6 dari: 2, 6, 18, 54, ...', q5a:'324', q5b:'486', q5c:'486', q5d:'729',
+            q5cr:'Benar! ar⁵ = 2×3⁵ = 486', q5wr:'Salah! ar⁵ = 2×3⁵ = 486'
+        }
+    };
+
+    function t(k) { return TX[lang][k] || ''; }
+
+    function setLang(l) {
+        lang = l;
+        document.getElementById('btn-en').className = l==='en' ? 'active' : '';
+        document.getElementById('btn-id').className = l==='id' ? 'active' : '';
+        applyLang();
+    }
+
+    function applyLang() {
+        document.getElementById('h-title').textContent = t('htitle');
+        document.getElementById('h-sub').textContent = t('hsub');
+        document.getElementById('tab0').textContent = t('tab0');
+        document.getElementById('tab1').textContent = t('tab1');
+        document.getElementById('tab2').textContent = t('tab2');
+        document.getElementById('tab3').textContent = t('tab3');
+        document.getElementById('t0-title').textContent = t('t0title');
+        document.getElementById('t0-def').textContent = t('t0def');
+        document.getElementById('t0-p1').textContent = t('t0p1');
+        document.getElementById('t1-title').textContent = t('t1title');
+        document.getElementById('t1-def').textContent = t('t1def');
+        document.getElementById('t1-p1').textContent = t('t1p1');
+        document.getElementById('t2-title').textContent = t('t2title');
+        document.getElementById('t2-def').textContent = t('t2def');
+        document.getElementById('t2-p1').textContent = t('t2p1');
+        document.getElementById('q1-text').textContent = t('q1');
+        document.getElementById('q2-text').textContent = t('q2');
+        document.getElementById('q3-text').textContent = t('q3');
+        document.getElementById('q4-text').textContent = t('q4');
+        document.getElementById('q5-text').textContent = t('q5');
+        updateScore();
+    }
+
+    function showTab(idx) {
+        document.querySelectorAll('.section').forEach((s,i)=&gt;s.classList.toggle('active', i===idx));
+        document.querySelectorAll('.tab-btn').forEach((b,i)=&gt;b.classList.toggle('active', i===idx));
+    }
+
+    function updateScore() {
+        document.getElementById('score-label').textContent = t('score')+': '+score+' / '+total;
+        const pct = total&gt;0?Math.round(score/total*100):0;
+        document.getElementById('prog').style.width=pct+'%';
+        document.getElementById('prog-label').textContent=pct+'%';
+    }
+
+    function mcq(qid, btn, res) {
+        if(answered[qid]) return;
+        answered[qid] = true;
+        total++;
+        const fb = document.getElementById(qid+'fb');
+        fb.className = 'feedback show '+res;
+        if(res==='correct') { score++; fb.textContent = t(qid+'cr'); btn.classList.add('correct'); }
+        else { fb.textContent = t(qid+'wr'); btn.classList.add('wrong'); }
+        updateScore();
+    }
+
+    applyLang();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;" title="G8-01.2 Sequences and Functions" sandbox="allow-scripts" class="w-full h-full border-0 bg-white"></iframe></div></div></main></div></div><button class="fixed bottom-4 right-4 z-50 bg-gray-800 text-white px-3 py-2 rounded-full text-sm shadow-lg hover:bg-gray-700">⚙️ Features</button></div>
+  
+
+</body></html>

@@ -1,0 +1,341 @@
+{
+  "session_log": [
+    {
+      "slotNumber": 1,
+      "used": true,
+      "tutorName": "Mr Ezra",
+      "topic": "Pembagian dan Bangun datar",
+      "date": "2026-04-21 09:00:00+00:00",
+      "notes": "Kenrich masih kesulitan untuk soal sifat-sifat bangun datar melalui kalimat "
+    },
+    {
+      "slotNumber": 2,
+      "used": false
+    },
+    {
+      "slotNumber": 3,
+      "used": false
+    },
+    {
+      "slotNumber": 4,
+      "used": false
+    },
+    {
+      "slotNumber": 5,
+      "used": false
+    },
+    {
+      "slotNumber": 6,
+      "used": false
+    },
+    {
+      "slotNumber": 7,
+      "used": false
+    },
+    {
+      "slotNumber": 8,
+      "used": false
+    }
+  ],
+  "user_profile": {
+    "uid": "LKK43rlhECv5zZEuxu4G",
+    "metadata": {
+      "createdAt": "2026-02-23 07:55:17.460000+00:00"
+    },
+    "displayName": "Kenrick Harvey Wijaya",
+    "profile": {
+      "lastName": "",
+      "firstName": "Kenrick",
+      "displayName": "Kenrick",
+      "phone": null
+    },
+    "role": "student",
+    "sessionLog": [
+      {
+        "slotNumber": 1,
+        "used": true,
+        "tutorName": "Mr Ezra",
+        "topic": "Pembagian dan Bangun datar",
+        "date": "2026-04-21 09:00:00+00:00",
+        "notes": "Kenrich masih kesulitan untuk soal sifat-sifat bangun datar melalui kalimat "
+      },
+      {
+        "slotNumber": 2,
+        "used": false
+      },
+      {
+        "slotNumber": 3,
+        "used": false
+      },
+      {
+        "slotNumber": 4,
+        "used": false
+      },
+      {
+        "slotNumber": 5,
+        "used": false
+      },
+      {
+        "slotNumber": 6,
+        "used": false
+      },
+      {
+        "slotNumber": 7,
+        "used": false
+      },
+      {
+        "slotNumber": 8,
+        "used": false
+      }
+    ],
+    "normalizedName": "kenrick harvey wijaya",
+    "email": "null@gmail.com",
+    "studentDetails": {
+      "username": "Kenrick3",
+      "firstSessionDate": null,
+      "league": "Bronze",
+      "accessPeriodStart": "2026-04-20 00:00:00+00:00",
+      "grade": "3",
+      "sessionDates": [],
+      "lastRenewal": "2026-04-20 00:00:00+00:00",
+      "sessionSchedule": null,
+      "phone": "",
+      "classIds": [
+        "zaqj97t0IBITIGOLTWxy",
+        "WzpPsq4iI4GIUsi8odHR"
+      ],
+      "sessionsLeft": 3,
+      "weekly_xp": 0,
+      "parentName": "Delly",
+      "school": "SDK BPK PENABUR",
+      "driveLink": null,
+      "totalSessions": 8,
+      "email": "kenrick@gmail.com",
+      "pin": "123456",
+      "packageType": "private"
+    },
+    "username": "Kenrick",
+    "pin": "3cc7a0b58ee8a341:1a51fa3ca62d570b1a3d2adf9189695e8c15ae2de29c6ea1df9c270f586b1730"
+  },
+  "quiz_attempts_sample": [
+    {
+      "answers": {
+        "0": 3,
+        "1": 2,
+        "5": 0,
+        "2": 2,
+        "6": 2,
+        "3": 2,
+        "4": 2
+      },
+      "status": "completed",
+      "completedAt": "2026-03-24 08:52:55.209000+00:00",
+      "maxScore": 100,
+      "timeTaken": 3590,
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "totalQuestions": 10,
+      "userId": "Ch0U0v7XWXeywBdtv2hv",
+      "correctCount": 7,
+      "quizId": "K5h6dQpAKPDYikv74sZp",
+      "answerTexts": {
+        "0": "24 ekor",
+        "1": "Rp 50.000",
+        "5": "80 ton",
+        "2": "21 buah",
+        "6": "30 orang",
+        "3": "40 butir",
+        "4": "35 cm"
+      },
+      "quizTitle": "G2 BEGINNER 2",
+      "score": 70,
+      "passingScore": 60
+    },
+    {
+      "textAnswers": {},
+      "answers": {
+        "10": 4,
+        "15": 1,
+        "6": 0,
+        "5": 3,
+        "11": 3,
+        "13": 3,
+        "0": 2,
+        "7": 0,
+        "9": 1,
+        "1": 0,
+        "2": 3,
+        "14": 0,
+        "8": 3,
+        "3": 1,
+        "4": 3,
+        "12": 0
+      },
+      "attemptNumber": 2,
+      "completedAt": "2026-05-04 10:30:06.598000+00:00",
+      "status": "completed",
+      "maxScore": 100,
+      "timeTaken": 3599,
+      "classId": "h7b2M8HNihF4DxoKI6AM",
+      "totalQuestions": 35,
+      "userId": "eXysbCmrnUSpNlLWAVu8",
+      "correctCount": 15,
+      "quizId": "HO7AnYbBuXopHA31uRrV",
+      "answerTexts": {
+        "10": "10&deg;",
+        "15": "$-2 \\le x < 4$",
+        "6": "64",
+        "5": "5",
+        "11": "15&deg;",
+        "13": "26 cm",
+        "0": "-9, -6, -1, 0, 4, 5",
+        "7": "95",
+        "9": "$2n^2$",
+        "1": "$-7^{\\circ}C$",
+        "2": "-2.0 dan -1.5",
+        "14": "-5",
+        "8": "-66",
+        "3": "$24 \\times 2.5 \\times \\frac{2}{5}$",
+        "4": "$15ab - 10a + 5b - 10$",
+        "12": "28"
+      },
+      "quizTitle": "SAJ7",
+      "score": 43,
+      "passingScore": 60
+    },
+    {
+      "totalQuestions": 22,
+      "passed": false,
+      "status": "completed",
+      "answers": {},
+      "userId": "dZ7UL371WqaXtONx1FnIVLLEztj1",
+      "correctCount": 0,
+      "quizId": "R6zw9B39l1gbhcqTUBUZ",
+      "quizTitle": "JISMO M3",
+      "score": 0,
+      "completedAt": "2026-02-19 23:37:10.397000+00:00",
+      "maxScore": 100,
+      "passingScore": 60,
+      "timeTaken": 1187
+    },
+    {
+      "answers": {
+        "17": 0,
+        "10": 1,
+        "16": 3,
+        "6": 1,
+        "15": 2,
+        "18": 1,
+        "19": 2,
+        "11": 2,
+        "13": 0,
+        "0": 0,
+        "7": 2,
+        "9": 0,
+        "1": 1,
+        "2": 2,
+        "14": 1,
+        "8": 3,
+        "3": 3,
+        "4": 0,
+        "12": 3
+      },
+      "status": "completed",
+      "completedAt": "2026-03-10 07:50:34.107000+00:00",
+      "maxScore": 100,
+      "timeTaken": 76,
+      "classId": "SNk7dy7ONmkXV6JwUHVw",
+      "totalQuestions": 20,
+      "userId": "1ITNEK7BRe4y6PxL6G61",
+      "correctCount": 4,
+      "quizId": "5MJk4vLRTywR8zwiZWQd",
+      "answerTexts": {
+        "17": "12 meter",
+        "10": "25 cm",
+        "16": "12 buah",
+        "6": "10 m2",
+        "15": "25 cm2",
+        "18": "Garis Berpotongan",
+        "19": "Jajargenjang",
+        "11": "18 cm",
+        "13": "40 cm2",
+        "0": "Belah Ketupat",
+        "7": "5 m",
+        "9": "144 cm2",
+        "1": "Persegi",
+        "2": "Garis Sejajar",
+        "14": "28 cm2",
+        "8": "300 m",
+        "3": "Bersilangan",
+        "4": "Memiliki dua garis diagonal",
+        "12": "110 m2"
+      },
+      "quizTitle": "G4 SEM2 02",
+      "score": 20,
+      "passingScore": 60
+    },
+    {
+      "answers": {
+        "17": 3,
+        "10": 0,
+        "16": 2,
+        "6": 3,
+        "5": 1,
+        "15": 3,
+        "18": 0,
+        "19": 2,
+        "11": 0,
+        "13": 3,
+        "0": 3,
+        "7": 1,
+        "9": 1,
+        "1": 2,
+        "2": 2,
+        "14": 3,
+        "8": 0,
+        "3": 3,
+        "4": 0,
+        "12": 1
+      },
+      "status": "completed",
+      "completedAt": "2026-03-27 07:53:11.476000+00:00",
+      "maxScore": 100,
+      "timeTaken": 3578,
+      "classId": "DT2Rn9hWLlhSbnerbw1U",
+      "totalQuestions": 20,
+      "userId": "YF2NuOP7fNHbC5U5RuT0",
+      "correctCount": 13,
+      "quizId": "reBsLxnh0x0rQE2CKCOQ",
+      "answerTexts": {
+        "17": "203 cm",
+        "10": "1200 m",
+        "16": "65 tahun",
+        "6": "4 jam",
+        "5": "1 : 3 : 5",
+        "15": "8",
+        "18": "36588434",
+        "19": "36.2 m per detik",
+        "11": "90",
+        "13": "15 cm\u00b2",
+        "0": "3010",
+        "7": "2 jam 15 menit",
+        "9": "12:09 dan 1/11 menit",
+        "1": "180\u00b0",
+        "2": "100 km\u00b2",
+        "14": "9",
+        "8": "729 cm\u00b2",
+        "3": "Clinton",
+        "4": "286 cm\u00b2",
+        "12": "1665 cheesecake"
+      },
+      "quizTitle": "G6-JISMO 6",
+      "score": 65,
+      "passingScore": 60
+    }
+  ],
+  "qa_stats": {
+    "total": 904,
+    "empty_sid": 904,
+    "non_empty_sid": 0,
+    "top_sids": []
+  }
+}

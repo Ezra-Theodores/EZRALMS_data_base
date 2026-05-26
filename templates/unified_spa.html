@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZRA LMS — Unified Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/unified_spa.css') }}">
+</head>
+<body>
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="{{ url_for('static', filename='images/ezra-logo.svg') }}" alt="EZRA" class="logo" onerror="this.style.display='none'">
+            <h1>EZRA LMS</h1>
+            <span class="sidebar-subtitle">Unified Dashboard</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul id="sidebar-menu">
+                <li class="active" data-view="dashboard"><a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li data-view="users"><a href="#users"><i class="fas fa-users"></i> Users</a></li>
+                <li data-view="curriculum"><a href="#curriculum"><i class="fas fa-sitemap"></i> Curriculum Tree</a></li>
+                <li data-view="attendance"><a href="#attendance"><i class="fas fa-clipboard-check"></i> Attendance</a></li>
+                <li data-view="student"><a href="#student"><i class="fas fa-chart-line"></i> Student Progress Tracking</a></li>
+                <li data-view="rag"><a href="#rag"><i class="fas fa-search"></i> RAG Search</a></li>
+                <li data-view="quizzes"><a href="#quizzes"><i class="fas fa-list-check"></i> Quiz Manager</a></li>
+                <li data-view="pipeline"><a href="#pipeline"><i class="fas fa-cloud-upload-alt"></i> Question Pipeline</a></li>
+                <li data-view="sync"><a href="#sync"><i class="fas fa-sync-alt"></i> Firebase Sync</a></li>
+                <li data-view="automation"><a href="#automation"><i class="fas fa-robot"></i> Automation Hub</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="db-indicator">
+                <i class="fas fa-database"></i>
+                <span>ezralms_unified.db</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="main-header">
+            <h2 id="pageTitle">Dashboard</h2>
+            <div class="header-actions">
+                <span id="apiStatus" class="status-badge">Connecting…</span>
+                <button class="btn btn-outline" id="refreshBtn"><i class="fas fa-cloud-download-alt"></i> Update</button>
+            </div>
+        </header>
+
+        <!-- =================== DASHBOARD =================== -->
+        <section class="content-section view" id="view-dashboard">
+            <div class="stats-grid">
+                <div class="stat-card"><i class="fas fa-users"></i><div class="stat-info"><h3 id="stat-users">–</h3><p>Total Users</p></div></div>
+                <div class="stat-card"><i class="fas fa-graduation-cap"></i><div class="stat-info"><h3 id="stat-grades">–</h3><p>Grades</p></div></div>
+                <div class="stat-card"><i class="fas fa-chalkboard"></i><div class="stat-info"><h3 id="stat-classes">–</h3><p>Classes</p></div></div>
+                <div class="stat-card"><i class="fas fa-book-open"></i><div class="stat-info"><h3 id="stat-topics">–</h3><p>Topics</p></div></div>
+                <div class="stat-card"><i class="fas fa-puzzle-piece"></i><div class="stat-info"><h3 id="stat-quizzes">–</h3><p>Quizzes</p></div></div>
+                <div class="stat-card"><i class="fas fa-question-circle"></i><div class="stat-info"><h3 id="stat-questions">–</h3><p>Questions</p></div></div>
+                <div class="stat-card"><i class="fas fa-clipboard-check"></i><div class="stat-info"><h3 id="stat-attendance">–</h3><p>Attendance</p></div></div>
+                <div class="stat-card"><i class="fas fa-trophy"></i><div class="stat-info"><h3 id="stat-attempts">–</h3><p>Quiz Attempts</p></div></div>
+            </div>
+
+            <div class="dashboard-row">
+                <div class="card half">
+                    <div class="card-header"><h3>Users by Role</h3></div>
+                    <div class="card-body"><div id="chart-roles" class="bar-chart">Loading…</div></div>
+                </div>
+                <div class="card half">
+                    <div class="card-header"><h3>Quizzes by Grade</h3></div>
+                    <div class="card-body"><div id="chart-grades" class="bar-chart">Loading…</div></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h3>Blueprint Health</h3></div>
+                <div class="card-body"><div id="blueprint-health"></div></div>
+            </div>
+        </section>
+
+        <!-- =================== USERS =================== -->
+        <section class="content-section view" id="view-users" style="display:none;">
+            <div class="filter-bar">
+                <input type="text" id="usersSearch" placeholder="Search by name / email / id…" class="form-input">
+                <select id="usersRole" class="form-input">
+                    <option value="">All roles</option>
+                    <option>student</option>
+                    <option>teacher</option>
+                    <option>admin</option>
+                    <option>tutor</option>
+                </select>
+                <button class="btn btn-primary" id="usersLoadBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Phone</th><th>XP</th></tr></thead>
+                    <tbody id="usersTableBody"><tr><td colspan="6" class="empty">Click Search to load.</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- =================== CURRICULUM TREE =================== -->
+        <section class="content-section view" id="view-curriculum" style="display:none;">
+            <div class="tree-container">
+                <div class="tree-sidebar">
+                    <h3><i class="fas fa-sitemap"></i> Curriculum</h3>
+                    <div class="tree-controls">
+                        <button class="btn btn-sm" id="treeExpandAll"><i class="fas fa-expand"></i> Expand</button>
+                        <button class="btn btn-sm" id="treeCollapseAll"><i class="fas fa-compress"></i> Collapse</button>
+                    </div>
+                    <div class="tree-list" id="curriculumTree">Loading…</div>
+                </div>
+                <div class="tree-content">
+                    <div class="content-header"><h3 id="treeSelectedTitle">Select a node</h3></div>
+                    <div class="content-body" id="treeNodeDetails">
+                        <div class="empty-state"><i class="fas fa-mouse-pointer"></i><p>Click any node to view details</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== ATTENDANCE =================== -->
+        <section class="content-section view" id="view-attendance" style="display:none;">
+            <form id="attendanceForm" class="filter-bar wrap">
+                <input type="text" name="student_name" placeholder="Student name" class="form-input">
+                <input type="text" name="student_id" placeholder="Student ID" class="form-input">
+                <input type="text" name="class_name" placeholder="Class name" class="form-input">
+                <input type="text" name="status" placeholder="Status" class="form-input">
+                <input type="date" name="date_from" class="form-input">
+                <input type="date" name="date_to" class="form-input">
+                <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
+            </form>
+            <p class="result-count" id="attendanceCount"></p>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead><tr><th>Date</th><th>Student</th><th>Student ID</th><th>Class</th><th>Status</th></tr></thead>
+                    <tbody id="attendanceTableBody"><tr><td colspan="5" class="empty">Submit the form to search.</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- =================== STUDENT PROGRESS TRACKING =================== -->
+        <section class="content-section view" id="view-student" style="display:none;">
+            <div class="filter-bar wrap">
+                <input type="text" id="studentSearchInput" placeholder="Search student by name…" class="form-input flex-grow">
+                <button class="btn btn-primary" id="studentSearchBtn"><i class="fas fa-search"></i> Search</button>
+                <button class="btn btn-outline" id="studentLeaderboardBtn"><i class="fas fa-trophy"></i> Top 20 XP</button>
+            </div>
+
+            <!-- Student search results -->
+            <div id="studentSearchResults" class="table-container" style="display:none; margin-bottom:24px;">
+                <table class="data-table">
+                    <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>XP</th><th>Action</th></tr></thead>
+                    <tbody id="studentListBody"><tr><td colspan="5" class="empty">Search for students</td></tr></tbody>
+                </table>
+            </div>
+
+            <!-- Full student profile -->
+            <div id="studentProfile" style="display:none;"></div>
+        </section>
+
+        <!-- =================== RAG SEARCH =================== -->
+        <section class="content-section view" id="view-rag" style="display:none;">
+            <div class="rag-tabs">
+                <button class="rag-tab active" data-tab="bm25" id="ragTabBm25">🔍 BM25 Search</button>
+                <button class="rag-tab" data-tab="sql" id="ragTabSql">💾 SQL Query</button>
+            </div>
+
+            <!-- BM25 Search Tab -->
+            <div id="ragBm25Panel">
+                <div class="filter-bar">
+                    <input type="text" id="ragQuery" placeholder="Search BM25 index (e.g. peluang, fungsi kuadrat)…" class="form-input flex-grow">
+                    <select id="ragType" class="form-input">
+                        <option value="">All types</option>
+                        <option value="quiz">Quizzes</option>
+                        <option value="question">Questions</option>
+                        <option value="topic">Topics</option>
+                        <option value="subtopic">Subtopics</option>
+                        <option value="class">Classes</option>
+                        <option value="user">Users</option>
+                    </select>
+                    <button class="btn btn-primary" id="ragSearchBtn"><i class="fas fa-search"></i> Search</button>
+                    <button class="btn btn-outline" id="ragRebuildBtn" title="Rebuild vector index"><i class="fas fa-rotate"></i> Rebuild</button>
+                </div>
+                <div id="ragResults" class="rag-results"><div class="empty-state"><p>Enter a query and click Search</p></div></div>
+            </div>
+
+            <!-- SQL Query Tab -->
+            <div id="ragSqlPanel" style="display:none;">
+                <div class="filter-bar wrap">
+                    <input type="text" id="ragSqlInput" placeholder="SELECT * FROM users WHERE role='student' LIMIT 10" class="form-input flex-grow" style="font-family:monospace">
+                    <button class="btn btn-primary" id="ragSqlBtn"><i class="fas fa-database"></i> Execute</button>
+                </div>
+                <p class="hint" style="margin-bottom:12px">Read-only SQL queries — only SELECT allowed. Targets <code>ezralms_unified.db</code>.</p>
+                <div id="ragSqlResults">
+                    <div class="empty-state"><p>Write a SELECT query above and click Execute</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== QUIZ MANAGER =================== -->
+        <section class="content-section view" id="view-quizzes" style="display:none;">
+            <div class="filter-bar wrap">
+                <input type="text" id="qmQuery" placeholder="Search question text…" class="form-input">
+                <select id="qmGrade" class="form-input"><option value="">All grades</option>
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                    <option>11</option><option>12</option></select>
+                <select id="qmHasImage" class="form-input"><option value="">Image?</option><option value="true">Has image</option><option value="false">No image</option></select>
+                <button class="btn btn-primary" id="qmSearchBtn"><i class="fas fa-search"></i> Search Questions</button>
+                <button class="btn btn-outline" id="qmListQuizzesBtn"><i class="fas fa-list"></i> Browse Quizzes</button>
+            </div>
+            <p class="result-count" id="qmCount"></p>
+            <div id="qmResults" class="qm-results"></div>
+        </section>
+
+        <!-- =================== QUESTION PIPELINE =================== -->
+        <section class="content-section view" id="view-pipeline" style="display:none;">
+            <div class="card">
+                <div class="card-header"><h3><i class="fas fa-cloud-upload-alt"></i> PDF → JSON Pipeline</h3></div>
+                <div class="card-body">
+                    <p>The full pipeline (PDF/OCR + Gemini + MySQL writes) runs out-of-process in
+                       <code>DATA_HOUSE_EZRALMS/server_v2.py</code> because of its heavy dependencies.
+                       The unified app proxies it when <code>PIPELINE_BACKEND</code> is set.</p>
+                    <div id="pipelineStatus" class="status-block">Checking…</div>
+                    <div class="form-group">
+                        <label>Backend URL (for this session — set PIPELINE_BACKEND env var to persist):</label>
+                        <div class="filter-bar">
+                            <input type="url" id="pipelineUrl" placeholder="http://localhost:5001" class="form-input flex-grow">
+                            <button class="btn btn-primary" id="pipelinePingBtn">Probe</button>
+                        </div>
+                    </div>
+                    <p class="hint">Once the backend is reachable, use it directly at the URL above for upload UX. Inline upload arrives in a future revision.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== FIREBASE SYNC =================== -->
+        <section class="content-section view" id="view-sync" style="display:none;">
+            <div class="card">
+                <div class="card-header"><h3><i class="fas fa-sync-alt"></i> Firebase Firestore Sync</h3></div>
+                <div class="card-body">
+                    <p>Pull <code>users</code> and <code>attendance</code> from Firestore into the unified SQLite.</p>
+                    <div id="syncStatus" class="status-block">Checking credentials…</div>
+                    <div class="filter-bar">
+                        <button class="btn btn-primary" id="syncRunBtn"><i class="fas fa-cloud-download-alt"></i> Run Sync</button>
+                        <button class="btn btn-outline" id="syncProbeBtn"><i class="fas fa-question-circle"></i> Check Status</button>
+                    </div>
+                    <pre id="syncOutput" class="output-block"></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== AUTOMATION HUB =================== -->
+        <section class="content-section view" id="view-automation" style="display:none;">
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header"><h3><i class="fas fa-window-restore"></i> Persistent Browser</h3>
+                        <span id="autoBrowserBadge" class="status-badge">unknown</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Spawns <code>EzraLms_automation/persistent_browser.js</code> (Node + Playwright).</p>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" id="autoStartBtn"><i class="fas fa-play"></i> Start</button>
+                            <button class="btn btn-danger" id="autoStopBtn"><i class="fas fa-stop"></i> Stop All</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3><i class="fas fa-rocket"></i> Autopilot G8</h3>
+                        <span id="autoAutopilotBadge" class="status-badge">unknown</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Runs <code>autopilot_g8.js</code>. Requires the persistent browser to be online.</p>
+                        <button class="btn btn-primary" id="autoAutopilotBtn"><i class="fas fa-rocket"></i> Launch Autopilot</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<script src="{{ url_for('static', filename='js/unified_spa.js') }}"></script>
+</body>
+</html>

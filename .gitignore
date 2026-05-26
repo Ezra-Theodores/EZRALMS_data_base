@@ -1,0 +1,78 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files (SENSITIVE!)
+.env
+.env.local
+.env.*.local
+
+# Firebase credentials (SENSITIVE!)
+firebase_credentials.json
+*serviceAccount*.json
+*firebase-adminsdk*.json
+
+# Logs
+logs/
+*.log
+
+# Large database files (regenerated from sync)
+*.db
+*.sqlite
+*.sqlite3
+
+# Large generated data files (regenerated)
+data_house_vectors.json
+ezralms_vectors.json
+backups/
+DATA_HOUSE_EZRALMS/
+app_output.log
+webui.log
+webui_err.log
+webui_out.log
+Shortcut
+__pycache__/
+.pytest_cache/
+node_modules/
+ServerMySQL/
+*/node_modules/
+MySQL/ServerMySQL/
+MySQL/*/node_modules/
+*.rar
+Shortcut/
+.env
+DATA_HOUSE_EZRALMS/
+data_house.db
+ezralms.db
+ezralms_complete.db
+ezralms_unified.db
+*.pyc
+__pycache__/
+MySQL/Firebase_Topics/
+Firebase_Topics/
+MySQL/export_*.py
+MySQL/scratch/
+users_with_names.json
+test_*.py
+test_out*.txt
+*.log

@@ -1,0 +1,106 @@
+{
+  "worst_quizzes": [
+    {
+      "title": "G2 OSN 01",
+      "score": 5,
+      "max_score": 100,
+      "percentage": 5.0,
+      "quiz_id": "673noUabJc15N5EcPD0W",
+      "attempt_id": "0rx0G2iKq17vbbvtXzZn"
+    },
+    {
+      "title": "G1-09 Multiplication Intro",
+      "score": 25,
+      "max_score": 100,
+      "percentage": 25.0,
+      "quiz_id": "bRXfK2xydTBrFjyRkRGg",
+      "attempt_id": "RiTKlCkz06mGD7FhpvUV"
+    },
+    {
+      "title": "G1-12 Division 2",
+      "score": 25,
+      "max_score": 100,
+      "percentage": 25.0,
+      "quiz_id": "cZ0xQFn4ORcTWftTm8g9",
+      "attempt_id": "ZMqW1UGVFE82xyEW8CS8"
+    },
+    {
+      "title": "G2 BEGINNER 2",
+      "score": 30,
+      "max_score": 100,
+      "percentage": 30.0,
+      "quiz_id": "K5h6dQpAKPDYikv74sZp",
+      "attempt_id": "rYgTwLO6USvHxkqPiY0P"
+    },
+    {
+      "title": "G2-01 Algebra",
+      "score": 30,
+      "max_score": 100,
+      "percentage": 30.0,
+      "quiz_id": "DeVIRQTSDWbNWoMMuGYA",
+      "attempt_id": "XnWT86BtfCOvnIHF9I9c"
+    },
+    {
+      "title": "G1-10 Multiplication 2",
+      "score": 30,
+      "max_score": 100,
+      "percentage": 30.0,
+      "quiz_id": "OQRITHWIMFbMnn1SiXs3",
+      "attempt_id": "ZmA7KZfblgTU4g7g5P8W"
+    },
+    {
+      "title": "G1- competition 01",
+      "score": 40,
+      "max_score": 100,
+      "percentage": 40.0,
+      "quiz_id": "8pDYyCyoFLN6FbpJTyfY",
+      "attempt_id": "xuoJrNDj7uzIFGA5spP7"
+    }
+  ],
+  "skill_gaps": {
+    "Competition Math": {
+      "attempts": 8,
+      "average": 62.5,
+      "status": "OK"
+    },
+    "Multiplication": {
+      "attempts": 4,
+      "average": 43.8,
+      "status": "WEAK"
+    },
+    "Addition/Subtraction": {
+      "attempts": 3,
+      "average": 90.0,
+      "status": "STRONG"
+    },
+    "Division": {
+      "attempts": 3,
+      "average": 53.3,
+      "status": "WEAK"
+    },
+    "Number Sense": {
+      "attempts": 5,
+      "average": 92.0,
+      "status": "STRONG"
+    },
+    "Algebra": {
+      "attempts": 1,
+      "average": 30.0,
+      "status": "CRITICAL"
+    }
+  },
+  "monthly_trend": {
+    "2026-03": {
+      "count": 10,
+      "avg": 57.0
+    },
+    "2026-04": {
+      "count": 14,
+      "avg": 72.5
+    },
+    "2026-05": {
+      "count": 2,
+      "avg": 40.0
+    }
+  }
+}

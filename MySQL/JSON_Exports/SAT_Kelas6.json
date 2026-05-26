@@ -1,0 +1,467 @@
+{
+  "createdAt": "2026-05-04T00:00:00.000000+00:00",
+  "questionCount": "30",
+  "creatorName": "Mr Ezra Theodores",
+  "title": "SAT Kelas 6 SD",
+  "mode": "single",
+  "subject": "Math",
+  "questions": [
+    {
+      "id": 1,
+      "en_exp": "Convert 0.45 to fraction: 45/100 = 9/20 after simplifying.",
+      "id_q": "Pecahan desimal 0,45 jika diubah menjadi pecahan paling sederhana adalah...",
+      "ans": 1,
+      "id_exp": "Ubah 0,45 ke pecahan: 45/100 = 9/20 setelah disederhanakan.",
+      "en_q": "The decimal 0.45 converted to its simplest fraction form is...",
+      "options": [
+        "9/25",
+        "9/20",
+        "45/100",
+        "4/5"
+      ],
+      "image": ""
+    },
+    {
+      "id": 2,
+      "en_exp": "25% = 25/100 = 1/4. So 1/4 of 84 = 84 ÷ 4 = 21.",
+      "id_q": "Berapakah 25% dari 84?",
+      "ans": 2,
+      "id_exp": "25% = 25/100 = 1/4. Jadi 1/4 dari 84 = 84 ÷ 4 = 21.",
+      "en_q": "What is 25% of 84?",
+      "options": [
+        "20",
+        "22",
+        "21",
+        "24"
+      ],
+      "image": ""
+    },
+    {
+      "id": 3,
+      "en_exp": "Volume of cube = side³ = 8³ = 512 cm³.",
+      "id_q": "Sebuah kubus memiliki rusuk 8 cm. Volume kubus tersebut adalah...",
+      "ans": 1,
+      "id_exp": "Volume kubus = sisi³ = 8³ = 512 cm³.",
+      "en_q": "A cube has a side of 8 cm. The volume of this cube is...",
+      "options": [
+        "64 cm³",
+        "512 cm³",
+        "256 cm³",
+        "128 cm³"
+      ],
+      "image": "<svg viewBox=\"0 0 150 150\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20,60 L60,60 L80,40 L40,40 Z\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M60,60 L100,60 L120,40 L80,40 Z\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M20,60 L20,100 L60,100 L60,60\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M60,100 L100,100 L100,60\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M100,60 L100,100 L120,80 L120,40\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M80,40 L80,80 L120,80\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/><text x=\"60\" y=\"120\" font-size=\"12\" text-anchor=\"middle\" fill=\"#2563eb\">8 cm</text></svg>"
+    },
+    {
+      "id": 4,
+      "en_exp": "Mean = (12 + 15 + 18 + 21 + 24) ÷ 5 = 90 ÷ 5 = 18.",
+      "id_q": "Data: 12, 15, 18, 21, 24. Berapakah mean (rata-rata) dari data tersebut?",
+      "ans": 2,
+      "id_exp": "Mean = (12 + 15 + 18 + 21 + 24) ÷ 5 = 90 ÷ 5 = 18.",
+      "en_q": "Data: 12, 15, 18, 21, 24. What is the mean of this data?",
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "image": ""
+    },
+    {
+      "id": 5,
+      "en_exp": "Area of rectangle = length × width = 12 × 8 = 96 cm².",
+      "id_q": "Sebuah persegi panjang memiliki panjang 12 cm dan lebar 8 cm. Luas persegi panjang tersebut adalah...",
+      "ans": 0,
+      "id_exp": "Luas persegi panjang = panjang × lebar = 12 × 8 = 96 cm².",
+      "en_q": "A rectangle has a length of 12 cm and width of 8 cm. The area of this rectangle is...",
+      "options": [
+        "96 cm²",
+        "80 cm²",
+        "40 cm²",
+        "20 cm²"
+      ],
+      "image": "<svg viewBox=\"0 0 200 120\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"30\" y=\"30\" width=\"120\" height=\"80\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2\"/><text x=\"90\" y=\"25\" font-size=\"12\" text-anchor=\"middle\" fill=\"#16a34a\">12 cm</text><text x=\"165\" y=\"70\" font-size=\"12\" fill=\"#16a34a\">8 cm</text></svg>"
+    },
+    {
+      "id": 6,
+      "en_exp": "Perimeter = 2 × (length + width) = 2 × (15 + 10) = 50 cm.",
+      "id_q": "Persegi panjang dengan panjang 15 cm dan lebar 10 cm memiliki keliling sebesar...",
+      "ans": 1,
+      "id_exp": "Keliling = 2 × (panjang + lebar) = 2 × (15 + 10) = 50 cm.",
+      "en_q": "A rectangle with length 15 cm and width 10 cm has a perimeter of...",
+      "options": [
+        "25 cm",
+        "50 cm",
+        "150 cm",
+        "100 cm"
+      ],
+      "image": "<svg viewBox=\"0 0 220 100\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"30\" y=\"20\" width=\"150\" height=\"60\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2\"/><text x=\"105\" y=\"15\" font-size=\"11\" text-anchor=\"middle\" fill=\"#dc2626\">15 cm</text><text x=\"195\" y=\"50\" font-size=\"11\" fill=\"#dc2626\">10 cm</text></svg>"
+    },
+    {
+      "id": 7,
+      "en_exp": "Simplify: 48 ÷ 12 = 4 and 60 ÷ 12 = 5. So the ratio is 4:5.",
+      "id_q": "Sederhanakan perbandingan 48 : 60 menjadi bentuk paling sederhana!",
+      "ans": 2,
+      "id_exp": "Sederhanakan: 48 ÷ 12 = 4 dan 60 ÷ 12 = 5. Jadi perbandingannya adalah 4:5.",
+      "en_q": "Simplify the ratio 48 : 60 to its simplest form!",
+      "options": [
+        "8:10",
+        "4:6",
+        "4:5",
+        "5:4"
+      ],
+      "image": ""
+    },
+    {
+      "id": 8,
+      "en_exp": "Convert: 3/8 = 0.375. Compare: 0.375 < 0.4.",
+      "id_q": "Manakah yang lebih besar: 3/8 atau 0,4?",
+      "ans": 1,
+      "id_exp": "Ubah: 3/8 = 0,375. Bandingkan: 0,375 < 0,4.",
+      "en_q": "Which is larger: 3/8 or 0.4?",
+      "options": [
+        "3/8",
+        "0,4",
+        "Sama besar",
+        "Tidak dapat ditentukan"
+      ],
+      "image": ""
+    },
+    {
+      "id": 9,
+      "en_exp": "Factorize: 48 = 2⁴ × 3. The largest common factor is 12.",
+      "id_q": "Faktor persekutuan terbesar (FPB) dari 36 dan 48 adalah...",
+      "ans": 0,
+      "id_exp": "Faktorisasi: 36 = 2² × 3², 48 = 2⁴ × 3. FPB = 2² × 3 = 12.",
+      "en_q": "The greatest common factor (GCF) of 36 and 48 is...",
+      "options": [
+        "12",
+        "6",
+        "18",
+        "24"
+      ],
+      "image": ""
+    },
+    {
+      "id": 10,
+      "en_exp": "Volume = length × width × height = 10 × 6 × 5 = 300 cm³.",
+      "id_q": "Balok memiliki panjang 10 cm, lebar 6 cm, dan tinggi 5 cm. Volume balok tersebut adalah...",
+      "ans": 1,
+      "id_exp": "Volume = panjang × lebar × tinggi = 10 × 6 × 5 = 300 cm³.",
+      "en_q": "A rectangular prism has length 10 cm, width 6 cm, and height 5 cm. Its volume is...",
+      "options": [
+        "120 cm³",
+        "300 cm³",
+        "200 cm³",
+        "150 cm³"
+      ],
+      "image": "<svg viewBox=\"0 0 150 120\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20,60 L80,60 L100,40 L40,40 Z\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2\"/><path d=\"M20,60 L20,100 L80,100 L80,60\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2\"/><path d=\"M80,60 L80,100 L100,80 L100,40\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2\"/><text x=\"50\" y=\"130\" font-size=\"11\" text-anchor=\"middle\" fill=\"#7c3aed\">p=10cm</text><text x=\"105\" y=\"70\" font-size=\"11\" fill=\"#7c3aed\">l=6cm</text></svg>"
+    },
+    {
+      "id": 11,
+      "en_exp": "Median of 23, 25, 27, 29, 31 is the middle value = 27.",
+      "id_q": "Data: 23, 25, 27, 29, 31. Berapakah median (nilai tengah) dari data tersebut?",
+      "ans": 2,
+      "id_exp": "Median dari 23, 25, 27, 29, 31 adalah nilai tengah = 27.",
+      "en_q": "Data: 23, 25, 27, 29, 31. What is the median of this data?",
+      "options": [
+        "25",
+        "26",
+        "27",
+        "29"
+      ],
+      "image": ""
+    },
+    {
+      "id": 12,
+      "en_exp": "Mode is the value that appears most often = 15.",
+      "id_q": "Data: 12, 15, 18, 15, 20, 15, 22. Berapakah modus dari data tersebut?",
+      "ans": 1,
+      "id_exp": "Modus adalah nilai yang paling sering muncul = 15.",
+      "en_q": "Data: 12, 15, 18, 15, 20, 15, 22. What is the mode of this data?",
+      "options": [
+        "12",
+        "15",
+        "18",
+        "20"
+      ],
+      "image": ""
+    },
+    {
+      "id": 13,
+      "en_exp": "Area of circle = πr² = 3.14 × 7² = 3.14 × 49 = 153.86 cm².",
+      "id_q": "Sebuah lingkaran memiliki jari-jari 7 cm. Luas lingkaran tersebut adalah... (π = 3,14)",
+      "ans": 0,
+      "id_exp": "Luas lingkaran = πr² = 3,14 × 7² = 3,14 × 49 = 153,86 cm².",
+      "en_q": "A circle has a radius of 7 cm. The area of this circle is... (π = 3.14)",
+      "options": [
+        "153,86 cm²",
+        "43,96 cm²",
+        "21,98 cm²",
+        "314 cm²"
+      ],
+      "image": "<svg viewBox=\"0 0 150 150\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"75\" cy=\"75\" r=\"50\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\"/><line x1=\"75\" y1=\"75\" x2=\"125\" y2=\"75\" stroke=\"#059669\" stroke-width=\"2\"/><text x=\"100\" y=\"70\" font-size=\"12\" fill=\"#059669\">r = 7 cm</text></svg>"
+    },
+    {
+      "id": 14,
+      "en_exp": "Circumference = 2πr = 2 × 3.14 × 10 = 62.8 cm.",
+      "id_q": "Sebuah lingkaran memiliki jari-jari 10 cm. Keliling lingkaran tersebut adalah... (π = 3,14)",
+      "ans": 1,
+      "id_exp": "Keliling = 2πr = 2 × 3,14 × 10 = 62,8 cm.",
+      "en_q": "A circle has a radius of 10 cm. The circumference of this circle is... (π = 3.14)",
+      "options": [
+        "31,4 cm",
+        "62,8 cm",
+        "20 cm",
+        "100 cm"
+      ],
+      "image": "<svg viewBox=\"0 0 180 100\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"90\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2\"/><line x1=\"90\" y1=\"50\" x2=\"130\" y2=\"50\" stroke=\"#dc2626\" stroke-width=\"2\"/><text x=\"110\" y=\"45\" font-size=\"12\" fill=\"#dc2626\">r = 10 cm</text></svg>"
+    },
+    {
+      "id": 15,
+      "en_exp": "Convert mixed to improper: 2 3/5 = 13/5. Then 13/5 ÷ 2/3 = 13/5 × 3/2 = 39/10 = 3.9.",
+      "id_q": "Hasil dari 2 3/5 ÷ 2/3 adalah...",
+      "ans": 2,
+      "id_exp": "Ubah ke pecahan biasa: 2 3/5 = 13/5. Kemudian 13/5 ÷ 2/3 = 13/5 × 3/2 = 39/10 = 3,9.",
+      "en_q": "The result of 2 3/5 ÷ 2/3 is...",
+      "options": [
+        "3,25",
+        "3,75",
+        "3,9",
+        "4,2"
+      ],
+      "image": ""
+    },
+    {
+      "id": 16,
+      "en_exp": "Area of triangle = 1/2 × base × height = 1/2 × 12 × 8 = 48 cm².",
+      "id_q": "Segitiga dengan alas 12 cm dan tinggi 8 cm memiliki luas sebesar...",
+      "ans": 1,
+      "id_exp": "Luas segitiga = 1/2 × alas × tinggi = 1/2 × 12 × 8 = 48 cm².",
+      "en_q": "A triangle with base 12 cm and height 8 cm has an area of...",
+      "options": [
+        "96 cm²",
+        "48 cm²",
+        "40 cm²",
+        "24 cm²"
+      ],
+      "image": "<svg viewBox=\"0 0 150 120\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"25,100,125,100,75,20\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"75\" y1=\"20\" x2=\"75\" y2=\"100\" stroke=\"#2563eb\" stroke-width=\"1\" stroke-dasharray=\"4\"/><text x=\"75\" y=\"115\" font-size=\"12\" text-anchor=\"middle\" fill=\"#2563eb\">12 cm</text><text x=\"85\" y=\"50\" font-size=\"12\" fill=\"#2563eb\">8 cm</text></svg>"
+    },
+    {
+      "id": 17,
+      "en_exp": "If 3x = 15, then x = 15 ÷ 3 = 5.",
+      "id_q": "Jika 3x = 15, berapakah nilai x?",
+      "ans": 0,
+      "id_exp": "Jika 3x = 15, maka x = 15 ÷ 3 = 5.",
+      "en_q": "If 3x = 15, what is the value of x?",
+      "options": [
+        "5",
+        "3",
+        "15",
+        "45"
+      ],
+      "image": ""
+    },
+    {
+      "id": 18,
+      "en_exp": "Solve: x + 8 = 20 → x = 20 - 8 = 12.",
+      "id_q": "Selesaikan persamaan: x + 8 = 20. Berapakah nilai x?",
+      "ans": 2,
+      "id_exp": "Selesaikan: x + 8 = 20 → x = 20 - 8 = 12.",
+      "en_q": "Solve the equation: x + 8 = 20. What is the value of x?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "28"
+      ],
+      "image": ""
+    },
+    {
+      "id": 19,
+      "en_exp": "Distance = speed × time = 60 × 2 = 120 km.",
+      "id_q": "Sebuah mobil bergerak dengan kecepatan 60 km/jam selama 2 jam. Jarak yang ditempuh adalah...",
+      "ans": 1,
+      "id_exp": "Jarak = kecepatan × waktu = 60 × 2 = 120 km.",
+      "en_q": "A car travels at 60 km/h for 2 hours. The distance traveled is...",
+      "options": [
+        "30 km",
+        "120 km",
+        "62 km",
+        "180 km"
+      ],
+      "image": ""
+    },
+    {
+      "id": 20,
+      "en_exp": "Convert: 150 minutes = 2 hours 30 minutes.",
+      "id_q": "150 menit sama dengan...",
+      "ans": 2,
+      "id_exp": "Ubah: 150 menit = 2 jam 30 menit.",
+      "en_q": "150 minutes is equal to...",
+      "options": [
+        "2 jam 15 menit",
+        "2 jam 20 menit",
+        "2 jam 30 menit",
+        "2 jam 50 menit"
+      ],
+      "image": ""
+    },
+    {
+      "id": 21,
+      "en_exp": "Volume of cylinder = πr²h = 3.14 × 5² × 10 = 3.14 × 250 = 785 cm³.",
+      "id_q": "Tabung dengan jari-jari 5 cm dan tinggi 10 cm memiliki volume... (π = 3,14)",
+      "ans": 0,
+      "id_exp": "Volume tabung = πr²t = 3,14 × 5² × 10 = 3,14 × 250 = 785 cm³.",
+      "en_q": "A cylinder with radius 5 cm and height 10 cm has a volume of... (π = 3.14)",
+      "options": [
+        "785 cm³",
+        "157 cm³",
+        "314 cm³",
+        "628 cm³"
+      ],
+      "image": "<svg viewBox=\"0 0 120 150\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"60\" cy=\"30\" rx=\"35\" ry=\"10\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\"/><line x1=\"25\" y1=\"30\" x2=\"25\" y2=\"120\" stroke=\"#059669\" stroke-width=\"2\"/><line x1=\"95\" y1=\"30\" x2=\"95\" y2=\"120\" stroke=\"#059669\" stroke-width=\"2\"/><ellipse cx=\"60\" cy=\"120\" rx=\"35\" ry=\"10\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\"/><text x=\"60\" y=\"155\" font-size=\"11\" text-anchor=\"middle\" fill=\"#059669\">r = 5 cm</text><text x=\"110\" y=\"75\" font-size=\"11\" fill=\"#059669\">t = 10 cm</text></svg>"
+    },
+    {
+      "id": 22,
+      "en_exp": "Sum of angles in triangle = 180°. So angle C = 180° - (60° + 50°) = 70°.",
+      "id_q": "Pada segitiga ABC, sudut A = 60° dan sudut B = 50°. Berapakah besar sudut C?",
+      "ans": 2,
+      "id_exp": "Jumlah sudut segitiga = 180°. Jadi sudut C = 180° - (60° + 50°) = 70°.",
+      "en_q": "In triangle ABC, angle A = 60° and angle B = 50°. What is the measure of angle C?",
+      "options": [
+        "50°",
+        "60°",
+        "70°",
+        "80°
+      ],
+      "image": "<svg viewBox=\"0 0 150 120\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,100,130,100,75,20\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2\"/><text x=\"15\" y=\"105\" font-size=\"12\" fill=\"#dc2626\">A</text><text x=\"135\" y=\"105\" font-size=\"12\" fill=\"#dc2626\">B</text><text x=\"70\" y=\"15\" font-size=\"12\" fill=\"#dc2626\">C</text><text x=\"35\" y=\"90\" font-size=\"10\" fill=\"#dc2626\">60°</text><text x=\"100\" y=\"90\" font-size=\"10\" fill=\"#dc2626\">50°</text></svg>"
+    },
+    {
+      "id": 23,
+      "en_exp": "7/8 = 0.875. Convert to percentage: 0.875 × 100 = 87.5%.",
+      "id_q": "Pecahan 7/8 jika diubah menjadi persentase adalah...",
+      "ans": 1,
+      "id_exp": "7/8 = 0,875. Ubah ke persentase: 0,875 × 100 = 87,5%.",
+      "en_q": "The fraction 7/8 converted to a percentage is...",
+      "options": [
+        "70%",
+        "87,5%",
+        "80%",
+        "85%"
+      ],
+      "image": ""
+    },
+    {
+      "id": 24,
+      "en_exp": "Price per kg = 240.000 ÷ 8 = 30.000 rupiah.",
+      "id_q": "8 kg beras dijual dengan harga Rp240.000,00. Harga 1 kg beras adalah...",
+      "ans": 1,
+      "id_exp": "Harga per kg = 240.000 ÷ 8 = 30.000 rupiah.",
+      "en_q": "8 kg of rice is sold for Rp240,000. The price per kg of rice is...",
+      "options": [
+        "Rp20.000",
+        "Rp30.000",
+        "Rp40.000",
+        "Rp50.000"
+      ],
+      "image": ""
+    },
+    {
+      "id": 25,
+      "en_exp": "The diagram shows a cube with side 6 cm. Surface area = 6 × 6² = 6 × 36 = 216 cm².",
+      "id_q": "Perhatikan gambar kubus dengan rusuk 6 cm! Luas permukaan kubus tersebut adalah...",
+      "ans": 2,
+      "id_exp": "Gambar menunjukkan kubus dengan rusuk 6 cm. LP = 6 × 6² = 6 × 36 = 216 cm².",
+      "en_q": "Look at the cube with side 6 cm! The surface area of this cube is...",
+      "options": [
+        "36 cm²",
+        "72 cm²",
+        "216 cm²",
+        "256 cm²"
+      ],
+      "image": "<svg viewBox=\"0 0 150 150\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M25,60 L65,60 L85,40 L45,40 Z\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2\"/><path d=\"M65,60 L105,60 L125,40 L85,40 Z\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2\"/><path d=\"M25,60 L25,100 L65,100 L65,60\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2\"/><path d=\"M65,100 L105,100 L105,60\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2\"/><path d=\"M105,60 L105,100 L125,80 L125,40\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2\"/><path d=\"M85,40 L85,80 L125,80\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2\"/><text x=\"55\" y=\"120\" font-size=\"12\" text-anchor=\"middle\" fill=\"#16a34a\">6 cm</text></svg>"
+    },
+    {
+      "id": 26,
+      "en_exp": "LCM of 6 and 8 is 24. They meet again after 24 days.",
+      "id_q": "Andi les piano setiap 6 hari sekali, Budi setiap 8 hari sekali. Hari ini mereka les bersama. Kapan mereka akan les bersama lagi?",
+      "ans": 2,
+      "id_exp": "KPK dari 6 dan 8 adalah 24. Mereka akan bertemu lagi setelah 24 hari.",
+      "en_q": "Andi has piano lessons every 6 days, Budi every 8 days. They had lessons together today. When will they have lessons together again?",
+      "options": [
+        "14 hari lagi",
+        "18 hari lagi",
+        "24 hari lagi",
+        "48 hari lagi"
+      ],
+      "image": ""
+    },
+    {
+      "id": 27,
+      "en_exp": "Surface area = 2(lw + lh + wh) = 2(8×6 + 8×4 + 6×4) = 2(48 + 32 + 24) = 208 cm².",
+      "id_q": "Balok dengan panjang 8 cm, lebar 6 cm, dan tinggi 4 cm. Luas permukaannya adalah...",
+      "ans": 1,
+      "id_exp": "LP = 2(pl + pt + lt) = 2(8×6 + 8×4 + 6×4) = 2(48 + 32 + 24) = 208 cm².",
+      "en_q": "A rectangular prism with length 8 cm, width 6 cm, and height 4 cm. Its surface area is...",
+      "options": [
+        "104 cm²",
+        "208 cm²",
+        "192 cm²",
+        "88 cm²"
+      ],
+      "image": "<svg viewBox=\"0 0 150 120\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20,60 L80,60 L100,40 L40,40 Z\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2\"/><path d=\"M20,60 L20,100 L80,100 L80,60\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2\"/><path d=\"M80,60 L80,100 L100,80 L100,40\" fill=\"none\" stroke=\"#7c3aed\" stroke-width=\"2\"/><text x=\"60\" y=\"130\" font-size=\"11\" text-anchor=\"middle\" fill=\"#7c3aed\">p=8, l=6, t=4 cm</text></svg>"
+    },
+    {
+      "id": 28,
+      "en_exp": "Simplify: 150% = 150/100 = 3/2 = 1.5. Divide: 12 ÷ 1.5 = 8.",
+      "id_q": "Berapakah 12 ÷ 150%?",
+      "ans": 2,
+      "id_exp": "Sederhanakan: 150% = 150/100 = 3/2 = 1,5. Bagi: 12 ÷ 1,5 = 8.",
+      "en_q": "What is 12 ÷ 150%?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "image": ""
+    },
+    {
+      "id": 29,
+      "en_exp": "The data sorted: 45, 50, 55, 60, 65, 70, 75. Median (middle) = 60.",
+      "id_q": "Data: 70, 55, 65, 45, 60, 50, 75. Berapakah median dari data tersebut?",
+      "ans": 0,
+      "id_exp": "Data diurutkan: 45, 50, 55, 60, 65, 70, 75. Median (tengah) = 60.",
+      "en_q": "Data: 70, 55, 65, 45, 60, 50, 75. What is the median of this data?",
+      "options": [
+        "60",
+        "55",
+        "65",
+        "70"
+      ],
+      "image": ""
+    },
+    {
+      "id": 30,
+      "en_exp": "The ratio of sugar to flour is 2:5. Total parts = 2 + 5 = 7 parts. Flour = 5/7 × 350g = 250g.",
+      "id_q": "Rasio gula terhadap tepung dalam suatu adonan adalah 2 : 5. Jika total berat keduanya 350 gram, berapakah berat tepungnya?",
+      "ans": 1,
+      "id_exp": "Rasio gula : tepung = 2:5. Total bagian = 2 + 5 = 7 bagian. Tepung = 5/7 × 350g = 250g.",
+      "en_q": "The ratio of sugar to flour in a dough is 2:5. If the total weight of both is 350 grams, what is the weight of the flour?",
+      "options": [
+        "100 gram",
+        "250 gram",
+        "150 gram",
+        "200 gram"
+      ],
+      "image": "<svg viewBox=\"0 0 200 80\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"20\" y=\"20\" width=\"70\" height=\"40\" fill=\"#f0f9ff\" stroke=\"#2563eb\" stroke-width=\"2\"/><text x=\"55\" y=\"45\" font-size=\"14\" text-anchor=\"middle\" fill=\"#2563eb\">Gula</text><text x=\"35\" y=\"70\" font-size=\"10\" fill=\"#2563eb\">2 bagian</text><rect x=\"110\" y=\"20\" width=\"70\" height=\"40\" fill=\"#fef3c7\" stroke=\"#d97706\" stroke-width=\"2\"/><text x=\"145\" y=\"45\" font-size=\"14\" text-anchor=\"middle\" fill=\"#d97706\">Tepung</text><text x=\"125\" y=\"70\" font-size=\"10\" fill=\"#d97706\">5 bagian</text></svg>"
+    }
+  ],
+  "grade": "6",
+  "firestore_id": "SAT_Kelas6_2026",
+  "difficulty": "Medium",
+  "duration": "3600",
+  "updatedAt": "2026-05-04T00:00:00.000000+00:00",
+  "type": "practice",
+  "createdBy": "5VjkeLYp6HNUnc2HR4J7g0qkg3q1"
+}

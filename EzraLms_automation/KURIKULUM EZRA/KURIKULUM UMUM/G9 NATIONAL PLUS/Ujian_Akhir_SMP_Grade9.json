@@ -1,0 +1,360 @@
+{
+  "createdAt": "2026-05-01T15:00:00Z",
+  "questionCount": 35,
+  "creatorName": "Antigravity AI",
+  "title": "Ujian Akhir Sekolah - Matematika SMP Kelas 9",
+  "subject": "Math",
+  "grade": "9",
+  "questions": [
+    {
+      "id": 1,
+      "en_q": "What is the value of $3^4 \\times 3^2$?",
+      "id_q": "Berapakah hasil dari $3^4 \\times 3^2$?",
+      "ans": 2,
+      "en_exp": "According to the exponent rule $a^m \\times a^n = a^{m+n}$. So, $3^4 \\times 3^2 = 3^{4+2} = 3^6 = 729$.",
+      "id_exp": "Berdasarkan aturan eksponen $a^m \\times a^n = a^{m+n}$. Maka, $3^4 \\times 3^2 = 3^{4+2} = 3^6 = 729$.",
+      "options": ["$3^2$", "$3^8$", "$3^6$", "$3^4$"],
+      "image": "null"
+    },
+    {
+      "id": 2,
+      "en_q": "Simplify $\\sqrt{72}$.",
+      "id_q": "Sederhanakan bentuk $\\sqrt{72}$.",
+      "ans": 0,
+      "en_exp": "$\\sqrt{72} = \\sqrt{36 \\times 2} = \\sqrt{36} \\times \\sqrt{2} = 6\\sqrt{2}$.",
+      "id_exp": "$\\sqrt{72} = \\sqrt{36 \\times 2} = \\sqrt{36} \\times \\sqrt{2} = 6\\sqrt{2}$.",
+      "options": ["$6\\sqrt{2}$", "$2\\sqrt{6}$", "$3\\sqrt{8}$", "$4\\sqrt{3}$"],
+      "image": "null"
+    },
+    {
+      "id": 3,
+      "en_q": "What is the value of $(2^3)^{-2}$?",
+      "id_q": "Berapakah hasil dari $(2^3)^{-2}$?",
+      "ans": 1,
+      "en_exp": "$(a^m)^n = a^{m \\times n}$. So $(2^3)^{-2} = 2^{3 \\times (-2)} = 2^{-6} = 1/2^6 = 1/64$.",
+      "id_exp": "$(a^m)^n = a^{m \\times n}$. Maka $(2^3)^{-2} = 2^{3 \\times (-2)} = 2^{-6} = 1/2^6 = 1/64$.",
+      "options": ["64", "1/64", "-64", "1/8"],
+      "image": "null"
+    },
+    {
+      "id": 4,
+      "en_q": "Calculate $5\\sqrt{3} + \\sqrt{27}$.",
+      "id_q": "Hitunglah hasil dari $5\\sqrt{3} + \\sqrt{27}$.",
+      "ans": 2,
+      "en_exp": "$\\sqrt{27} = \\sqrt{9 \\times 3} = 3\\sqrt{3}$. Then $5\\sqrt{3} + 3\\sqrt{3} = 8\\sqrt{3}$.",
+      "id_exp": "$\\sqrt{27} = \\sqrt{9 \\times 3} = 3\\sqrt{3}$. Maka $5\\sqrt{3} + 3\\sqrt{3} = 8\\sqrt{3}$.",
+      "options": ["$6\\sqrt{3}$", "$7\\sqrt{3}$", "$8\\sqrt{3}$", "$9\\sqrt{3}$"],
+      "image": "null"
+    },
+    {
+      "id": 5,
+      "en_q": "The scientific notation of 0.000025 is...",
+      "id_q": "Bentuk baku dari 0,000025 adalah...",
+      "ans": 0,
+      "en_exp": "Move the decimal 5 places to the right: $2.5 \\times 10^{-5}$.",
+      "id_exp": "Geser desimal 5 tempat ke kanan: $2,5 \\times 10^{-5}$.",
+      "options": ["$2.5 \\times 10^{-5}$", "$25 \\times 10^{-6}$", "$2.5 \\times 10^5$", "$0.25 \\times 10^{-4}$"],
+      "image": "null"
+    },
+    {
+      "id": 6,
+      "en_q": "What are the roots of the quadratic equation $x^2 - 5x + 6 = 0$?",
+      "id_q": "Akar-akar dari persamaan kuadrat $x^2 - 5x + 6 = 0$ adalah...",
+      "id_exp": "Faktorkan: $(x-2)(x-3) = 0$. Maka $x=2$ atau $x=3$.",
+      "en_exp": "Factor: $(x-2)(x-3) = 0$. So $x=2$ or $x=3$.",
+      "ans": 1,
+      "options": ["1 dan 6", "2 dan 3", "-2 dan -3", "0 dan 5"],
+      "image": "null"
+    },
+    {
+      "id": 7,
+      "en_q": "What is the discriminant of $x^2 + 4x + 4 = 0$?",
+      "id_q": "Berapakah nilai diskriminan dari $x^2 + 4x + 4 = 0$?",
+      "en_exp": "$D = b^2 - 4ac = 4^2 - 4(1)(4) = 16 - 16 = 0$.",
+      "id_exp": "$D = b^2 - 4ac = 4^2 - 4(1)(4) = 16 - 16 = 0$.",
+      "ans": 0,
+      "options": ["0", "4", "8", "16"],
+      "image": "null"
+    },
+    {
+      "id": 8,
+      "en_q": "If the discriminant is positive ($D > 0$), the quadratic equation has...",
+      "id_q": "Jika nilai diskriminan positif ($D > 0$), maka persamaan kuadrat memiliki...",
+      "en_exp": "$D > 0$ means the equation has two distinct real roots.",
+      "id_exp": "$D > 0$ berarti persamaan memiliki dua akar real yang berbeda.",
+      "ans": 0,
+      "options": ["Dua akar real berbeda", "Satu akar real (kembar)", "Tidak memiliki akar real", "Akar imajiner saja"],
+      "image": "null"
+    },
+    {
+      "id": 9,
+      "en_q": "What is the sum of the roots of $x^2 + 7x + 10 = 0$?",
+      "id_q": "Berapakah hasil jumlah akar-akar dari $x^2 + 7x + 10 = 0$?",
+      "en_exp": "$x_1 + x_2 = -b/a = -7/1 = -7$.",
+      "id_exp": "$x_1 + x_2 = -b/a = -7/1 = -7$.",
+      "ans": 3,
+      "options": ["10", "7", "0", "-7"],
+      "image": "null"
+    },
+    {
+      "id": 10,
+      "en_q": "What is the product of the roots of $x^2 - 6x + 8 = 0$?",
+      "id_q": "Berapakah hasil kali akar-akar dari $x^2 - 6x + 8 = 0$?",
+      "en_exp": "$x_1 \\times x_2 = c/a = 8/1 = 8$.",
+      "id_exp": "$x_1 \\times x_2 = c/a = 8/1 = 8$.",
+      "ans": 2,
+      "options": ["6", "-6", "8", "-8"],
+      "image": "null"
+    },
+    {
+      "id": 11,
+      "en_q": "The graph of $f(x) = x^2$ is called a...",
+      "id_q": "Grafik dari fungsi $f(x) = x^2$ disebut...",
+      "en_exp": "The graph of a quadratic function is a parabola.",
+      "id_exp": "Grafik fungsi kuadrat adalah sebuah parabola.",
+      "ans": 1,
+      "options": ["Hiperbola", "Parabola", "Elips", "Garis Lurus"],
+      "image": "null"
+    },
+    {
+      "id": 12,
+      "en_q": "The vertex (optimum point) of $f(x) = x^2 - 4x + 3$ is at $x = ...$",
+      "id_q": "Titik puncak (titik balik) dari $f(x) = x^2 - 4x + 3$ berada pada $x = ...$",
+      "en_exp": "$x = -b/(2a) = -(-4)/(2 \\times 1) = 4/2 = 2$.",
+      "id_exp": "$x = -b/(2a) = -(-4)/(2 \\times 1) = 4/2 = 2$.",
+      "ans": 2,
+      "options": ["-2", "0", "2", "4"],
+      "image": "null"
+    },
+    {
+      "id": 13,
+      "en_q": "If $a > 0$ in $f(x) = ax^2 + bx + c$, the parabola opens...",
+      "id_q": "Jika $a > 0$ pada $f(x) = ax^2 + bx + c$, maka parabola terbuka ke...",
+      "en_exp": "Positive leading coefficient ($a > 0$) means the parabola opens upwards.",
+      "id_exp": "Koefisien utama positif ($a > 0$) berarti parabola terbuka ke atas.",
+      "ans": 0,
+      "options": ["Atas", "Bawah", "Kiri", "Kanan"],
+      "image": "null"
+    },
+    {
+      "id": 14,
+      "en_q": "Where does the graph of $f(x) = x^2 - 9$ cross the y-axis?",
+      "id_q": "Di manakah grafik $f(x) = x^2 - 9$ memotong sumbu y?",
+      "en_exp": "To find y-intercept, set $x=0$: $f(0) = 0^2 - 9 = -9$. So at $(0, -9)$.",
+      "id_exp": "Untuk mencari perpotongan sumbu y, atur $x=0$: $f(0) = 0^2 - 9 = -9$. Jadi di $(0, -9)$.",
+      "ans": 3,
+      "options": ["(3, 0)", "(-3, 0)", "(0, 9)", "(0, -9)"],
+      "image": "null"
+    },
+    {
+      "id": 15,
+      "en_q": "What are the x-intercepts of $f(x) = x^2 - 4$?",
+      "id_q": "Apa saja titik potong sumbu x dari $f(x) = x^2 - 4$?",
+      "en_exp": "Set $f(x)=0$: $x^2-4=0 \\Rightarrow x^2=4 \\Rightarrow x= \\pm 2$.",
+      "id_exp": "Atur $f(x)=0$: $x^2-4=0 \\Rightarrow x^2=4 \\Rightarrow x= \\pm 2$.",
+      "ans": 0,
+      "options": ["(2, 0) dan (-2, 0)", "(4, 0) dan (-4, 0)", "(0, 2) dan (0, -2)", "(0, 0)"],
+      "image": "null"
+    },
+    {
+      "id": 16,
+      "en_q": "Translate point $A(2, 3)$ by vector $T(1, -2)$. The new coordinates are...",
+      "id_q": "Translasikan titik $A(2, 3)$ oleh vektor $T(1, -2)$. Koordinat barunya adalah...",
+      "en_exp": "$A' = (x+tx, y+ty) = (2+1, 3-2) = (3, 1)$.",
+      "id_exp": "$A' = (x+tx, y+ty) = (2+1, 3-2) = (3, 1)$.",
+      "ans": 1,
+      "options": ["(1, 5)", "(3, 1)", "(2, 1)", "(3, 5)"],
+      "image": "null"
+    },
+    {
+      "id": 17,
+      "en_q": "Reflect point $P(-4, 5)$ across the y-axis. The result is...",
+      "id_q": "Refleksikan titik $P(-4, 5)$ terhadap sumbu y. Hasilnya adalah...",
+      "en_exp": "Reflection across y-axis: $(x, y) \\rightarrow (-x, y)$. So $(-(-4), 5) = (4, 5)$.",
+      "id_exp": "Refleksi terhadap sumbu y: $(x, y) \\rightarrow (-x, y)$. Jadi $(-(-4), 5) = (4, 5)$.",
+      "ans": 0,
+      "options": ["(4, 5)", "(-4, -5)", "(4, -5)", "(5, -4)"],
+      "image": "null"
+    },
+    {
+      "id": 18,
+      "en_q": "Reflect point $Q(1, 2)$ across the line $y = x$. The result is...",
+      "id_q": "Refleksikan titik $Q(1, 2)$ terhadap garis $y = x$. Hasilnya adalah...",
+      "en_exp": "Reflection across $y=x$: $(x, y) \\rightarrow (y, x)$. So $(2, 1)$.",
+      "id_exp": "Refleksi terhadap $y=x$: $(x, y) \\rightarrow (y, x)$. Jadi $(2, 1)$.",
+      "ans": 2,
+      "options": ["(-1, -2)", "(-2, -1)", "(2, 1)", "(1, 2)"],
+      "image": "null"
+    },
+    {
+      "id": 19,
+      "en_q": "Rotate point $R(3, 4)$ by $90^\\circ$ counter-clockwise about the origin $(0,0)$.",
+      "id_q": "Rotasikan titik $R(3, 4)$ sebesar $90^\\circ$ berlawanan arah jarum jam terhadap titik pusat $(0,0)$.",
+      "en_exp": "Rotation $90^\\circ$ CCW: $(x, y) \\rightarrow (-y, x)$. So $(-4, 3)$.",
+      "id_exp": "Rotasi $90^\\circ$ berlawanan arah jarum jam: $(x, y) \\rightarrow (-y, x)$. Jadi $(-4, 3)$.",
+      "ans": 3,
+      "options": ["(4, 3)", "(3, -4)", "(-3, 4)", "(-4, 3)"],
+      "image": "null"
+    },
+    {
+      "id": 20,
+      "en_q": "Dilate point $S(2, -1)$ from the origin by a scale factor of 3.",
+      "id_q": "Dilatasikan titik $S(2, -1)$ dari titik pusat dengan faktor skala 3.",
+      "en_exp": "Dilation: $(x, y) \\rightarrow (kx, ky) = (3 \\times 2, 3 \\times (-1)) = (6, -3)$.",
+      "id_exp": "Dilatasi: $(x, y) \\rightarrow (kx, ky) = (3 \\times 2, 3 \\times (-1)) = (6, -3)$.",
+      "ans": 0,
+      "options": ["(6, -3)", "(5, 2)", "(2/3, -1/3)", "(6, 3)"],
+      "image": "null"
+    },
+    {
+      "id": 21,
+      "en_q": "If a point $(x, y)$ is reflected across the x-axis, its new coordinates are...",
+      "id_q": "Jika sebuah titik $(x, y)$ direfleksikan terhadap sumbu x, koordinat barunya adalah...",
+      "en_exp": "Reflection across x-axis: $(x, y) \\rightarrow (x, -y)$.",
+      "id_exp": "Refleksi terhadap sumbu x: $(x, y) \\rightarrow (x, -y)$.",
+      "ans": 1,
+      "options": ["(-x, y)", "(x, -y)", "(-x, -y)", "(y, x)"],
+      "image": "null"
+    },
+    {
+      "id": 22,
+      "en_q": "A rotation of $180^\\circ$ about the origin transforms $(x, y)$ to...",
+      "id_q": "Rotasi sebesar $180^\\circ$ terhadap titik pusat mengubah $(x, y)$ menjadi...",
+      "en_exp": "Rotation $180^\\circ$: $(x, y) \\rightarrow (-x, -y)$.",
+      "id_exp": "Rotasi $180^\\circ$: $(x, y) \\rightarrow (-x, -y)$.",
+      "ans": 2,
+      "options": ["(y, -x)", "(-y, x)", "(-x, -y)", "(x, y)"],
+      "image": "null"
+    },
+    {
+      "id": 23,
+      "en_q": "Which transformation does NOT preserve the size of the original figure?",
+      "id_q": "Transformasi manakah yang TIDAK mempertahankan ukuran bangun aslinya?",
+      "en_exp": "Dilation changes the size of the figure. Translation, reflection, and rotation are rigid transformations.",
+      "id_exp": "Dilatasi mengubah ukuran bangun. Translasi, refleksi, dan rotasi adalah transformasi kaku (rigid).",
+      "ans": 3,
+      "options": ["Translasi", "Refleksi", "Rotasi", "Dilatasi"],
+      "image": "null"
+    },
+    {
+      "id": 24,
+      "en_q": "A point $M(2, 1)$ is reflected across $x = 3$. The result is...",
+      "id_q": "Titik $M(2, 1)$ direfleksikan terhadap garis $x = 3$. Hasilnya adalah...",
+      "en_exp": "Reflection across $x=h$: $(2h-x, y)$. So $(2 \\times 3 - 2, 1) = (6-2, 1) = (4, 1)$.",
+      "id_exp": "Refleksi terhadap $x=h$: $(2h-x, y)$. Jadi $(2 \\times 3 - 2, 1) = (6-2, 1) = (4, 1)$.",
+      "ans": 0,
+      "options": ["(4, 1)", "(1, 1)", "(5, 1)", "(3, 1)"],
+      "image": "null"
+    },
+    {
+      "id": 25,
+      "en_q": "Dilate $P(10, -5)$ by factor $k = 1/5$ about origin.",
+      "id_q": "Dilatasi $P(10, -5)$ dengan faktor $k = 1/5$ terhadap titik pusat.",
+      "en_exp": "$(10/5, -5/5) = (2, -1)$.",
+      "id_exp": "$(10/5, -5/5) = (2, -1)$.",
+      "ans": 1,
+      "options": ["(5, -1)", "(2, -1)", "(10, -1)", "(2, -5)"],
+      "image": "null"
+    },
+    {
+      "id": 26,
+      "en_q": "Two triangles are congruent if...",
+      "id_q": "Dua segitiga dikatakan kongruen jika...",
+      "en_exp": "Congruent means they have the same shape and same size.",
+      "id_exp": "Kongruen berarti memiliki bentuk dan ukuran yang sama.",
+      "ans": 0,
+      "options": ["Bentuk dan ukuran sama", "Hanya bentuk sama", "Hanya ukuran sama", "Hanya sudut sama"],
+      "image": "null"
+    },
+    {
+      "id": 27,
+      "en_q": "Two figures are similar if their corresponding angles are equal and their corresponding sides are...",
+      "id_q": "Dua bangun dikatakan sebangun jika sudut-sudut yang bersesuaian sama besar dan sisi-sisi yang bersesuaian...",
+      "en_exp": "Similar figures have proportional corresponding sides.",
+      "id_exp": "Bangun yang sebangun memiliki sisi-sisi yang bersesuaian yang sebanding.",
+      "ans": 2,
+      "options": ["Sama panjang", "Tidak beraturan", "Sebanding (Proporsional)", "Tegak lurus"],
+      "image": "null"
+    },
+    {
+      "id": 28,
+      "en_q": "A pole 2m high casts a 3m shadow. At the same time, a tree casts a 15m shadow. How tall is the tree?",
+      "id_q": "Sebuah tiang tinggi 2m memiliki bayangan 3m. Pada saat yang sama, sebuah pohon memiliki bayangan 15m. Berapakah tinggi pohon tersebut?",
+      "en_exp": "Use ratio: $2/3 = h/15 \\Rightarrow 3h = 30 \\Rightarrow h = 10m$.",
+      "id_exp": "Gunakan perbandingan: $2/3 = h/15 \\Rightarrow 3h = 30 \\Rightarrow h = 10m$.",
+      "ans": 1,
+      "options": ["8m", "10m", "12m", "20m"],
+      "image": "null"
+    },
+    {
+      "id": 29,
+      "en_q": "In a right triangle, a line parallel to the base creates a smaller triangle that is...",
+      "id_q": "Dalam segitiga siku-siku, garis yang sejajar dengan alas menciptakan segitiga kecil yang...",
+      "en_exp": "A line parallel to one side of a triangle creates a smaller triangle similar to the original.",
+      "id_exp": "Garis yang sejajar dengan salah satu sisi segitiga menciptakan segitiga kecil yang sebangun dengan segitiga aslinya.",
+      "ans": 0,
+      "options": ["Sebangun", "Kongruen", "Sama sisi", "Tidak berhubungan"],
+      "image": "null"
+    },
+    {
+      "id": 30,
+      "en_q": "The condition SSS (Side-Side-Side) is used to prove...",
+      "id_q": "Syarat SSS (Sisi-Sisi-Sisi) digunakan untuk membuktikan...",
+      "en_exp": "SSS is a criterion for congruence.",
+      "id_exp": "SSS adalah kriteria untuk kekongruenan.",
+      "ans": 1,
+      "options": ["Kesebangunan saja", "Kekongruenan", "Kesimetrisan", "Kelurusan"],
+      "image": "null"
+    },
+    {
+      "id": 31,
+      "en_q": "What is the volume of a cylinder with radius 7cm and height 10cm? (Use $\\pi = 22/7$)",
+      "id_q": "Berapakah volume tabung dengan jari-jari 7cm dan tinggi 10cm? (Gunakan $\\pi = 22/7$)",
+      "en_exp": "$V = \\pi r^2 h = (22/7) \\times 7 \\times 7 \\times 10 = 22 \\times 7 \\times 10 = 1540 cm^3$.",
+      "id_exp": "$V = \\pi r^2 h = (22/7) \\times 7 \\times 7 \\times 10 = 22 \\times 7 \\times 10 = 1540 cm^3$.",
+      "ans": 2,
+      "options": ["154 cm³", "770 cm³", "1540 cm³", "3080 cm³"],
+      "image": "null"
+    },
+    {
+      "id": 32,
+      "en_q": "The formula for the volume of a cone is...",
+      "id_q": "Rumus volume kerucut adalah...",
+      "en_exp": "$V = (1/3) \\pi r^2 h$.",
+      "id_exp": "$V = (1/3) \\pi r^2 h$.",
+      "ans": 1,
+      "options": ["$\\pi r^2 h$", "$(1/3) \\pi r^2 h$", "$(4/3) \\pi r^3$", "$\\pi r (r + s)$"],
+      "image": "null"
+    },
+    {
+      "id": 33,
+      "en_q": "What is the surface area of a sphere with radius 7cm? (Use $\\pi = 22/7$)",
+      "id_q": "Berapakah luas permukaan bola dengan jari-jari 7cm? (Gunakan $\\pi = 22/7$)",
+      "en_exp": "$L = 4 \\pi r^2 = 4 \\times (22/7) \\times 7 \\times 7 = 4 \\times 22 \\times 7 = 616 cm^2$.",
+      "id_exp": "$L = 4 \\pi r^2 = 4 \\times (22/7) \\times 7 \\times 7 = 4 \\times 22 \\times 7 = 616 cm^2$.",
+      "ans": 0,
+      "options": ["616 cm²", "154 cm²", "308 cm²", "1232 cm²"],
+      "image": "null"
+    },
+    {
+      "id": 34,
+      "en_q": "A cone has base radius 6cm and slant height (s) 10cm. What is its lateral surface area?",
+      "id_q": "Sebuah kerucut memiliki jari-jari alas 6cm dan garis pelukis (s) 10cm. Berapakah luas selimutnya? (Gunakan $\\pi = 3.14$)",
+      "en_exp": "$L_{selimut} = \\pi r s = 3.14 \\times 6 \\times 10 = 188.4 cm^2$.",
+      "id_exp": "$L_{selimut} = \\pi r s = 3.14 \\times 6 \\times 10 = 188.4 cm^2$.",
+      "ans": 3,
+      "options": ["113.04 cm²", "314 cm²", "60 cm²", "188.4 cm²"],
+      "image": "null"
+    },
+    {
+      "id": 35,
+      "en_q": "Calculate the volume of a sphere with radius 3cm. (Use $\\pi = 3.14$)",
+      "id_q": "Hitunglah volume bola dengan jari-jari 3cm. (Gunakan $\\pi = 3.14$)",
+      "en_exp": "$V = (4/3) \\pi r^3 = (4/3) \\times 3.14 \\times 3 \\times 3 \\times 3 = 4 \\times 3.14 \\times 9 = 113.04 cm^3$.",
+      "id_exp": "$V = (4/3) \\pi r^3 = (4/3) \\times 3.14 \\times 3 \\times 3 \\times 3 = 4 \\times 3.14 \\times 9 = 113.04 cm^3$.",
+      "ans": 0,
+      "options": ["113.04 cm³", "37.68 cm³", "150.72 cm³", "28.26 cm³"],
+      "image": "null"
+    }
+  ]
+}

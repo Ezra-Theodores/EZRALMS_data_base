@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integer Operations - G4 SMPK</title>
+    <style>
+        :root {
+            --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+            --color-border-tertiary: #e0e0e0;
+            --color-border-secondary: #ccc;
+            --color-border-primary: #333;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --color-text-primary: #222;
+            --color-text-secondary: #555;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: #f0f2f5; color: var(--color-text-primary); }
+
+        .wrap { padding: 0 0 2rem; max-width: 820px; margin: 20px auto; background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        .topbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 20px; border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .lang-btn {
+            display: flex; gap: 4px; background: var(--color-background-secondary);
+            border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md);
+            overflow: hidden; padding: 2px;
+        }
+        .lang-btn button {
+            padding: 6px 14px; font-size: 13px; font-weight: 500; border: none;
+            border-radius: 6px; cursor: pointer; background: transparent;
+            color: var(--color-text-secondary); transition: all 0.15s;
+        }
+        .lang-btn button.active {
+            background: var(--color-background-primary);
+            color: var(--color-text-primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo { height: 40px; object-fit: contain; }
+
+        .hero {
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFF3E0 100%);
+            padding: 28px 24px 20px;
+            text-align: center;
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .hero h1 { font-size: 28px; font-weight: 500; color: var(--color-text-primary); }
+        .hero p { font-size: 15px; color: var(--color-text-secondary); margin-top: 6px; }
+
+        .tabs {
+            display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary);
+            padding: 0 20px; background: var(--color-background-primary);
+            overflow-x: auto;
+        }
+        .tab-btn {
+            padding: 12px 18px; font-size: 14px; font-weight: 500; border: none;
+            background: transparent; cursor: pointer; color: var(--color-text-secondary);
+            border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap;
+            transition: all 0.15s;
+        }
+        .tab-btn.active { color: #1565C0; border-bottom-color: #1565C0; }
+
+        .section { display: none; padding: 24px 20px; }
+        .section.active { display: block; }
+
+        .card {
+            background: var(--color-background-primary);
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg);
+            padding: 20px; margin-bottom: 16px;
+        }
+        .card h2 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; }
+        .card p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; }
+
+        .number-line {
+            position: relative; height: 80px; margin: 20px 0;
+            background: var(--color-background-secondary);
+            border-radius: var(--border-radius-md); padding: 10px 20px;
+        }
+        .line-container { position: relative; height: 40px; }
+        .line {
+            position: absolute; top: 50%; left: 0; right: 0; height: 3px;
+            background: #1565C0; transform: translateY(-50%);
+        }
+        .number-marker {
+            position: absolute; top: 50%; transform: translate(-50%, -50%);
+            width: 32px; height: 32px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 14px; font-weight: 500;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .number-marker.positive { background: #E3F2FD; color: #1565C0; border: 2px solid #1565C0; }
+        .number-marker.negative { background: #FFEBEE; color: #C62828; border: 2px solid #C62828; }
+        .number-marker.zero { background: #E8F5E9; color: #2E7D32; border: 2px solid #2E7D32; }
+        .number-marker:hover { transform: translate(-50%, -50%) scale(1.2); }
+
+        .number-display {
+            text-align: center; font-size: 48px; font-weight: 500;
+            padding: 16px; margin: 16px 0; border-radius: var(--border-radius-md);
+        }
+        .number-display.positive { background: #E3F2FD; color: #1565C0; }
+        .number-display.negative { background: #FFEBEE; color: #C62828; }
+        .number-display.zero { background: #E8F5E9; color: #2E7D32; }
+
+        .slider-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .slider-row label { font-size: 13px; color: var(--color-text-secondary); width: 100px; }
+        .slider-row input { flex: 1; }
+        .slider-row span { font-size: 14px; font-weight: 500; min-width: 28px; }
+
+        .example-box {
+            background: var(--color-background-secondary);
+            border: 2px solid #1565C0;
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        .example-box .operation { font-size: 32px; font-weight: 500; margin: 8px 0; }
+        .example-box .result { font-size: 36px; font-weight: 500; color: #1565C0; }
+
+        .life-example {
+            background: #FFF8E1;
+            border: 0.5px solid #FFB74D;
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+            margin: 12px 0;
+        }
+        .life-example h4 { font-size: 14px; color: #E65100; margin-bottom: 8px; }
+        .life-example p { font-size: 14px; color: #555; line-height: 1.6; }
+
+        .q-card {
+            background: var(--color-background-primary);
+            border: 0.5px solid var(--color-border-tertiary);
+            border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 12px;
+        }
+        .q-card h3 { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 14px; }
+        .answer-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .ans-btn {
+            padding: 10px 20px; border: 0.5px solid var(--color-border-secondary);
+            border-radius: var(--border-radius-md); background: var(--color-background-secondary);
+            font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.15s;
+            color: var(--color-text-primary);
+        }
+        .ans-btn:hover { background: var(--color-background-primary); border-color: #1565C0; }
+        .ans-btn.correct { background: #E8F5E9; border-color: #2E7D32; color: #1B5E20; }
+        .ans-btn.wrong { background: #FFEBEE; border-color: #C62828; color: #B71C1C; }
+
+        .feedback {
+            padding: 12px 16px; border-radius: var(--border-radius-md); font-size: 14px;
+            line-height: 1.6; margin-top: 8px; display: none;
+        }
+        .feedback.show { display: block; }
+        .feedback.correct { background: #E8F5E9; color: #1B5E20; border: 0.5px solid #2E7D32; }
+        .feedback.wrong { background: #FFEBEE; color: #B71C1C; border: 0.5px solid #C62828; }
+
+        .score-bar {
+            display: flex; align-items: center; gap: 12px; padding: 12px 20px;
+            background: var(--color-background-secondary);
+            border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .score-badge {
+            background: #E3F2FD; color: #1565C0; border-radius: var(--border-radius-md);
+            padding: 4px 12px; font-size: 13px; font-weight: 500;
+        }
+        .progress-wrap { flex: 1; height: 6px; background: var(--color-border-tertiary); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #1565C0; border-radius: 3px; transition: width 0.3s; }
+
+        .section-title {
+            font-size: 19px; font-weight: 500; color: var(--color-text-primary);
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #1565C0; display: inline-block; }
+
+        .tip-box {
+            background: #E3F2FD; border: 0.5px solid #90CAF9; border-radius: var(--border-radius-md);
+            padding: 12px 16px; font-size: 14px; color: #0D47A1; margin-top: 12px;
+        }
+
+        .icon-emoji { font-size: 24px; margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="topbar">
+        <div class="lang-btn">
+            <button class="active" onclick="setLang('en')" id="btn-en">English</button>
+            <button onclick="setLang('id')" id="btn-id">Indonesia</button>
+        </div>
+        <img class="logo" src="https://i.imgur.com/3lLW585.png" alt="Logo" onerror="this.style.display='none'">
+    </div>
+
+    <div class="hero">
+        <h1 id="h-title">Integer Operations</h1>
+        <p id="h-sub">Cambridge Grade 4 Mathematics — Number and Operations</p>
+    </div>
+
+    <div class="score-bar">
+        <span class="score-badge" id="score-label">Score: 0 / 0</span>
+        <div class="progress-wrap"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+        <span style="font-size:13px;color:var(--color-text-secondary)" id="prog-label">0%</span>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab(0)" id="tab0">Understanding</button>
+        <button class="tab-btn" onclick="showTab(1)" id="tab1">Addition</button>
+        <button class="tab-btn" onclick="showTab(2)" id="tab2">Subtraction</button>
+        <button class="tab-btn" onclick="showTab(3)" id="tab3">Applications</button>
+        <button class="tab-btn" onclick="showTab(4)" id="tab4">Practice</button>
+    </div>
+
+    <div class="section active" id="sec0">
+        <div class="section-title"><span class="dot"></span> <span id="t0-title">Understanding Integers</span></div>
+        <div class="card">
+            <p id="t0-intro"><strong>Integers</strong> are whole numbers that can be positive (+), negative (-), or zero (0). We use integers every day!</p>
+        </div>
+
+        <div class="card">
+            <h2 id="t0-try">Number Line</h2>
+            <div class="number-line">
+                <div style="display:flex;justify-content:space-between;padding:0 10px;margin-bottom:4px">
+                    <span style="font-size:12px;color:#C62828">-5</span>
+                    <span style="font-size:12px;color:#C62828">-4</span>
+                    <span style="font-size:12px;color:#C62828">-3</span>
+                    <span style="font-size:12px;color:#C62828">-2</span>
+                    <span style="font-size:12px;color:#C62828">-1</span>
+                    <span style="font-size:12px;color:#2E7D32">0</span>
+                    <span style="font-size:12px;color:#1565C0">1</span>
+                    <span style="font-size:12px;color:#1565C0">2</span>
+                    <span style="font-size:12px;color:#1565C0">3</span>
+                    <span style="font-size:12px;color:#1565C0">4</span>
+                    <span style="font-size:12px;color:#1565C0">5</span>
+                </div>
+                <div class="line-container">
+                    <div class="line"></div>
+                    <div class="number-marker negative" style="left:8%" onclick="selectNum(-5)">-5</div>
+                    <div class="number-marker negative" style="left:17%" onclick="selectNum(-4)">-4</div>
+                    <div class="number-marker negative" style="left:25%" onclick="selectNum(-3)">-3</div>
+                    <div class="number-marker negative" style="left:34%" onclick="selectNum(-2)">-2</div>
+                    <div class="number-marker negative" style="left:42%" onclick="selectNum(-1)">-1</div>
+                    <div class="number-marker zero" style="left:50%" onclick="selectNum(0)">0</div>
+                    <div class="number-marker positive" style="left:58%" onclick="selectNum(1)">1</div>
+                    <div class="number-marker positive" style="left:67%" onclick="selectNum(2)">2</div>
+                    <div class="number-marker positive" style="left:75%" onclick="selectNum(3)">3</div>
+                    <div class="number-marker positive" style="left:84%" onclick="selectNum(4)">4</div>
+                    <div class="number-marker positive" style="left:92%" onclick="selectNum(5)">5</div>
+                </div>
+            </div>
+            <div class="number-display" id="num-display">
+                <span id="selected-num">0</span>
+            </div>
+            <p style="text-align:center;font-size:14px;color:#555" id="num-desc">Tap a number on the line!</p>
+        </div>
+
+        <div class="card">
+            <h2 id="t0-rule">Rules</h2>
+            <div class="tip-box" id="t0-tip1"><span class="icon-emoji">📈</span>Positive numbers: above zero (gain, profit, above sea level)</div>
+            <div class="tip-box" id="t0-tip2"><span class="icon-emoji">📉</span>Negative numbers: below zero (loss, debt, below sea level)</div>
+            <div class="tip-box" id="t0-tip3"><span class="icon-emoji">0️⃣</span>Zero: neither positive nor negative</div>
+        </div>
+    </div>
+
+    <div class="section" id="sec1">
+        <div class="section-title"><span class="dot"></span> <span id="t1-title">Adding Integers</span></div>
+        <div class="card">
+            <p id="t1-intro">When adding integers, we consider the signs!</p>
+        </div>
+
+        <div class="card">
+            <h2 id="t1-same">Same Signs → Add & Keep</h2>
+            <div class="example-box">
+                <div class="operation" id="t1-eg1">(+3) + (+5) = ?</div>
+                <div class="result" id="t1-ans1">+8</div>
+            </div>
+            <div class="example-box">
+                <div class="operation" id="t1-eg2">(−3) + (−5) = ?</div>
+                <div class="result" id="t1-ans2">−8</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 id="t1-diff">Different Signs → Subtract & Keep the Sign of the Larger</h2>
+            <div class="example-box">
+                <div class="operation" id="t1-eg3">(+7) + (−3) = ?</div>
+                <div class="result" id="t1-ans3">+4</div>
+            </div>
+            <div class="example-box">
+                <div class="operation" id="t1-eg4">(−7) + (+3) = ?</div>
+                <div class="result" id="t1-ans4">−4</div>
+            </div>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t1-life1">🛒 Shopping Example</h4>
+            <p id="t1-life1-desc">Sarah has Rp 50,000. She buys a book for Rp 75,000. Her account balance is: 50,000 + (−75,000) = −25,000. She is Rp 25,000 in debt!</p>
+        </div>
+    </div>
+
+    <div class="section" id="sec2">
+        <div class="section-title"><span class="dot"></span> <span id="t2-title">Subtracting Integers</span></div>
+        <div class="card">
+            <p id="t2-intro">Subtracting an integer is the same as adding its opposite!</p>
+            <div class="tip-box" id="t2-rule">a − b = a + (−b)</div>
+        </div>
+
+        <div class="card">
+            <h2 id="t2-eg">Examples</h2>
+            <div class="example-box">
+                <div class="operation" id="t2-eg1">(+5) − (+3) = ?</div>
+                <div class="result" id="t2-ans1">+2</div>
+            </div>
+            <div class="example-box">
+                <div class="operation" id="t2-eg2">(−5) − (−3) = ?</div>
+                <div class="result" id="t2-ans2">−2</div>
+            </div>
+            <div class="example-box">
+                <div class="operation" id="t2-eg3">(+5) − (−3) = ?</div>
+                <div class="result" id="t2-ans3">+8</div>
+            </div>
+            <div class="example-box">
+                <div class="operation" id="t2-eg4">(−5) − (+3) = ?</div>
+                <div class="result" id="t2-ans4">−8</div>
+            </div>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t2-life1">🌡️ Temperature Example</h4>
+            <p id="t2-life1-desc">The temperature at 6 AM is +5°C. By noon, it drops 8 degrees. The temperature is: 5 − 8 = −3°C. Brrr, it's below freezing!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t2-life2">💰 Money Example</h4>
+            <p id="t2-life2-desc">Andi has Rp 20,000. He owes Budi Rp 30,000. His net worth is: 20,000 + (−30,000) = −10,000. He has a debt of Rp 10,000!</p>
+        </div>
+    </div>
+
+    <div class="section" id="sec3">
+        <div class="section-title"><span class="dot"></span> <span id="t3-title">Real Life Applications</span></div>
+
+        <div class="life-example">
+            <h4 id="t3-life1">🏔️ Altitude</h4>
+            <p id="t3-life1-desc">Mount Everest is +8,849m above sea level. The Dead Sea is −430m below sea level. The difference is 8,849 − (−430) = 9,279 meters!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t3-life2">📅 Seasons</h4>
+            <p id="t3-life2-desc">In winter, Jakarta might be 32°C, while snowy mountains are −5°C. The difference is 32 − (−5) = 37°C!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t3-life3">📊 Business</h4>
+            <p id="t3-life3-desc">A store earned Rp 1,000,000 last month but lost Rp 300,000 this month. Profit: 1,000,000 + (−300,000) = +700,000</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t3-life4">🎮 Game Scores</h4>
+            <p id="t3-life4-desc">In a game, you gain +50 points for collecting coins but lose −30 points for falling. Net gain: 50 + (−30) = +20 points!</p>
+        </div>
+
+        <div class="life-example">
+            <h4 id="t3-life5">📏 Depth</h4>
+            <p id="t3-life5-desc">A submarine is 200m below sea level (−200m). It rises 80m. Now it's at: −200 + 80 = −120m below sea level.</p>
+        </div>
+    </div>
+
+    <div class="section" id="sec4">
+        <div class="section-title"><span class="dot"></span> <span id="t4-title">Practice Quiz</span></div>
+
+        <div class="q-card">
+            <h3 id="q1-text">Q1. What is (+8) + (−3)?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1a">−11</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1b">−5</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'correct','q1fb')" id="q1c">+5</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1d">+11</button>
+            </div>
+            <div class="feedback" id="q1fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q2-text">Q2. What is (−6) − (−2)?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2a">−8</button>
+                <button class="ans-btn" onclick="mcq('q2',this,'correct','q2fb')" id="q2b">−4</button>
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2c">+4</button>
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2d">+8</button>
+            </div>
+            <div class="feedback" id="q2fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q3-text">Q3. The temperature was −3°C, then increased by 8 degrees. What's the new temperature?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3a">−11°C</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3b">−5°C</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'correct','q3fb')" id="q3c">+5°C</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3d">+11°C</button>
+            </div>
+            <div class="feedback" id="q3fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q4-text">Q4. Adi has Rp 15,000 and owes Rp 20,000. What's his net worth?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4a">+35,000</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'correct','q4fb')" id="q4b">−5,000</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4c">+5,000</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4d">−35,000</button>
+            </div>
+            <div class="feedback" id="q4fb"></div>
+        </div>
+
+        <div class="q-card">
+            <h3 id="q5-text">Q5. A submarine was at −150m, then dived 50m deeper. Where is it now?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5a">−100m</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5b">−200m</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'correct','q5fb')" id="q5c">−200m</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5d">+100m</button>
+            </div>
+            <div class="feedback" id="q5fb"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let lang = 'en';
+    let score = 0, total = 0;
+    const answered = {};
+
+    const TX = {
+        en: {
+            htitle:'Integer Operations', hsub:'Cambridge Grade 4 Mathematics — Number and Operations',
+            tab0:'Understanding', tab1:'Addition', tab2:'Subtraction', tab3:'Applications', tab4:'Practice',
+            score:'Score',
+            t0title:'Understanding Integers', t0intro:'Integers are whole numbers that can be positive (+), negative (-), or zero (0). We use integers every day!',
+            t0try:'Number Line', t0rule:'Rules',
+            t0tip1:'Positive numbers: above zero (gain, profit, above sea level)',
+            t0tip2:'Negative numbers: below zero (loss, debt, below sea level)',
+            t0tip3:'Zero: neither positive nor negative',
+            t1title:'Adding Integers', t1intro:'When adding integers, we consider the signs!',
+            t1same:'Same Signs → Add & Keep', t1eg1:'(+3) + (+5) = ?', t1ans1:'+8',
+            t1eg2:'(-3) + (-5) = ?', t1ans2:'-8',
+            t1diff:'Different Signs → Subtract & Keep Larger Sign', t1eg3:'(+7) + (-3) = ?', t1ans3:'+4',
+            t1eg4:'(-7) + (+3) = ?', t1ans4:'-4',
+            t1life1:'Shopping Example', t1life1desc:'Sarah has Rp 50,000. She buys a book for Rp 75,000. Her account balance is: 50,000 + (-75,000) = -25,000. She is Rp 25,000 in debt!',
+            t2title:'Subtracting Integers', t2intro:'Subtracting an integer is the same as adding its opposite!',
+            t2rule:'a - b = a + (-b)', t2eg:'Examples',
+            t2eg1:'(+5) - (+3) = ?', t2ans1:'+2',
+            t2eg2:'(-5) - (-3) = ?', t2ans2:'-2',
+            t2eg3:'(+5) - (-3) = ?', t2ans3:'+8',
+            t2eg4:'(-5) - (+3) = ?', t2ans4:'-8',
+            t2life1:'Temperature Example', t2life1desc:'The temperature at 6 AM is +5C. By noon, it drops 8 degrees. The temperature is: 5 - 8 = -3C. Brrr, its below freezing!',
+            t2life2:'Money Example', t2life2desc:'Andi has Rp 20,000. He owes Budi Rp 30,000. His net worth is: 20,000 + (-30,000) = -10,000. He has a debt of Rp 10,000!',
+            t3title:'Real Life Applications',
+            t3life1:'Altitude', t3life1desc:'Mount Everest is +8,849m above sea level. The Dead Sea is -430m below sea level. The difference is 8,849 - (-430) = 9,279 meters!',
+            t3life2:'Seasons', t3life2desc:'In winter, Jakarta might be 32C, while snowy mountains are -5C. The difference is 32 - (-5) = 37C!',
+            t3life3:'Business', t3life3desc:'A store earned Rp 1,000,000 last month but lost Rp 300,000 this month. Profit: 1,000,000 + (-300,000) = +700,000',
+            t3life4:'Game Scores', t3life4desc:'In a game, you gain +50 points for collecting coins but lose -30 points for falling. Net gain: 50 + (-30) = +20 points!',
+            t3life5:'Depth', t3life5desc:'A submarine is 200m below sea level (-200m). It rises 80m. Now its at: -200 + 80 = -120m below sea level.',
+            t4title:'Practice Quiz',
+            q1:'Q1. What is (+8) + (-3)?', q1a:'-11', q1b:'-5', q1c:'+5', q1d:'+11', q1cr:'Correct! 8 - 3 = 5', q1wr:'Wrong. Add 8 and subtract 3 = 5',
+            q2:'Q2. What is (-6) - (-2)?', q2a:'-8', q2b:'-4', q2c:'+4', q2d:'+8', q2cr:'Correct! -6 + 2 = -4', q2wr:'Wrong. -6 - (-2) = -6 + 2 = -4',
+            q3:'Q3. Temperature was -3C, increased by 8. New temp?', q3a:'-11C', q3b:'-5C', q3c:'+5C', q3d:'+11C', q3cr:'Correct! -3 + 8 = +5', q3wr:'Wrong. -3 + 8 = 5 degrees',
+            q4:'Q4. Has Rp 15,000, owes Rp 20,000. Net worth?', q4a:'+35,000', q4b:'-5,000', q4c:'+5,000', q4d:'-35,000', q4cr:'Correct! 15,000 + (-20,000) = -5,000', q4wr:'Wrong. 15,000 - 20,000 = -5,000',
+            q5:'Q5. Sub at -150m, dives 50m deeper. Where?', q5a:'-100m', q5b:'-200m', q5c:'-200m', q5d:'+100m', q5cr:'Correct! -150 + (-50) = -200', q5wr:'Wrong. -150 - 50 = -200m'
+        },
+        id: {
+            htitle:'Operasi Bilangan Bulat', hsub:'Matematika Cambridge Kelas 4 — Bilangan dan Operasi',
+            tab0:'Memahami', tab1:'Penjumlahan', tab2:'Pengurangan', tab3:'Penerapan', tab4:'Latihan',
+            score:'Skor',
+            t0title:'Memahami Bilangan Bulat', t0intro:'Bilangan bulat adalah angka keseluruhan yang bisa positif (+), negatif (-), atau nol (0). Kita pakai bilangan bulat setiap hari!',
+            t0try:'Garis Bilangan', t0rule:'Aturan',
+            t0tip1:'Bilangan positif: di atas nol (untung, profit, di atas permukaan laut)',
+            t0tip2:'Bilangan negatif: di bawah nol (rugi, hutang, di bawah permukaan laut)',
+            t0tip3:'Nol: bukan positif maupun negatif',
+            t1title:'Menjumlahkan Bilangan Bulat', t1intro:'Saat menjumlahkan, kita perhatikan tanda!',
+            t1same:'Tanda Sama → Jumlahkan & Pertahankan', t1eg1:'(+3) + (+5) = ?', t1ans1:'+8',
+            t1eg2:'(-3) + (-5) = ?', t1ans2:'-8',
+            t1diff:'Tanda Berbeda → Kurangi & Pertahankan Tanda yang Lebih Besar', t1eg3:'(+7) + (-3) = ?', t1ans3:'+4',
+            t1eg4:'(-7) + (+3) = ?', t1ans4:'-4',
+            t1life1:'Contoh Belanja', t1life1desc:'Sarah punya Rp 50.000. Dia beli buku Rp 75.000. Saldonya: 50.000 + (-75.000) = -25.000. Dia punya utang Rp 25.000!',
+            t2title:'Mengurangi Bilangan Bulat', t2intro:'Mengurangi bilangan bulat sama dengan menambah lawannya!',
+            t2rule:'a - b = a + (-b)', t2eg:'Contoh',
+            t2eg1:'(+5) - (+3) = ?', t2ans1:'+2',
+            t2eg2:'(-5) - (-3) = ?', t2ans2:'-2',
+            t2eg3:'(+5) - (-3) = ?', t2ans3:'+8',
+            t2eg4:'(-5) - (+3) = ?', t2ans4:'-8',
+            t2life1:'Contoh Suhu', t2life1desc:'Suhu jam 6 pagi adalah +5C. Siang turun 8 derajat. Suhunya: 5 - 8 = -3C. BRRR, di bawah nol!',
+            t2life2:'Contoh Uang', t2life2desc:'Andi punya Rp 20.000. Diahutang Budi Rp 30.000. Harta bersih: 20.000 + (-30.000) = -10.000. Dia punya utang Rp 10.000!',
+            t3title:'Penerapan Sehari-hari',
+            t3life1:'Ketinggian', t3life1desc:'Gunung Everest +8.849m di atas laut. Laut Mati -430m di bawah laut. Selisihnya: 8.849 - (-430) = 9.279 meter!',
+            t3life2:'Musim', t3life2desc:'Musim dingin, Jakarta 32C, pegunungan bersalju -5C. Bedanya 32 - (-5) = 37C!',
+            t3life3:'Bisnis', t3life3desc:'Toko untung Rp 1.000.000 bulan lalu tapi rugi Rp 300.000 bulan ini. Laba: 1.000.000 + (-300.000) = +700.000',
+            t3life4:'Skor Game', t3life4desc:'Di game, dapat +50 poin tapi kehilangan -30 poin. Hasil bersih: 50 + (-30) = +20 poin!',
+            t3life5:'Kedalaman', t3life5desc:'Kapal selam di -200m. Naik 80m. Posisi sekarang: -200 + 80 = -120m di bawah laut.',
+            t4title:'Latihan Soal',
+            q1:'S1. Berapa (+8) + (-3)?', q1a:'-11', q1b:'-5', q1c:'+5', q1d:'+11', q1cr:'Benar! 8 - 3 = 5', q1wr:'Salah. 8 - 3 = 5',
+            q2:'S2. Berapa (-6) - (-2)?', q2a:'-8', q2b:'-4', q2c:'+4', q2d:'+8', q2cr:'Benar! -6 + 2 = -4', q2wr:'Salah. -6 - (-2) = -6 + 2 = -4',
+            q3:'S3. Suhu -3C, naik 8 derajat. Berapa sekarang?', q3a:'-11C', q3b:'-5C', q3c:'+5C', q3d:'+11C', q3cr:'Benar! -3 + 8 = +5', q3wr:'Salah. -3 + 8 = 5 derajat',
+            q4:'S4. Punya Rp 15.000, hutang Rp 20.000. Harta bersih?', q4a:'+35.000', q4b:'-5.000', q4c:'+5.000', q4d:'-35.000', q4cr:'Benar! 15.000 + (-20.000) = -5.000', q4wr:'Salah. 15.000 - 20.000 = -5.000',
+            q5:'S5. Kapal di -150m, menyelam 50m lebih dalam. Di mana?', q5a:'-100m', q5b:'-200m', q5c:'-200m', q5d:'+100m', q5cr:'Benar! -150 + (-50) = -200', q5wr:'Salah. -150 - 50 = -200m'
+        }
+    };
+
+    function t(k) { return TX[lang][k] || ''; }
+
+    function setLang(l) {
+        lang = l;
+        document.getElementById('btn-en').className = l==='en' ? 'active' : '';
+        document.getElementById('btn-id').className = l==='id' ? 'active' : '';
+        applyLang();
+    }
+
+    function applyLang() {
+        document.getElementById('h-title').textContent = t('htitle');
+        document.getElementById('h-sub').textContent = t('hsub');
+        document.getElementById('tab0').textContent = t('tab0');
+        document.getElementById('tab1').textContent = t('tab1');
+        document.getElementById('tab2').textContent = t('tab2');
+        document.getElementById('tab3').textContent = t('tab3');
+        document.getElementById('tab4').textContent = t('tab4');
+        document.getElementById('t0-title').textContent = t('t0title');
+        document.getElementById('t1-title').textContent = t('t1title');
+        document.getElementById('t2-title').textContent = t('t2title');
+        document.getElementById('t3-title').textContent = t('t3title');
+        document.getElementById('t4-title').textContent = t('t4title');
+        for(let i=1; i<=5; i++) {
+            document.getElementById('q'+i+'-text').textContent = t('q'+i);
+        }
+        updateNumDisplay();
+        updateScore();
+    }
+
+    function selectNum(n) {
+        document.getElementById('selected-num').textContent = n > 0 ? '+' + n : n;
+        const display = document.getElementById('num-display');
+        display.className = 'number-display ' + (n > 0 ? 'positive' : n < 0 ? 'negative' : 'zero');
+        document.getElementById('num-desc').textContent = n > 0 ? t('t0tip1') : n < 0 ? t('t0tip2') : t('t0tip3');
+    }
+
+    function updateNumDisplay() {
+        const n = parseInt(document.getElementById('selected-num').textContent);
+        selectNum(n);
+    }
+
+    function showTab(idx) {
+        document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active', i===idx));
+        document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active', i===idx));
+    }
+
+    function updateScore() {
+        document.getElementById('score-label').textContent = t('score')+': '+score+' / '+total;
+        const pct = total>0?Math.round(score/total*100):0;
+        document.getElementById('prog').style.width=pct+'%';
+        document.getElementById('prog-label').textContent=pct+'%';
+    }
+
+    function mcq(qid, btn, res, fbid) {
+        if(answered[qid]) return;
+        answered[qid] = true;
+        total++;
+        const fb = document.getElementById(fbid);
+        fb.className = 'feedback show '+res;
+        if(res==='correct') { score++; fb.textContent = t(qid+'cr'); btn.classList.add('correct'); }
+        else { fb.textContent = t(qid+'wr'); btn.classList.add('wrong'); }
+        updateScore();
+    }
+</script>
+
+</body>
+</html>

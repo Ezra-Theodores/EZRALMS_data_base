@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EZRA LMS Dashboard API Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        .test-section { margin: 20px 0; padding: 15px; background: #f9f9f9; border-left: 4px solid #4CAF50; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
+        .stat-box { background: white; padding: 15px; border-radius: 4px; text-align: center; border: 1px solid #ddd; }
+        .stat-value { font-size: 28px; font-weight: bold; color: #4CAF50; }
+        .stat-label { color: #666; font-size: 14px; margin-top: 5px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .status.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .status.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .status.loading { background: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EZRA LMS Dashboard Connection Test</h1>
+        
+        <div class="test-section">
+            <h2>API Endpoint Status</h2>
+            <div id="apiStatus" class="status loading">Testing API connection...</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Dashboard Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-value" id="statUsers">0</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statGrades">0</div>
+                    <div class="stat-label">Grades</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statClasses">0</div>
+                    <div class="stat-label">Classes</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statTopics">0</div>
+                    <div class="stat-label">Topics</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statSubTopics">0</div>
+                    <div class="stat-label">Sub-Topics</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statMaterials">0</div>
+                    <div class="stat-label">Materials</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Raw API Response</h2>
+            <pre id="apiResponse" style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto;">Loading...</pre>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Results</h2>
+            <div id="testResults"></div>
+        </div>
+    </div>
+
+    <script>
+        async function testDashboardAPI() {
+            const apiStatus = document.getElementById('apiStatus');
+            const apiResponse = document.getElementById('apiResponse');
+            const testResults = document.getElementById('testResults');
+            
+            try {
+                // Test API endpoint
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+                
+                apiResponse.textContent = JSON.stringify(data, null, 2);
+                
+                if (data.success) {
+                    apiStatus.className = 'status success';
+                    apiStatus.textContent = '[SUCCESS] API endpoint is working correctly';
+                    
+                    // Update statistics display
+                    const stats = data.data;
+                    const totalUsers = Object.values(stats.users_by_role || {}).reduce((a, b) => a + b, 0);
+                    const totalMaterials = Object.values(stats.materials_by_type || {}).reduce((a, b) => a + b, 0);
+                    
+                    document.getElementById('statUsers').textContent = totalUsers;
+                    document.getElementById('statGrades').textContent = stats.grades_count || 0;
+                    document.getElementById('statClasses').textContent = stats.classes_count || 0;
+                    document.getElementById('statTopics').textContent = stats.topics_count || 0;
+                    document.getElementById('statSubTopics').textContent = stats.sub_topics_count || 0;
+                    document.getElementById('statMaterials').textContent = totalMaterials;
+                    
+                    // Show test results
+                    testResults.innerHTML = `
+                        <div class="status success">
+                            <h3>Database Connection Tests</h3>
+                            <ul>
+                                <li><strong>Users:</strong> ${totalUsers} found (Admin: ${stats.users_by_role?.admin || 0}, Teachers: ${stats.users_by_role?.teacher || 0}, Students: ${stats.users_by_role?.student || 0})</li>
+                                <li><strong>Grades:</strong> ${stats.grades_count || 0} found</li>
+                                <li><strong>Classes:</strong> ${stats.classes_count || 0} found</li>
+                                <li><strong>Topics:</strong> ${stats.topics_count || 0} found</li>
+                                <li><strong>Sub-Topics:</strong> ${stats.sub_topics_count || 0} found</li>
+                                <li><strong>Materials:</strong> ${totalMaterials} found (${Object.entries(stats.materials_by_type || {}).map(([type, count]) => `${type}: ${count}`).join(', ')})</li>
+                                <li><strong>Quizzes:</strong> ${stats.quizzes_count || 0} found</li>
+                                <li><strong>Quiz Questions:</strong> ${stats.questions_count || 0} found</li>
+                            </ul>
+                            <p style="margin-top: 15px; color: #155724;"><strong>✓ All systems connected and working correctly!</strong></p>
+                        </div>
+                    `;
+                } else {
+                    apiStatus.className = 'status error';
+                    apiStatus.textContent = '[ERROR] API returned an error: ' + data.error;
+                }
+            } catch (error) {
+                apiStatus.className = 'status error';
+                apiStatus.textContent = '[ERROR] Failed to connect to API: ' + error.message;
+                testResults.innerHTML = `<div class="status error"><p>Could not reach the API endpoint. Make sure the Flask server is running on http://localhost:5007</p></div>`;
+                apiResponse.textContent = 'Error: ' + error.message;
+            }
+        }
+        
+        // Run tests when page loads
+        window.addEventListener('load', testDashboardAPI);
+        // Refresh every 10 seconds
+        setInterval(testDashboardAPI, 10000);
+    </script>
+</body>
+</html>

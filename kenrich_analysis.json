@@ -1,0 +1,1093 @@
+{
+  "student": {
+    "userId": "w1kBVxVaMD4Nc3gJ894U",
+    "displayName": "Kenrich",
+    "fullName": "Kenrick Harvey Wijaya",
+    "role": "student",
+    "lastLogin": "2026-05-21"
+  },
+  "summary": {
+    "total_quizzes": 51,
+    "passed": 33,
+    "failed": 18,
+    "pass_rate": 64.7,
+    "average_score": 64.7,
+    "total_subtopics": 74,
+    "unique_subtopics": 45
+  },
+  "weak_topics": {
+    "Math": {
+      "average_score": 65.2,
+      "attempts": 50,
+      "pass_rate": 66.0,
+      "quizzes": [
+        "G03 - 01 MENGENAL BANGUN DATAR",
+        "G03 - 02 BANGUN DATAR",
+        "G03 - 02 BANGUN DATAR",
+        "G1 OSN 02",
+        "G1 IOB 04",
+        "G2 OSN 01",
+        "G2 OSN 01",
+        "G2-01 Algebra",
+        "G2 OSN 01",
+        "G2 HXC",
+        "G1 IOB 04",
+        "G1 OSN 02",
+        "G2 BEGINNER 2",
+        "G2 OSN 01",
+        "G1 OSN 02",
+        "A-00 ALGEBRA",
+        "A-00 ALGEBRA",
+        "G1 IOB 04",
+        "A PROGRESSION 01",
+        "G1-01 menghitung 0-50",
+        "G1-02 Sorting 0-50",
+        "G1-03 Explore 51-100",
+        "G1-04 Number Bound",
+        "G1-05 Number Bound 2",
+        "G2-01 Algebra",
+        "G1-09 Multiplication Intro",
+        "G1-09 Multiplication Intro",
+        "G3 - 01 Pembagian",
+        "G3 JISMO 01",
+        "G1-06 Addition 1",
+        "G1-10 Multiplication 2",
+        "G1-10 Multiplication 2",
+        "G1-07 subtraction 1",
+        "G1-08 Add Subt",
+        "G03 - 01 MENGENAL BANGUN DATAR",
+        "G03 - 02 BANGUN DATAR",
+        "G3 - 02 PEMBAGIAN BERSISA",
+        "G3-00 PEMBAGIAN",
+        "G03-03 BANGUN DATAR",
+        "G1-11 Division",
+        "G3 BANGUN DATAR 5",
+        "G3 BANGUN DATAR 4",
+        "G3 PEMBAGIAN 3",
+        "INTERVAL",
+        "INTERVAL 2",
+        "INTERVAL 3",
+        "G3 LAT SEM 2",
+        "G1-12 Division 2",
+        "G1-12 Division 2",
+        "G2 Tambah Tanggal "
+      ]
+    },
+    "unknown": {
+      "average_score": 40.0,
+      "attempts": 1,
+      "pass_rate": 0.0,
+      "quizzes": [
+        "G1- competition 01"
+      ]
+    }
+  },
+  "quiz_scores": [
+    {
+      "quiz_id": "M833eQw1JK8DhHwIHLkH",
+      "title": "G03 - 01 MENGENAL BANGUN DATAR",
+      "score": 90,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 251,
+      "timestamp": "2026-03-03 09:28:44.145000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": null
+    },
+    {
+      "quiz_id": "7CseP3X30HqowCAMyaTx",
+      "title": "G03 - 02 BANGUN DATAR",
+      "score": 40,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 118,
+      "timestamp": "2026-03-03 09:37:53.013000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": null
+    },
+    {
+      "quiz_id": "7CseP3X30HqowCAMyaTx",
+      "title": "G03 - 02 BANGUN DATAR",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 300,
+      "timestamp": "2026-03-03 09:44:49.725000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": null
+    },
+    {
+      "quiz_id": "enS8zuKqd4kx1QKZTTHk",
+      "title": "G1 OSN 02",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 855,
+      "timestamp": "2026-03-05 05:54:59.289000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "Wsrj83qMMFdbFXr7O5Zi"
+    },
+    {
+      "quiz_id": "0QMCQEJCU2yfZEBpFeK8",
+      "title": "G1 IOB 04",
+      "score": 60,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 864,
+      "timestamp": "2026-03-06 06:38:53.325000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "Ig3UyaHMeVFay0ntxguu"
+    },
+    {
+      "quiz_id": "673noUabJc15N5EcPD0W",
+      "title": "G2 OSN 01",
+      "score": 5,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 266,
+      "timestamp": "2026-03-06 06:44:03.851000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "0rx0G2iKq17vbbvtXzZn"
+    },
+    {
+      "quiz_id": "673noUabJc15N5EcPD0W",
+      "title": "G2 OSN 01",
+      "score": 90,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 698,
+      "timestamp": "2026-03-06 06:58:05.901000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "NJyLp0HwyTiGtUBH65sY"
+    },
+    {
+      "quiz_id": "DeVIRQTSDWbNWoMMuGYA",
+      "title": "G2-01 Algebra",
+      "score": 90,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 581,
+      "timestamp": "2026-03-09 08:26:42.991000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "4IkJST2TpeIKCNKNPt3K"
+    },
+    {
+      "quiz_id": "673noUabJc15N5EcPD0W",
+      "title": "G2 OSN 01",
+      "score": 70,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 891,
+      "timestamp": "2026-03-09 08:55:01.500000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "UZtk5dPmN9v62KVu1IK2"
+    },
+    {
+      "quiz_id": "8pDYyCyoFLN6FbpJTyfY",
+      "title": "G1- competition 01",
+      "score": 40,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 256,
+      "timestamp": "2026-03-10 06:01:09.058000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "xuoJrNDj7uzIFGA5spP7"
+    },
+    {
+      "quiz_id": "uT1ZHeOaT6DbK0bHM3Ga",
+      "title": "G2 HXC",
+      "score": 60,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 2371,
+      "timestamp": "2026-03-10 09:57:25.389000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "IDBDg7RxuT3HKXJw7TvR"
+    },
+    {
+      "quiz_id": "0QMCQEJCU2yfZEBpFeK8",
+      "title": "G1 IOB 04",
+      "score": 65,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 512,
+      "timestamp": "2026-03-27 02:11:31.176000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "z9rPlEY136xfomt5DjVn"
+    },
+    {
+      "quiz_id": "enS8zuKqd4kx1QKZTTHk",
+      "title": "G1 OSN 02",
+      "score": 70,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 441,
+      "timestamp": "2026-03-27 02:19:40.990000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "xZ7WZNJtP40KR8JXOewk"
+    },
+    {
+      "quiz_id": "K5h6dQpAKPDYikv74sZp",
+      "title": "G2 BEGINNER 2",
+      "score": 30,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 218,
+      "timestamp": "2026-03-27 03:02:29.086000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "rYgTwLO6USvHxkqPiY0P"
+    },
+    {
+      "quiz_id": "673noUabJc15N5EcPD0W",
+      "title": "G2 OSN 01",
+      "score": 70,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 372,
+      "timestamp": "2026-03-27 03:08:56.757000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "h30lwFW2PdgryJs03CFs"
+    },
+    {
+      "quiz_id": "enS8zuKqd4kx1QKZTTHk",
+      "title": "G1 OSN 02",
+      "score": 60,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 470,
+      "timestamp": "2026-03-27 03:17:11.546000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "NsLqv2srYLlTWuWtx1ld"
+    },
+    {
+      "quiz_id": "U678AAqLYFx6v9pgSdeX",
+      "title": "A-00 ALGEBRA",
+      "score": 30,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 198,
+      "timestamp": "2026-03-31 09:25:17.572000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "DZMe41VgPDFSbACitxVl"
+    },
+    {
+      "quiz_id": "U678AAqLYFx6v9pgSdeX",
+      "title": "A-00 ALGEBRA",
+      "score": 70,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 1042,
+      "timestamp": "2026-03-31 09:43:52.306000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "Jcd1uVoLKJG0RC7sOp45"
+    },
+    {
+      "quiz_id": "0QMCQEJCU2yfZEBpFeK8",
+      "title": "G1 IOB 04",
+      "score": 95,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 763,
+      "timestamp": "2026-04-06 08:34:46.920000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "TR7AYGGPTTmK0jrylHpw"
+    },
+    {
+      "quiz_id": "rPyxbiSIPxLtydlcafJD",
+      "title": "A PROGRESSION 01",
+      "score": 50,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 523,
+      "timestamp": "2026-04-06 08:47:31.800000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "jl2U9h86G8zU8HOE5h7V"
+    },
+    {
+      "quiz_id": "3rkt7Qa7MjD5RQt8JY5R",
+      "title": "G1-01 menghitung 0-50",
+      "score": 100,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 238,
+      "timestamp": "2026-04-09 07:11:46.432000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "qk2jxJapOZMFOrntUyuZ"
+    },
+    {
+      "quiz_id": "hd5NcESHPloiBsVCnL2Z",
+      "title": "G1-02 Sorting 0-50",
+      "score": 85,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 675,
+      "timestamp": "2026-04-09 07:23:22.162000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "3apjadPBEwl5nguEPp3N"
+    },
+    {
+      "quiz_id": "jtVZEwrAGZdIpgz4hOyy",
+      "title": "G1-03 Explore 51-100",
+      "score": 85,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 793,
+      "timestamp": "2026-04-09 07:37:39.043000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "VKQQDQKNUtoUy0HlVXUI"
+    },
+    {
+      "quiz_id": "i5Ex7kpW7X8fHgeafBS5",
+      "title": "G1-04 Number Bound",
+      "score": 95,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 829,
+      "timestamp": "2026-04-09 08:02:30.159000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "PPPFpIsbi3NIAAtfeFyv"
+    },
+    {
+      "quiz_id": "xZn0CwVCoity4mEXUHOV",
+      "title": "G1-05 Number Bound 2",
+      "score": 95,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 264,
+      "timestamp": "2026-04-10 06:29:49.294000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "XBrcD0TmTsEb5bER313a"
+    },
+    {
+      "quiz_id": "DeVIRQTSDWbNWoMMuGYA",
+      "title": "G2-01 Algebra",
+      "score": 30,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 343,
+      "timestamp": "2026-04-10 06:36:31.526000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "XnWT86BtfCOvnIHF9I9c"
+    },
+    {
+      "quiz_id": "bRXfK2xydTBrFjyRkRGg",
+      "title": "G1-09 Multiplication Intro",
+      "score": 50,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 600,
+      "timestamp": "2026-04-10 06:47:54.594000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "HZdRFFCbsppL6CAABNEU"
+    },
+    {
+      "quiz_id": "bRXfK2xydTBrFjyRkRGg",
+      "title": "G1-09 Multiplication Intro",
+      "score": 25,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 779,
+      "timestamp": "2026-04-10 07:01:57.433000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "RiTKlCkz06mGD7FhpvUV"
+    },
+    {
+      "quiz_id": "0u3miPXdE6DOVCYGQTWK",
+      "title": "G3 - 01 Pembagian",
+      "score": 90,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 1633,
+      "timestamp": "2026-04-13 08:36:00.517000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "fNhoIpcga74WOoLiU8Sn"
+    },
+    {
+      "quiz_id": "8JjQH4QanhPWKEdXhaFf",
+      "title": "G3 JISMO 01",
+      "score": 41,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 2457,
+      "timestamp": "2026-04-14 09:47:57.354000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "PwliEGJdNCKB0erMiyKD"
+    },
+    {
+      "quiz_id": "4hyZBZC562jYm4R1Hdxx",
+      "title": "G1-06 Addition 1",
+      "score": 90,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 270,
+      "timestamp": "2026-04-16 07:07:20.954000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "hyWoM5xISBDbrj7dswB9"
+    },
+    {
+      "quiz_id": "OQRITHWIMFbMnn1SiXs3",
+      "title": "G1-10 Multiplication 2",
+      "score": 30,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 678,
+      "timestamp": "2026-04-16 07:19:40.619000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "ZmA7KZfblgTU4g7g5P8W"
+    },
+    {
+      "quiz_id": "OQRITHWIMFbMnn1SiXs3",
+      "title": "G1-10 Multiplication 2",
+      "score": 70,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 564,
+      "timestamp": "2026-04-16 07:29:44.911000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "uc3sQSmldUkyQNYZA9NL"
+    },
+    {
+      "quiz_id": "SxjbrpYtmkuLByyXeRdb",
+      "title": "G1-07 subtraction 1",
+      "score": 100,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 276,
+      "timestamp": "2026-04-16 07:35:15.909000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "ZlkmeUEggjH5C2f3P2dv"
+    },
+    {
+      "quiz_id": "YBoApedI8SL0dj4kaZq3",
+      "title": "G1-08 Add Subt",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 495,
+      "timestamp": "2026-04-17 06:39:39.955000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "lDT7rTrzO4cO9qKSJdPO"
+    },
+    {
+      "quiz_id": "M833eQw1JK8DhHwIHLkH",
+      "title": "G03 - 01 MENGENAL BANGUN DATAR",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 95,
+      "timestamp": "2026-04-20 08:12:10.279000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "HtBdTkjsEuYCdYKZ4rRq"
+    },
+    {
+      "quiz_id": "7CseP3X30HqowCAMyaTx",
+      "title": "G03 - 02 BANGUN DATAR",
+      "score": 60,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 222,
+      "timestamp": "2026-04-20 08:17:01.242000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "0rkpoHGKhhrYNbRo7MOq"
+    },
+    {
+      "quiz_id": "L959uvY5KYsyHonrsYEU",
+      "title": "G3 - 02 PEMBAGIAN BERSISA",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 1005,
+      "timestamp": "2026-04-21 09:30:59.413000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "XNVp8PZtLfc1ZpYqUdma"
+    },
+    {
+      "quiz_id": "0XgRiLCvB7oJSNkPWLvz",
+      "title": "G3-00 PEMBAGIAN",
+      "score": 100,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 401,
+      "timestamp": "2026-04-21 09:44:36.250000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "1qgRybZU7OdlI32Hwm6S"
+    },
+    {
+      "quiz_id": "tah8jZ75W2g6NOpb29Sl",
+      "title": "G03-03 BANGUN DATAR",
+      "score": 100,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 71,
+      "timestamp": "2026-04-21 09:54:09.587000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "gDi5UB892TMT9l0DMDBS"
+    },
+    {
+      "quiz_id": "MO5YLw8C2bLKF8rhXos0",
+      "title": "G1-11 Division",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 1681,
+      "timestamp": "2026-04-23 07:56:18.804000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "GHQ4K4sfGitciajpPIqM"
+    },
+    {
+      "quiz_id": "hYrh24H4rjo7fwPT3bNJ",
+      "title": "G3 BANGUN DATAR 5",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 1548,
+      "timestamp": "2026-04-27 08:41:54.762000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "iJReQ9hGtTr7PkYBFL77"
+    },
+    {
+      "quiz_id": "5jKwSqqY6es7tlMcyGlU",
+      "title": "G3 BANGUN DATAR 4",
+      "score": 55,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 1492,
+      "timestamp": "2026-04-28 09:33:17.713000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "pQkZ5btiUHH2pSXguuek"
+    },
+    {
+      "quiz_id": "gb7HDFK4oh8R5Nzww7Zb",
+      "title": "G3 PEMBAGIAN 3",
+      "score": 40,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 2328,
+      "timestamp": "2026-04-30 08:00:27.269000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "qU3PYgNjmgBaWsEKNQy5"
+    },
+    {
+      "quiz_id": "bZsSPuGjxvOi9IjQrIVE",
+      "title": "INTERVAL",
+      "score": 40,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 1966,
+      "timestamp": "2026-05-04 08:52:15.244000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "NJCWorC09MUrQCPS6ciH"
+    },
+    {
+      "quiz_id": "YbUvSOlVCmKmW6H62fx7",
+      "title": "INTERVAL 2",
+      "score": 80,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 1759,
+      "timestamp": "2026-05-05 09:36:06.890000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "Sb2zWqpKkuhUmV08Zcsq"
+    },
+    {
+      "quiz_id": "7xzN18yolDzOFkbZCnpJ",
+      "title": "INTERVAL 3",
+      "score": 27,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 573,
+      "timestamp": "2026-05-05 09:49:07.398000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "H7RkDQCUIvdWx2LUmy1U"
+    },
+    {
+      "quiz_id": "t99UEJLojTrRdAGbM7cO",
+      "title": "G3 LAT SEM 2",
+      "score": 85,
+      "max_score": 100,
+      "passed": true,
+      "time_taken": 2156,
+      "timestamp": "2026-05-11 08:48:54.775000+00:00",
+      "classId": "WzpPsq4iI4GIUsi8odHR",
+      "attemptId": "7sAWSs9LrtrMyJs6xfqz"
+    },
+    {
+      "quiz_id": "cZ0xQFn4ORcTWftTm8g9",
+      "title": "G1-12 Division 2",
+      "score": 55,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 721,
+      "timestamp": "2026-05-14 06:09:15.805000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "UMZWZlM662Fms9yLrxFs"
+    },
+    {
+      "quiz_id": "cZ0xQFn4ORcTWftTm8g9",
+      "title": "G1-12 Division 2",
+      "score": 25,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 1537,
+      "timestamp": "2026-05-14 07:01:53.422000+00:00",
+      "classId": "gwYZh3x9Qyohz15pl3U5",
+      "attemptId": "ZMqW1UGVFE82xyEW8CS8"
+    },
+    {
+      "quiz_id": "3BpGXs2eMWQ2AOgGyNug",
+      "title": "G2 Tambah Tanggal ",
+      "score": 0,
+      "max_score": 100,
+      "passed": false,
+      "time_taken": 875,
+      "timestamp": "2026-05-18 08:39:57.631000+00:00",
+      "classId": "zaqj97t0IBITIGOLTWxy",
+      "attemptId": "548RNh3f3gQkZBGmPMUR"
+    }
+  ],
+  "quiz_topic_map": {
+    "0XgRiLCvB7oJSNkPWLvz": {
+      "title": "G3-00 PEMBAGIAN",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "cZ0xQFn4ORcTWftTm8g9": {
+      "title": "G1-12 Division 2",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "hd5NcESHPloiBsVCnL2Z": {
+      "title": "G1-02 Sorting 0-50",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "0u3miPXdE6DOVCYGQTWK": {
+      "title": "G3 - 01 Pembagian",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "YbUvSOlVCmKmW6H62fx7": {
+      "title": "INTERVAL 2",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "3BpGXs2eMWQ2AOgGyNug": {
+      "title": "G2 Tambah Tanggal ",
+      "subject": "Math",
+      "grade": "2",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "MO5YLw8C2bLKF8rhXos0": {
+      "title": "G1-11 Division",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "tah8jZ75W2g6NOpb29Sl": {
+      "title": "G03-03 BANGUN DATAR",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "7xzN18yolDzOFkbZCnpJ": {
+      "title": "INTERVAL 3",
+      "subject": "Math",
+      "grade": "2",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "SxjbrpYtmkuLByyXeRdb": {
+      "title": "G1-07 subtraction 1",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "rPyxbiSIPxLtydlcafJD": {
+      "title": "A PROGRESSION 01",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "xZn0CwVCoity4mEXUHOV": {
+      "title": "G1-05 Number Bound 2",
+      "subject": "Math",
+      "grade": "",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "4hyZBZC562jYm4R1Hdxx": {
+      "title": "G1-06 Addition 1",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "bRXfK2xydTBrFjyRkRGg": {
+      "title": "G1-09 Multiplication Intro",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "bZsSPuGjxvOi9IjQrIVE": {
+      "title": "INTERVAL",
+      "subject": "Math",
+      "grade": "6",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "uT1ZHeOaT6DbK0bHM3Ga": {
+      "title": "G2 HXC",
+      "subject": "Math",
+      "grade": "2",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "jtVZEwrAGZdIpgz4hOyy": {
+      "title": "G1-03 Explore 51-100",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "enS8zuKqd4kx1QKZTTHk": {
+      "title": "G1 OSN 02",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "DeVIRQTSDWbNWoMMuGYA": {
+      "title": "G2-01 Algebra",
+      "subject": "Math",
+      "grade": "2",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "YBoApedI8SL0dj4kaZq3": {
+      "title": "G1-08 Add Subt",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "i5Ex7kpW7X8fHgeafBS5": {
+      "title": "G1-04 Number Bound",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "5jKwSqqY6es7tlMcyGlU": {
+      "title": "G3 BANGUN DATAR 4",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "L959uvY5KYsyHonrsYEU": {
+      "title": "G3 - 02 PEMBAGIAN BERSISA",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "hYrh24H4rjo7fwPT3bNJ": {
+      "title": "G3 BANGUN DATAR 5",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "8pDYyCyoFLN6FbpJTyfY": {
+      "title": "G1- competition 01",
+      "subject": "",
+      "grade": "",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "M833eQw1JK8DhHwIHLkH": {
+      "title": "G03 - 01 MENGENAL BANGUN DATAR",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "U678AAqLYFx6v9pgSdeX": {
+      "title": "A-00 ALGEBRA",
+      "subject": "Math",
+      "grade": "2",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "t99UEJLojTrRdAGbM7cO": {
+      "title": "G3 LAT SEM 2",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "7CseP3X30HqowCAMyaTx": {
+      "title": "G03 - 02 BANGUN DATAR",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "K5h6dQpAKPDYikv74sZp": {
+      "title": "ALGEBRA 10",
+      "subject": "Math",
+      "grade": "2",
+      "difficulty": "Hard",
+      "topic": "",
+      "question_topics": []
+    },
+    "OQRITHWIMFbMnn1SiXs3": {
+      "title": "G1-10 Multiplication 2",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "0QMCQEJCU2yfZEBpFeK8": {
+      "title": "G1 IOB 04",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "8JjQH4QanhPWKEdXhaFf": {
+      "title": "G3 JISMO 01",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Medium",
+      "topic": "",
+      "question_topics": []
+    },
+    "gb7HDFK4oh8R5Nzww7Zb": {
+      "title": "G3 PEMBAGIAN 3",
+      "subject": "Math",
+      "grade": "3",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "3rkt7Qa7MjD5RQt8JY5R": {
+      "title": "G1-01 menghitung 0-50",
+      "subject": "Math",
+      "grade": "1",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    },
+    "673noUabJc15N5EcPD0W": {
+      "title": "G2 OSN 01",
+      "subject": "Math",
+      "grade": "2",
+      "difficulty": "Easy",
+      "topic": "",
+      "question_topics": []
+    }
+  },
+  "subtopics_completed": [
+    "G1-10 Multiplication 2",
+    "G1-12 Division 2",
+    "ARITHMATICS MONSTER",
+    "G2 OSN 01",
+    "G1 IOB 04",
+    "G1-08 Add Subt",
+    "G1-04 Number Bound",
+    "G1-11 Division",
+    "G2-01 Algebra",
+    "DIAG TEST",
+    "G1 OSN 02",
+    "G2 BEGINNER 2",
+    "Pokemath",
+    "G1-09 Multiplication Intro",
+    "G1-03 Explore 51-100",
+    "G1-05 Number Bound 2",
+    "G1- competition 01",
+    "G1-07 subtraction 1",
+    "G1-01 menghitung 0-50",
+    "G1-02 Sorting 0-50",
+    "G1-06 Addition 1",
+    "Penyihir Sigma 1",
+    "Monster Bangun Datar",
+    "IKMC",
+    "G3 LAT SEM 2",
+    "G3 - 01 Pembagian",
+    "G03 - 02 BANGUN DATAR",
+    "INTERVAL 3",
+    "A PROGRESSION 01",
+    "G2 Tambah Tanggal ",
+    "G3-00 PEMBAGIAN",
+    "G03-02 BANGUN DATAR",
+    "POKE ADD 2 DIG",
+    "G03-03 BANGUN DATAR",
+    "G3 - 02 PEMBAGIAN BERSISA",
+    "G3 BANGUN DATAR 5",
+    "INTERVAL",
+    "DIVISION",
+    "A-00 ALGEBRA",
+    "G3 PEMBAGIAN 3",
+    "INTERVAL 2",
+    "G03 - 01 MENGENAL BANGUN DATAR",
+    "G2 HXC",
+    "G3 JISMO 01",
+    "G3 BANGUN DATAR 4"
+  ],
+  "session_notes": [
+    "Kenrich masih kesulitan untuk soal sifat-sifat bangun datar melalui kalimat"
+  ],
+  "recommendations": [
+    {
+      "type": "weak_topic_practice",
+      "topic": "unknown",
+      "priority": "HIGH",
+      "reason": "Average score 40.0% across 1 attempts",
+      "action": "Assign additional practice quizzes on 'unknown'"
+    },
+    {
+      "type": "weak_topic_practice",
+      "topic": "Math",
+      "priority": "HIGH",
+      "reason": "Average score 65.2% across 50 attempts",
+      "action": "Assign additional practice quizzes on 'Math'"
+    },
+    {
+      "type": "tutor_note_followup",
+      "priority": "HIGH",
+      "reason": "Tutor noted: 'Kenrich masih kesulitan untuk soal sifat-sifat bangun datar melalui kalimat'",
+      "action": "Create targeted exercises on properties of flat shapes (bangun datar) presented as word problems"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G1- competition 01",
+      "priority": "MEDIUM",
+      "reason": "Best score 40% on 'G1- competition 01' across 1 attempts",
+      "action": "Review concepts and retry 'G1- competition 01' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G2 BEGINNER 2",
+      "priority": "MEDIUM",
+      "reason": "Best score 30% on 'G2 BEGINNER 2' across 1 attempts",
+      "action": "Review concepts and retry 'G2 BEGINNER 2' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "A PROGRESSION 01",
+      "priority": "MEDIUM",
+      "reason": "Best score 50% on 'A PROGRESSION 01' across 1 attempts",
+      "action": "Review concepts and retry 'A PROGRESSION 01' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G1-09 Multiplication Intro",
+      "priority": "MEDIUM",
+      "reason": "Best score 50% on 'G1-09 Multiplication Intro' across 2 attempts",
+      "action": "Review concepts and retry 'G1-09 Multiplication Intro' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G3 JISMO 01",
+      "priority": "MEDIUM",
+      "reason": "Best score 41% on 'G3 JISMO 01' across 1 attempts",
+      "action": "Review concepts and retry 'G3 JISMO 01' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G3 BANGUN DATAR 4",
+      "priority": "MEDIUM",
+      "reason": "Best score 55% on 'G3 BANGUN DATAR 4' across 1 attempts",
+      "action": "Review concepts and retry 'G3 BANGUN DATAR 4' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G3 PEMBAGIAN 3",
+      "priority": "MEDIUM",
+      "reason": "Best score 40% on 'G3 PEMBAGIAN 3' across 1 attempts",
+      "action": "Review concepts and retry 'G3 PEMBAGIAN 3' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "INTERVAL",
+      "priority": "MEDIUM",
+      "reason": "Best score 40% on 'INTERVAL' across 1 attempts",
+      "action": "Review concepts and retry 'INTERVAL' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "INTERVAL 3",
+      "priority": "MEDIUM",
+      "reason": "Best score 27% on 'INTERVAL 3' across 1 attempts",
+      "action": "Review concepts and retry 'INTERVAL 3' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G1-12 Division 2",
+      "priority": "MEDIUM",
+      "reason": "Best score 55% on 'G1-12 Division 2' across 2 attempts",
+      "action": "Review concepts and retry 'G1-12 Division 2' with tutor guidance"
+    },
+    {
+      "type": "retry_failed_quiz",
+      "quiz": "G2 Tambah Tanggal ",
+      "priority": "MEDIUM",
+      "reason": "Best score 0% on 'G2 Tambah Tanggal ' across 1 attempts",
+      "action": "Review concepts and retry 'G2 Tambah Tanggal ' with tutor guidance"
+    },
+    {
+      "type": "progress_review",
+      "priority": "MEDIUM",
+      "reason": "Completed 74 subtopics and 51 quizzes",
+      "action": "Review curriculum coverage and identify missing subtopics in his class track"
+    }
+  ]
+}

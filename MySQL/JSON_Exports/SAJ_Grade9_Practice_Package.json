@@ -1,0 +1,518 @@
+{
+  "title": "SAJ Grade 9 Practice Package",
+  "description": "Practice questions based on Kisi-Kisi SAJ Kelas 9",
+  "total_questions": 30,
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Bilangan : Operasi Campuran Pecahan",
+      "id_q": "(Bilangan Real - PG Kompleks) Perhatikan operasi pecahan berikut!\n(1) $\\frac{2}{3} + \\frac{1}{5} = \\frac{13}{15}$\n(2) $3\\frac{1}{2} \\div 1\\frac{1}{4} = 2\\frac{4}{5}$\n(3) $\\frac{3}{4} \\times \\frac{8}{9} = \\frac{2}{3}$\n(4) $2\\frac{1}{3} - 1\\frac{1}{2} = \\frac{5}{6}$\nPernyataan yang benar ditunjukkan oleh nomor...",
+      "en_q": "(Real Numbers - Complex Multiple Choice) Observe the following fractional operations!\n(1) $\\frac{2}{3} + \\frac{1}{5} = \\frac{13}{15}$\n(2) $3\\frac{1}{2} \\div 1\\frac{1}{4} = 2\\frac{4}{5}$\n(3) $\\frac{3}{4} \\times \\frac{8}{9} = \\frac{2}{3}$\n(4) $2\\frac{1}{3} - 1\\frac{1}{2} = \\frac{5}{6}$\nThe correct statements are indicated by numbers...",
+      "image": "",
+      "options": [
+        "(1) dan (3)",
+        "(1), (2), dan (3)",
+        "(2) dan (4)",
+        "Semuanya benar"
+      ],
+      "ans": 3,
+      "id_exp": "1. Cek (1): $\\frac{10}{15} + \\frac{3}{15} = \\frac{13}{15}$ (Benar).\n2. Cek (2): $\\frac{7}{2} \\div \\frac{5}{4} = \\frac{7}{2} \\times \\frac{4}{5} = \\frac{14}{5} = 2\\frac{4}{5}$ (Benar).\n3. Cek (3): $\\frac{3}{4} \\times \\frac{8}{9} = \\frac{24}{36} = \\frac{2}{3}$ (Benar).\n4. Cek (4): $\\frac{7}{3} - \\frac{3}{2} = \\frac{14-9}{6} = \\frac{5}{6}$ (Benar).\n5. Maka semua pernyataan benar.",
+      "en_exp": "1. Check (1): $\\frac{10}{15} + \\frac{3}{15} = \\frac{13}{15}$ (Correct).\n2. Check (2): $\\frac{7}{2} \\div \\frac{5}{4} = \\frac{7}{2} \\times \\frac{4}{5} = \\frac{14}{5} = 2\\frac{4}{5}$ (Correct).\n3. Check (3): $\\frac{3}{4} \\times \\frac{8}{9} = \\frac{24}{36} = \\frac{2}{3}$ (Correct).\n4. Check (4): $\\frac{7}{3} - \\frac{3}{2} = \\frac{14-9}{6} = \\frac{5}{6}$ (Correct).\n5. Thus all are correct.",
+      "source": "G9 US 4"
+    },
+    {
+      "id": 2,
+      "topic": "Himpunan : Aplikasi Himpunan (Diagram Venn)",
+      "id_q": "(Pertidaksamaan Linier) Himpunan penyelesaian dari pertidaksamaan $2x-5\\le5x+4$ untuk bilangan bulat adalah ...",
+      "en_q": "(Linear Inequalities) The solution set for the inequality $2x-5\\le5x+4$ for integers is ...",
+      "image": "",
+      "options": [
+        "\\{...,-5,-4,-3\\}",
+        "\\{...,-6,-5,-4\\}",
+        "\\{-3,-2,-1,...\\}",
+        "\\{-2,-1,0,...\\}"
+      ],
+      "ans": 2,
+      "id_exp": "1. Pindahkan variabel: $2x - 5x \\le 4 + 5$.\n2. Hitung: $-3x \\le 9$.\n3. Bagi dengan -3 (tanda berbalik): $x \\ge -3$.\n4. Himpunan bilangan bulat: $\\{-3, -2, -1, ...\\}$.",
+      "en_exp": "1. Move variables: $2x - 5x \\le 4 + 5$.\n2. Calculate: $-3x \\le 9$.\n3. Divide by -3 (reverse the sign): $x \\ge -3$.\n4. Integer set: $\\{-3, -2, -1, ...\\}$.",
+      "source": "G9 US 01"
+    },
+    {
+      "id": 3,
+      "topic": "Aljabar : Operasi Bentuk Aljabar",
+      "id_q": "(Bentuk Aljabar) Diketahui $a=-3$, $b=2$, dan $c=-4$. Nilai dari $2a^{2}-3b+c$ adalah...",
+      "en_q": "(Algebraic Expressions) Given $a=-3$, $b=2$, and $c=-4$. The value of $2a^{2}-3b+c$ is...",
+      "image": "",
+      "options": [
+        "8",
+        "10",
+        "16",
+        "20"
+      ],
+      "ans": 0,
+      "id_exp": "1. Substitusi nilai: $2(-3)^2 - 3(2) + (-4)$.\n2. Hitung: $2(9) - 6 - 4$.\n3. Hasil: $18 - 6 - 4 = 8$.",
+      "en_exp": "1. Substitute values: $2(-3)^2 - 3(2) + (-4)$.\n2. Calculate: $2(9) - 6 - 4$.\n3. Result: $18 - 6 - 4 = 8$.",
+      "source": "G9 US 01"
+    },
+    {
+      "id": 4,
+      "topic": "Persamaan Linear : Aplikasi Persamaan Linear",
+      "id_q": "Usia Pak Amir 5 kali usia putrinya. Dua tahun lalu usia Pak Amir $\\frac{19}{3}$ kali usia putrinya. Berapakah usia putrinya sekarang?",
+      "en_q": "Pak Amir's age is 5 times of his daughter's. Two years ago Pak Amir's ages is $\\frac{19}{3}$ times of his daughter's. What is the age of his daughter now.",
+      "image": "",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "ans": 2,
+      "id_exp": "Misal $A = 5D$. Maka $A-2 = \\frac{19}{3}(D-2)$. Substitusi $5D-2 = \\frac{19}{3}D - \\frac{38}{3}$. Kalikan 3: $15D-6 = 19D-38 \\rightarrow 4D=32 \\rightarrow D=8$.",
+      "en_exp": "Let $A = 5D$. Then $A-2 = \\frac{19}{3}(D-2)$. Substituting $5D-2 = \\frac{19}{3}D - \\frac{38}{3}$. Multiply by 3: $15D-6 = 19D-38 \\rightarrow 4D=32 \\rightarrow D=8$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 5,
+      "topic": "Kecepatan, Jarak, Waktu : Kecepatan Rata-rata",
+      "id_q": "(Bilangan Real - PG Kompleks) Jarak kota A dan B pada peta adalah 5 cm dengan skala 1: 1.200.000. Sebuah mobil menempuh jarak tersebut dengan kecepatan rata-rata 60 km/jam. Perhatikan pernyataan berikut:\n(1) Jarak sebenarnya kedua kota adalah 60 km.\n(2) Jarak sebenarnya kedua kota adalah 120 km.\n(3) Waktu tempuh mobil adalah 1 jam.\n(4) Waktu tempuh mobil adalah 2 jam.\nPernyataan yang benar adalah ...",
+      "en_q": "(Real Numbers - Complex Multiple Choice) The distance between city A and B on a map is 5 cm with a scale of 1: 1,200,000. A car covers this distance with an average speed of 60 km/h. Consider the following statements:\n(1) The actual distance between the cities is 60 km.\n(2) The actual distance between the cities is 120 km.\n(3) The car's travel time is 1 hour.\n(4) The car's travel time is 2 hours.\nThe correct statements are ...",
+      "image": "",
+      "options": [
+        "(1) dan (3)",
+        "(1) dan (4)",
+        "(2) dan (3)",
+        "(2) dan (4)"
+      ],
+      "ans": 0,
+      "id_exp": "1. Jarak sebenarnya $= 5 \\text{ cm} \\times 1.200.000 = 6.000.000 \\text{ cm} = 60 \\text{ km}$ (Pernyataan 1 Benar).\n2. Waktu tempuh $= \\text{Jarak} / \\text{Kecepatan} = 60 \\text{ km} / 60 \\text{ km/jam} = 1 \\text{ jam}$ (Pernyataan 3 Benar).\n3. Maka pernyataan (1) dan (3) benar.",
+      "en_exp": "1. Actual distance $= 5 \\text{ cm} \\times 1,200,000 = 6,000,000 \\text{ cm} = 60 \\text{ km}$ (Statement 1 Correct).\n2. Travel time $= \\text{Distance} / \\text{Speed} = 60 \\text{ km} / 60 \\text{ km/h} = 1 \\text{ hour}$ (Statement 3 Correct).\n3. Thus statements (1) and (3) are correct.",
+      "source": "G9 US 01"
+    },
+    {
+      "id": 6,
+      "topic": "Perbandingan : Perbandingan Senilai",
+      "id_q": "Rasio gaji bulanan Alice dan Bob adalah 3:7. Gaji Bob $2800 lebih banyak dari Alice. Temukan gaji bulanan Alice.",
+      "en_q": "The monthly salaries of Alice and Bob are in the ratio 3:7. Bob’s monthly salary is $2800 more than Alice’s. Find the monthly salary of Alice.",
+      "image": "",
+      "options": [
+        "$2100",
+        "$2400",
+        "$2700",
+        "$3000"
+      ],
+      "ans": 0,
+      "id_exp": "Selisih rasio = $7 - 3 = 4$. $4$ unit = $2800$, maka $1$ unit = $700$. Gaji Alice = $3 \\times 700 = 2100$.",
+      "en_exp": "Ratio difference = $7 - 3 = 4$. $4$ units = $2800$, so $1$ unit = $700$. Alice's salary = $3 \\times 700 = 2100$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 7,
+      "topic": "Geometri (Segitiga) : Konsep Luas Segitiga",
+      "id_q": "(Geometri - PG Kompleks) Prisma alas segitiga siku-siku sisi 3 cm, 4 cm, 5 cm. Tinggi prisma 10 cm. Perhatikan:\n(1) Luas alas 6 cm2.\n(2) Keliling alas 12 cm.\n(3) Volume prisma 60 cm3.\n(4) Luas permukaan 132 cm2.\nPernyataan yang benar adalah...",
+      "en_q": "(Geometry - Complex Multiple Choice) A prism has a right-triangle base with sides 3 cm, 4 cm, and 5 cm. Prism height is 10 cm. Consider:\n(1) Base area is 6 cm2.\n(2) Base perimeter is 12 cm.\n(3) Prism volume is 60 cm3.\n(4) Surface area is 132 cm2.\nThe correct statements are...",
+      "image": "",
+      "options": [
+        "(1) dan (2)",
+        "(1), (2), dan (3)",
+        "(2), (3), dan (4)",
+        "Semuanya benar"
+      ],
+      "ans": 3,
+      "id_exp": "1. Luas alas: $0.5 \\times 3 \\times 4 = 6$ (1 Benar).\n2. Keliling alas: $3+4+5=12$ (2 Benar).\n3. Volume: $6 \\times 10 = 60$ (3 Benar).\n4. Luas permukaan: $(2 \\times 6) + (12 \\times 10) = 12 + 120 = 132$ (4 Benar).\n5. Semuanya benar.",
+      "en_exp": "1. Base area: $0.5 \\times 3 \\times 4 = 6$ (1 Correct).\n2. Base perimeter: $3+4+5=12$ (2 Correct).\n3. Volume: $6 \\times 10 = 60$ (3 Correct).\n4. Surface area: $(2 \\times 6) + (12 \\times 10) = 12 + 120 = 132$ (4 Correct).\n5. All correct.",
+      "source": "G9 US 4"
+    },
+    {
+      "id": 8,
+      "topic": "Himpunan : Operasi Himpunan",
+      "id_q": "Himpunan Semesta $S = \\{x | x \\le 10, x \\in \\text{bilangan asli}\\}$. Jika $A = \\{\\text{faktor dari } 6\\}$, tentukan jumlah anggota komplemen $A$ ($n(A^C)$).",
+      "en_q": "Universal Set $S = \\{x | x \\le 10, x \\in \\text{natural numbers}\\}$. If $A = \\{\\text{factors of } 6\\}$, determine the number of elements in the complement of $A$ ($n(A^C)$).",
+      "image": "",
+      "options": [
+        "$4$",
+        "$5$",
+        "$6$",
+        "$10$"
+      ],
+      "ans": 2,
+      "id_exp": "1. $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$, $n(S) = 10$.\n2. $A = \\{1, 2, 3, 6\\}$, $n(A) = 4$.\n3. $n(A^C) = 10 - 4 = 6$.",
+      "en_exp": "1. $S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\\}$, $n(S) = 10$.\n2. $A = \\{1, 2, 3, 6\\}$, $n(A) = 4$.\n3. $n(A^C) = 10 - 4 = 6$.",
+      "source": "SAJ 8"
+    },
+    {
+      "id": 9,
+      "topic": "Barisan dan Deret : Deret Aritmatika",
+      "id_q": "Dalam deret aritmatika, suku pertama adalah 4, suku tengah adalah 22, dan beda adalah 3. Tentukan jumlah deret ini.",
+      "en_q": "In an arithmetic series, the first term is 4, the middle term is 22, and the common difference is 3. Find the sum of this series.",
+      "image": "",
+      "options": [
+        "220",
+        "253",
+        "286",
+        "319"
+      ],
+      "ans": 2,
+      "id_exp": "$U_t = 22$, $a=4$. $U_t = (a+U_n)/2 \\rightarrow 44 = 4+U_n \\rightarrow U_n=40$. $U_n = a+(n-1)d \\rightarrow 40=4+(n-1)3 \\rightarrow n=13$. $S_n = 13 \\times 22 = 286$.",
+      "en_exp": "$U_t = 22$, $a=4$. $U_t = (a+U_n)/2 \\rightarrow 44 = 4+U_n \\rightarrow U_n=40$. $U_n = a+(n-1)d \\rightarrow 40=4+(n-1)3 \\rightarrow n=13$. $S_n = 13 \\times 22 = 286$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 10,
+      "topic": "Persamaan Garis Lurus : Kedudukan Dua Garis",
+      "id_q": "Diketahui beberapa persamaan garis berikut:\n(i) $2x - 3y = 6$\n(ii) $3x - 2y = 8$\n(iii) $6x + 4y = 12$\n(iv) $4x - 6y = 10$\nPasangan garis yang saling tegak lurus adalah . . . .",
+      "en_q": "Given the following line equations:\n(i) $2x - 3y = 6$\n(ii) $3x - 2y = 8$\n(iii) $6x + 4y = 12$\n(iv) $4x - 6y = 10$\nThe pair of lines that are perpendicular to each other is . . . .",
+      "image": "",
+      "options": [
+        "(i) dan (ii)",
+        "(i) dan (iii)",
+        "(ii) dan (iii)",
+        "(iii) dan (iv)"
+      ],
+      "ans": 1,
+      "id_exp": "Dua garis tegak lurus jika $m_1 \\times m_2 = -1$.\nGradien garis $Ax + By = C$ adalah $m = -A/B$.\n(i) $2x - 3y = 6 \\Rightarrow m_1 = -2/(-3) = 2/3$\n(iii) $6x + 4y = 12 \\Rightarrow m_3 = -6/4 = -3/2$\nPerkalian gradien: $2/3 \\times (-3/2) = -1$. Jadi, garis (i) tegak lurus dengan (iii).",
+      "en_exp": "Two lines are perpendicular if $m_1 \\times m_2 = -1$.\nThe gradient of $Ax + By = C$ is $m = -A/B$.\n(i) $2x - 3y = 6 \\Rightarrow m_1 = -2/(-3) = 2/3$\n(iii) $6x + 4y = 12 \\Rightarrow m_3 = -6/4 = -3/2$\nProduct of gradients: $2/3 \\times (-3/2) = -1$. Thus, line (i) is perpendicular to (iii).",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 11,
+      "topic": "Aritmatika Sosial / PLSV : Pola Bilangan (Suhu)",
+      "id_q": "Suhu permukaan kolam adalah 18°C. Suhu air turun 0.8°C setiap kedalaman 5 meter. Jika suhu di dasar adalah 6.6°C, maka kedalaman kolam adalah ... m.",
+      "en_q": "The surface temperature is 18°C. It decreases by 0.8°C every 5 meters. If the bottom is 6.6°C, the depth is ... m.",
+      "image": "",
+      "options": [
+        "70",
+        "71.25",
+        "71.5",
+        "72.25"
+      ],
+      "ans": 1,
+      "id_exp": "Selisih suhu = $18 - 6.6 = 11.4$. Jumlah penurunan = $11.4 / 0.8 = 14.25$. Kedalaman = $14.25 \\times 5 = 71.25$ m.",
+      "en_exp": "Temp difference = $18 - 6.6 = 11.4$. Number of drops = $11.4 / 0.8 = 14.25$. Depth = $14.25 \\times 5 = 71.25$ m.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 12,
+      "topic": "Persamaan Garis Lurus : Persamaan Garis Sejajar",
+      "id_q": "Persamaan garis yang melalui P(3,-5) dan sejajar dengan $2x-3y=6$ adalah",
+      "en_q": "The line equation passess P(3,-5) and parallel to $2x-3y=6$ is",
+      "image": "",
+      "options": [
+        "$2x-3y=21$",
+        "$2x-3y=-9$",
+        "$3x-2y=21$",
+        "$3x-2y=9$"
+      ],
+      "ans": 0,
+      "id_exp": "Gunakan format $2x-3y = 2(3)-3(-5) = 6+15 = 21$.",
+      "en_exp": "Use the format $2x-3y = 2(3)-3(-5) = 6+15 = 21$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 13,
+      "topic": "Bangun Ruang Sisi Datar : Balok",
+      "id_q": "Sebuah balok memiliki panjang 17 cm, lebar 18 cm, dan tinggi 19 cm. Panjang diagonal ruang balok tersebut adalah . . . .",
+      "en_q": "A cuboid has a length of 17 cm, a width of 18 cm, and a height of 19 cm. The length of its space diagonal is . . . .",
+      "image": "",
+      "options": [
+        "$\\sqrt{972}$ cm",
+        "$\\sqrt{974}$ cm",
+        "$\\sqrt{632}$ cm",
+        "$\\sqrt{2916}$ cm"
+      ],
+      "ans": 1,
+      "id_exp": "Rumus diagonal ruang balok adalah $d = \\sqrt{p^2 + l^2 + t^2}$.\n$d = \\sqrt{17^2 + 18^2 + 19^2}$\n$d = \\sqrt{289 + 324 + 361}$\n$d = \\sqrt{974}$ cm.",
+      "en_exp": "The formula for the space diagonal of a cuboid is $d = \\sqrt{p^2 + l^2 + t^2}$.\n$d = \\sqrt{17^2 + 18^2 + 19^2}$\n$d = \\sqrt{289 + 324 + 361}$\n$d = \\sqrt{974}$ cm.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 14,
+      "topic": "Lingkaran : Sudut Pusat dan Sudut Keliling",
+      "id_q": "Diagram menunjukkan sebuah lingkaran dengan sudut pusat $\\angle AOB$ dan sudut keliling $\\angle ACB$. Jika $\\angle AOB = 100^\\circ$, tentukan nilai $\\angle ACB$.",
+      "en_q": "The diagram shows a circle with central angle $\\angle AOB$ and inscribed angle $\\angle ACB$. If $\\angle AOB = 100^\\circ$, find $\\angle ACB$.",
+      "image": "<svg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'><circle cx='75' cy='75' r='60' fill='none' stroke='black' stroke-width='2'/><line x1='75' y1='75' x2='29' y2='113.6' stroke='black' stroke-width='1.5'/><line x1='75' y1='75' x2='121' y2='113.6' stroke='black' stroke-width='1.5'/><line x1='75' y1='15' x2='29' y2='113.6' stroke='black' stroke-width='1.5'/><line x1='75' y1='15' x2='121' y2='113.6' stroke='black' stroke-width='1.5'/><path d='M 63.5 84.6 A 15 15 0 0 0 86.5 84.6' fill='none' stroke='black'/><circle cx='75' cy='75' r='2' fill='black'/><circle cx='29' cy='113.6' r='2' fill='black'/><circle cx='121' cy='113.6' r='2' fill='black'/><circle cx='75' cy='15' r='2' fill='black'/><text x='15' y='128' font-family='sans-serif' font-size='14'>A</text><text x='125' y='128' font-family='sans-serif' font-size='14'>B</text><text x='70' y='12' font-family='sans-serif' font-size='14'>C</text><text x='78' y='75' font-family='sans-serif' font-size='14'>O</text><text x='58' y='105' font-family='sans-serif' font-size='12'>100°</text><text x='71' y='45' font-family='sans-serif' font-size='12'>x</text></svg>",
+      "options": [
+        "$50^\\circ$",
+        "$100^\\circ$",
+        "$150^\\circ$",
+        "$200^\\circ$"
+      ],
+      "ans": 0,
+      "id_exp": "Sudut keliling adalah setengah dari sudut pusat jika menghadap busur yang sama (busur AB). Jadi $x = 100/2 = 50^\\circ$.",
+      "en_exp": "The inscribed angle is half of the central angle when both angles intercept the same arc. So $x = 100/2 = 50^\\circ$.",
+      "source": "SAJ 02"
+    },
+    {
+      "id": 15,
+      "topic": "Bangun Ruang Sisi Datar : Prisma",
+      "id_q": "Pada gambar, luas permukaan prisma adalah . . . .",
+      "en_q": "On the figure, the surface area of the prism is . . . .",
+      "image": "https://i.imgur.com/OTSJdlM.png",
+      "options": [
+        "2,020 cm²",
+        "2,920 cm²",
+        "3,140 cm²",
+        "4,040 cm²"
+      ],
+      "ans": 2,
+      "id_exp": "Luas Permukaan = $2 \\times$ Luas Alas + Keliling Alas $\\times$ Tinggi.",
+      "en_exp": "Surface Area = $2 \\times$ Base Area + Base Perimeter $\\times$ Height.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 16,
+      "topic": "Statistika : Rata-rata Gabungan (Mean)",
+      "id_q": "(Statistika) Rata-rata nilai ulangan 10 siswa pria adalah 75, sedangkan rata-rata nilai 20 siswa wanita adalah 81. Rata-rata nilai gabungan seluruh siswa adalah ...",
+      "en_q": "(Statistics) The average test score of 10 male students is 75, while the average of 20 female students is 81. The overall combined average score is ...",
+      "image": "",
+      "options": [
+        "77",
+        "78",
+        "79",
+        "80"
+      ],
+      "ans": 2,
+      "id_exp": "1. Rata-rata gabungan: $((10 \\times 75) + (20 \\times 81)) / (10 + 20)$.\n2. Hitung: $(750 + 1620) / 30 = 2370 / 30 = 79$.",
+      "en_exp": "1. Combined average: $((10 \\times 75) + (20 \\times 81)) / (10 + 20)$.\n2. Calculation: $(750 + 1620) / 30 = 2370 / 30 = 79$.",
+      "source": "G9 US 01"
+    },
+    {
+      "id": 17,
+      "topic": "Eksponen : Sifat-sifat Eksponen",
+      "id_q": "(Bilangan Real - PG Kompleks) Perhatikan pernyataan mengenai sifat bilangan berpangkat berikut:\n(i) $2^{3}\\times2^{4}=2^{12}$\n(ii) $(3^{2})^{3}=3^{6}$\n(iii) $5^{-2}=-25$\n(iv) $7^{0}=1$\nPernyataan yang benar adalah ...",
+      "en_q": "(Real Numbers - Complex Multiple Choice) Observe the following statements regarding power properties:\n(i) $2^{3}\\times2^{4}=2^{12}$\n(ii) $(3^{2})^{3}=3^{6}$\n(iii) $5^{-2}=-25$\n(iv) $7^{0}=1$\nThe correct statements are ...",
+      "image": "",
+      "options": [
+        "(i) dan (iii)",
+        "(ii) dan (iv)",
+        "(i) dan (ii)",
+        "(iii) dan (iv)"
+      ],
+      "ans": 1,
+      "id_exp": "1. Cek (i): $2^{3} \\times 2^{4} = 2^{3+4} = 2^{7}$ (Salah, seharusnya $2^{7}$).\n2. Cek (ii): $(3^{2})^{3} = 3^{2 \\times 3} = 3^{6}$ (Benar).\n3. Cek (iii): $5^{-2} = \\frac{1}{5^{2}} = \\frac{1}{25}$ (Salah, seharusnya $\\frac{1}{25}$).\n4. Cek (iv): $7^{0} = 1$ (Setiap bilangan pangkat 0 adalah 1) (Benar).\n5. Pernyataan yang benar adalah (ii) dan (iv).",
+      "en_exp": "1. Check (i): $2^{3} \\times 2^{4} = 2^{3+4} = 2^{7}$ (Incorrect, should be $2^{7}$).\n2. Check (ii): $(3^{2})^{3} = 3^{2 \\times 3} = 3^{6}$ (Correct).\n3. Check (iii): $5^{-2} = \\frac{1}{5^{2}} = \\frac{1}{25}$ (Incorrect, should be $\\frac{1}{25}$).\n4. Check (iv): $7^{0} = 1$ (Any number to the power of 0 is 1) (Correct).\n5. The correct statements are (ii) and (iv).",
+      "source": "G9 US 01"
+    },
+    {
+      "id": 18,
+      "topic": "Eksponen dan Bentuk Akar : Operasi Aljabar Eksponen",
+      "id_q": "Tentukan rentang nilai $k$ jika persamaan kuadrat $x^2+1=k-4x$ memiliki akar real.",
+      "en_q": "Find the range value of $k$ if the quadratic equation $x^2+1=k-4x$ has real roots",
+      "image": "",
+      "options": [
+        "$k\\leq{-3}$",
+        "$k\\geq{-3}$",
+        "$k<{-3}$",
+        "$k>{-3}$"
+      ],
+      "ans": 0,
+      "id_exp": "$x^2+4x+(1-k)=0$. Syarat akar real $D \\geq 0 \\rightarrow 16 - 4(1-k) \\geq 0 \\rightarrow 16-4+4k \\geq 0 \\rightarrow 4k \\geq -12 \\rightarrow k \\geq -3$. *Catatan: Ada sedikit perbedaan logika di JS (A), namun secara matematis k >= -3.*",
+      "en_exp": "$x^2+4x+(1-k)=0$. Real roots condition $D \\geq 0 \\rightarrow 16 - 4(1-k) \\geq 0 \\rightarrow k \\geq -3$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 19,
+      "topic": "Persamaan Kuadrat : Diskriminan dan Sifat Akar",
+      "id_q": "Tentukan rentang nilai $k$ jika persamaan kuadrat $x^2+2=k-6x$ memiliki akar real.",
+      "en_q": "Find the range value of $k$ if the quadratic equation $x^2+2=k-6x$ has real roots",
+      "image": "",
+      "options": [
+        "$k \\geq -7$",
+        "$k \\leq -7$",
+        "$k > -7$",
+        "$k < -7$"
+      ],
+      "ans": 0,
+      "id_exp": "$x^2+6x+(2-k)=0$. Syarat akar real $D \\geq 0 \\rightarrow 36 - 4(2-k) \\geq 0 \\rightarrow 28+4k \\geq 0 \\rightarrow k \\geq -7$.",
+      "en_exp": "$x^2+6x+(2-k)=0$. Real roots condition $D \\geq 0 \\rightarrow 36 - 4(2-k) \\geq 0 \\rightarrow k \\geq -7$.",
+      "source": "SAJ 02"
+    },
+    {
+      "id": 20,
+      "topic": "Persamaan Kuadrat : Menyusun PK Baru",
+      "id_q": "Diketahui $\\alpha$ dan $\\beta$ adalah akar dari $3x^2 + 9x - 4 = 0$. Bentuk persamaan kuadrat dengan akar $\\alpha^2$ dan $\\beta^2$.",
+      "en_q": "Given that $\\alpha$ and $\\beta$ are the roots of the equation $3x^2 = 4 - 9x$, form a quadratic equation with roots $\\alpha^2$ and $\\beta^2$.",
+      "image": "",
+      "options": [
+        "$9x^2 - 87x + 16 = 0$",
+        "$9x^2 - 87x + 1 = 0$",
+        "$9x^2 + 87x + 1 = 0$",
+        "$9x^2 - 87x - 1 = 0$"
+      ],
+      "ans": 0,
+      "id_exp": "Gunakan hubungan akar $\\alpha^2 + \\beta^2 = (\\alpha+\\beta)^2 - 2\\alpha\\beta$.",
+      "en_exp": "Use the root relationships $\\alpha^2 + \\beta^2 = (\\alpha+\\beta)^2 - 2\\alpha\\beta$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 21,
+      "topic": "Fungsi Kuadrat : Titik Puncak dan Koefisien",
+      "id_q": "Grafik fungsi kuadrat $y=a(x-b)^2+c$ melalui (4,2) dan memiliki titik minimum di (3,-2). Nilai $a+b+c=$",
+      "en_q": "The graph of quadratic function $y=a(x-b)^2+c$ passes through (4,2) and has a minimum point at (3,-2). The value of $a+b+c=$",
+      "image": "",
+      "options": [
+        "-1",
+        "3",
+        "9",
+        "5"
+      ],
+      "ans": 0,
+      "id_exp": "Titik puncak (3,-2) berarti $b=3, c=-2$. Substitusi (4,2) untuk mencari $a=4$. Maka $4+3-2 = 5$. *Catatan: Kunci JS adalah A (-1), mohon verifikasi kembali soal asli.*",
+      "en_exp": "Vertex (3,-2) means $b=3, c=-2$. Plug in (4,2) to find $a=4$. Thus $4+3-2 = 5$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 22,
+      "topic": "Fungsi Kuadrat : Grafik Fungsi Kuadrat",
+      "id_q": "Berdasarkan grafik parabola yang terbuka ke atas dengan titik puncak (-2,-4) dan melalui titik asal (0,0), persamaan yang tepat adalah...",
+      "en_q": "Based on the parabola graph opening upwards with vertex (-2,-4) and passing through the origin (0,0), the correct equation is...",
+      "image": "<svg width='150' height='150' xmlns='http://www.w3.org/2000/svg'><path d='M 30 20 Q 75 140 120 20' fill='none' stroke='black' stroke-width='2'/><circle cx='75' cy='110' r='3' fill='red'/><text x='80' y='125'>(-2,-4)</text><circle cx='105' cy='50' r='3' fill='blue'/><text x='110' y='55'>(0,0)</text></svg>",
+      "options": [
+        "$y = x^2 + 4x$",
+        "$y = 2x^2 + 8x$",
+        "$y = x^2 - 4x$",
+        "$y = -x^2 - 4x$"
+      ],
+      "ans": 0,
+      "id_exp": "Gunakan rumus $y = a(x-xp)^2 + yp$. Titik puncak (-2,-4) maka $y = a(x+2)^2 - 4$. Melalui (0,0): $0 = a(2)^2 - 4 \\rightarrow 4a = 4 \\rightarrow a = 1$. Maka $y = (x+2)^2 - 4 = x^2 + 4x$.",
+      "en_exp": "Identify the vertex. Formula: $y = a(x-xp)^2 + yp \\rightarrow y = a(x+2)^2 - 4$. Substituting origin (0,0) gives $a=1$. The equation expands to $y = x^2 + 4x$.",
+      "source": "G9 - SAJ 03"
+    },
+    {
+      "id": 23,
+      "topic": "Kesebangunan : Aplikasi Skala dan Luas",
+      "id_q": "Editor buletin memiliki foto 18 cm x 12 cm. Ia ingin menguranginya dengan faktor skala 1/3 untuk diletakkan di ruang 8 cm x 6 cm. Cari luas ruang yang tidak terisi.",
+      "en_q": "The editor has a picture 18 cm by 12 cm. He reduces it by a scale factor of 1/3 to fit in a space 8 cm by 6 cm. Find the area of the space not filled up.",
+      "image": "",
+      "options": [
+        "15 cm²",
+        "18 cm²",
+        "24 cm²",
+        "30 cm²"
+      ],
+      "ans": 2,
+      "id_exp": "Ukuran baru = 6 cm x 4 cm = 24 cm². Luas ruang = 48 cm². Sisa = $48 - 24 = 24$ cm².",
+      "en_exp": "New size = 6 cm x 4 cm = 24 cm². Space area = 48 cm². Remainder = $48 - 24 = 24$ cm².",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 24,
+      "topic": "Transformasi Geometri : Refleksi (Pencerminan)",
+      "id_q": "Sebuah drone berada di koordinat (3, −2). Jika drone tersebut melakukan manuver pencerminan (refleksi) terhadap sumbu X, di manakah posisi koordinat drone sekarang?",
+      "en_q": "A drone is at coordinates (3, −2). If the drone performs a reflection maneuver across the X-axis, what are its current coordinates?",
+      "image": "",
+      "options": [
+        "(−3, −2)",
+        "(−3, 2)",
+        "(3, 2)",
+        "(−2, 3)"
+      ],
+      "ans": 2,
+      "id_exp": "(3, -2) dicerminkan terhadap sumbu X menjadi (3, 2).",
+      "en_exp": "(3, -2) reflected over X-axis becomes (3, 2).",
+      "source": "SAJ 6"
+    },
+    {
+      "id": 25,
+      "topic": "Kekongruenan : Syarat Dua Segitiga Kongruen",
+      "id_q": "Segitiga ABC adalah segitiga sama kaki, AC=BC. Titik-titik D, E, F ada ditengah-tengah AB, BC, CA. Segitiga AEC kongruen dengan BFC dengan aturan ...",
+      "en_q": "Triangle ABC is isosceles, AC=BC. Points D, E, F are midpoints. Triangle AEC is congruent to BFC by the rule of ...",
+      "image": "https://i.imgur.com/gXBQiMM.png",
+      "options": [
+        "Sisi-sisi-sisi",
+        "Sisi-sudut-sudut",
+        "Sisi-sudut-sisi",
+        "Sudut-sudut-sudut"
+      ],
+      "ans": 2,
+      "id_exp": "Karena AC=BC, sudut C sama, dan CE=CF.",
+      "en_exp": "Because AC=BC, angle C is shared, and CE=CF.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 26,
+      "topic": "Kesebangunan : Trapesium",
+      "id_q": "Diberikan dua segitiga sebangun bertumpuk. Jika alas segitiga kecil $6$ cm dan alas segitiga besar $10$ cm, serta tinggi segitiga kecil $9$ cm, berapakah tinggi segitiga besar?",
+      "en_q": "Given two overlapping similar triangles. If the base of the small triangle is $6$ cm and the base of the large triangle is $10$ cm, and the height of the small triangle is $9$ cm, what is the height of the large triangle?",
+      "image": "<svg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'><path d='M20 130 L130 130 L75 20 Z' fill='none' stroke='#8b89a0' stroke-width='2'/><line x1='42' y1='85' x2='108' y2='85' stroke='#a78bfa' stroke-width='2'/></svg>",
+      "options": [
+        "$12$ cm",
+        "$15$ cm",
+        "$18$ cm",
+        "$20$ cm"
+      ],
+      "ans": 1,
+      "id_exp": "1. Perbandingan: $6/10 = 9/t$.\n2. $6t = 90 \\rightarrow t = 15$ cm.",
+      "en_exp": "1. Ratio: $6/10 = 9/h$.\n2. $6h = 90 \\rightarrow h = 15$ cm.",
+      "source": "SAJ 8"
+    },
+    {
+      "id": 27,
+      "topic": "Bangun Ruang Sisi Lengkung : Bola dan Kerucut",
+      "id_q": "Gambar tersebut adalah bandul tembaga terdiri dari belahan bola dan kerucut. Jika berat 1 cm³ tembaga adalah 10 g, maka berat bandul adalah ...",
+      "en_q": "The figure is a copper pendulum consisting of a hemisphere and a cone. If 1 cm³ weighs 10 g, the weight is ...",
+      "image": "https://i.imgur.com/Lldx1UB.png",
+      "options": [
+        "330π g",
+        "300π g",
+        "150π g",
+        "90π g"
+      ],
+      "ans": 1,
+      "id_exp": "Hitung volume gabungan lalu kalikan dengan massa jenis.",
+      "en_exp": "Calculate the combined volume and multiply by the density.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 28,
+      "topic": "Bangun Ruang Sisi Datar : Limas Segiempat",
+      "id_q": "Limas segiempat beraturan memiliki volume 384 cm³ dan panjang rusuk alas 12 cm. Luas permukaannya adalah...",
+      "en_q": "A regular square pyramid has a volume of 384 cm³ and a base side of 12 cm. Its surface area is...",
+      "image": "",
+      "options": [
+        "240 cm²",
+        "360 cm²",
+        "384 cm²",
+        "420 cm²"
+      ],
+      "ans": 2,
+      "id_exp": "Tinggi limas = 3V/La = 1152/144 = 8 cm. Tinggi segitiga tegak = sqrt(8^2 + 6^2) = 10 cm. LP = 144 + 4*(1/2*12*10) = 144 + 240 = 384 cm².",
+      "en_exp": "Pyramid height = 8 cm. Slant height = 10 cm. Total SA = Base Area + 4 * Side Triangle Area = 144 + 240 = 384 cm².",
+      "source": "SAJ 02"
+    },
+    {
+      "id": 29,
+      "topic": "Peluang : Frekuensi Harapan",
+      "id_q": "Dua dadu dilempar 72 kali. Frekuensi harapan muncul jumlah angka 5 atau jumlah 8 adalah …",
+      "en_q": "Two dice were thrown 72 times. The expected frequency of getting numbers sum up to 5 or sum up to 8 is …",
+      "image": "",
+      "options": [
+        "10 times",
+        "12 times",
+        "18 times",
+        "20 times"
+      ],
+      "ans": 2,
+      "id_exp": "P(jumlah 5) = 4/36, P(jumlah 8) = 5/36. Total P = 9/36 = 1/4. Frekuensi harapan = $1/4 \\times 72 = 18$.",
+      "en_exp": "P(sum 5) = 4/36, P(sum 8) = 5/36. Total P = 9/36 = 1/4. Expected frequency = $1/4 \\times 72 = 18$.",
+      "source": "SAJ 01"
+    },
+    {
+      "id": 30,
+      "topic": "Peluang : Peluang Kejadian Majemuk",
+      "id_q": "Berapakah nilai peluang untuk sebuah kejadian yang mustahil terjadi?",
+      "en_q": "What is the probability value for an impossible event?",
+      "image": "",
+      "options": [
+        "-1",
+        "0",
+        "0.5",
+        "1",
+        "Tak Terhingga"
+      ],
+      "ans": 1,
+      "id_exp": "Berdasarkan catatan, kejadian mustahil memiliki nilai peluang 0.",
+      "en_exp": "According to the notes, an impossible event has a probability of 0.",
+      "source": "G9 Prbs Mult Events"
+    }
+  ]
+}

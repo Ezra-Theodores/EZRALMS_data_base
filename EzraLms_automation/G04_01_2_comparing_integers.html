@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparing Integers - G4 SMPK</title>
+    <style>
+        :root {
+            --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --color-border-tertiary: #e0e0e0;
+            --color-border-secondary: #ccc;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f9f9f9;
+            --color-text-primary: #222;
+            --color-text-secondary: #555;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: #f0f2f5; color: var(--color-text-primary); }
+        .wrap { padding: 0 0 2rem; max-width: 820px; margin: 20px auto; background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+        .lang-btn { display: flex; gap: 4px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); overflow: hidden; padding: 2px; }
+        .lang-btn button { padding: 6px 14px; font-size: 13px; font-weight: 500; border: none; border-radius: 6px; cursor: pointer; background: transparent; color: var(--color-text-secondary); transition: all 0.15s; }
+        .lang-btn button.active { background: var(--color-background-primary); color: var(--color-text-primary); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .hero { background: linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 100%); padding: 28px 24px 20px; text-align: center; border-bottom: 0.5px solid var(--color-border-tertiary); }
+        .hero h1 { font-size: 26px; font-weight: 500; color: var(--color-text-primary); }
+        .hero p { font-size: 15px; color: var(--color-text-secondary); margin-top: 6px; }
+        .tabs { display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary); padding: 0 20px; background: var(--color-background-primary); overflow-x: auto; }
+        .tab-btn { padding: 12px 18px; font-size: 14px; font-weight: 500; border: none; background: transparent; cursor: pointer; color: var(--color-text-secondary); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: all 0.15s; }
+        .tab-btn.active { color: #7B1FA2; border-bottom-color: #7B1FA2; }
+        .section { display: none; padding: 24px 20px; }
+        .section.active { display: block; }
+        .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 16px; }
+        .card h2 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; }
+        .card p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; }
+        .symbol-box { display: flex; gap: 16px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+        .symbol-item { padding: 20px 30px; border-radius: var(--border-radius-lg); text-align: center; min-width: 100px; }
+        .symbol-item.greater { background: #E3F2FD; border: 2px solid #1565C0; }
+        .symbol-item.less { background: #FFEBEE; border: 2px solid #C62828; }
+        .symbol-item.equal { background: #E8F5E9; border: 2px solid #2E7D32; }
+        .symbol-item .sym { font-size: 48px; font-weight: 600; }
+        .symbol-item.greater .sym { color: #1565C0; }
+        .symbol-item.less .sym { color: #C62828; }
+        .symbol-item.equal .sym { color: #2E7D32; }
+        .symbol-item .label { font-size: 14px; font-weight: 500; margin-top: 8px; }
+        .example-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 12px 0; padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); flex-wrap: wrap; }
+        .example-row .num { font-size: 24px; font-weight: 600; padding: 8px 16px; border-radius: 8px; }
+        .example-row .num.pos { background: #E3F2FD; color: #1565C0; }
+        .example-row .num.neg { background: #FFEBEE; color: #C62828; }
+        .example-row .sym { font-size: 28px; font-weight: 600; }
+        .example-row .result { font-size: 16px; font-weight: 500; color: var(--color-text-secondary); }
+        .tip-box { background: #F3E5F5; border: 0.5px solid #CE93D8; border-radius: var(--border-radius-md); padding: 12px 16px; font-size: 14px; color: #7B1FA2; margin-top: 12px; }
+        .life-example { background: #FFF8E1; border: 0.5px solid #FFB74D; border-radius: var(--border-radius-md); padding: 16px; margin: 12px 0; }
+        .life-example h4 { font-size: 14px; color: #E65100; margin-bottom: 8px; }
+        .life-example p { font-size: 14px; color: #555; line-height: 1.6; }
+        .q-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 12px; }
+        .q-card h3 { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 14px; }
+        .answer-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .ans-btn { padding: 10px 20px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); background: var(--color-background-secondary); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.15s; color: var(--color-text-primary); }
+        .ans-btn:hover { background: var(--color-background-primary); border-color: #7B1FA2; }
+        .ans-btn.correct { background: #E8F5E9; border-color: #2E7D32; color: #1B5E20; }
+        .ans-btn.wrong { background: #FFEBEE; border-color: #C62828; color: #B71C1C; }
+        .feedback { padding: 12px 16px; border-radius: var(--border-radius-md); font-size: 14px; line-height: 1.6; margin-top: 8px; display: none; }
+        .feedback.show { display: block; }
+        .feedback.correct { background: #E8F5E9; color: #1B5E20; border: 0.5px solid #2E7D32; }
+        .feedback.wrong { background: #FFEBEE; color: #B71C1C; border: 0.5px solid #C62828; }
+        .score-bar { display: flex; align-items: center; gap: 12px; padding: 12px 20px; background: var(--color-background-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+        .score-badge { background: #F3E5F5; color: #7B1FA2; border-radius: var(--border-radius-md); padding: 4px 12px; font-size: 13px; font-weight: 500; }
+        .progress-wrap { flex: 1; height: 6px; background: var(--color-border-tertiary); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #7B1FA2; border-radius: 3px; transition: width 0.3s; }
+        .section-title { font-size: 19px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #7B1FA2; display: inline-block; }
+        .icon-emoji { font-size: 24px; margin-right: 8px; }
+        .comp-interactive { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 20px; margin: 16px 0; }
+        .comp-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 16px 0; }
+        .comp-num { font-size: 32px; font-weight: 600; padding: 10px 20px; border-radius: 8px; min-width: 80px; text-align: center; }
+        .comp-num.pos { background: #E3F2FD; color: #1565C0; }
+        .comp-num.neg { background: #FFEBEE; color: #C62828; }
+        .comp-sym { font-size: 36px; font-weight: 600; cursor: pointer; padding: 10px; transition: all 0.2s; border-radius: 8px; }
+        .comp-sym:hover { background: var(--color-background-primary); transform: scale(1.1); }
+        .comp-sym.selected { background: #F3E5F5; }
+        .comp-sym.correct { color: #2E7D32; }
+        .comp-sym.wrong { color: #C62828; }
+        .rules-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px; margin: 12px 0; }
+        .rule-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .rule-item:last-child { margin-bottom: 0; }
+        .rule-icon { font-size: 20px; }
+        .rule-text { font-size: 14px; color: var(--color-text-secondary); line-height: 1.5; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="topbar">
+        <div class="lang-btn">
+            <button class="active" onclick="setLang('en')" id="btn-en">English</button>
+            <button onclick="setLang('id')" id="btn-id">Indonesia</button>
+        </div>
+    </div>
+    <div class="hero">
+        <h1 id="h-title">Comparing Integers</h1>
+        <p id="h-sub">Cambridge Grade 4 Mathematics — Numbers</p>
+    </div>
+    <div class="score-bar">
+        <span class="score-badge" id="score-label">Score: 0 / 0</span>
+        <div class="progress-wrap"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+        <span style="font-size:13px;color:var(--color-text-secondary)" id="prog-label">0%</span>
+    </div>
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab(0)" id="tab0">Symbols</button>
+        <button class="tab-btn" onclick="showTab(1)" id="tab1">Rules</button>
+        <button class="tab-btn" onclick="showTab(2)" id="tab2">Examples</button>
+        <button class="tab-btn" onclick="showTab(3)" id="tab3">Practice</button>
+    </div>
+    <div class="section active" id="sec0">
+        <div class="section-title"><span class="dot"></span> <span id="t0-title">Comparison Symbols</span></div>
+        <div class="card">
+            <p id="t0-intro">We use special symbols to compare numbers. These symbols help us show which number is bigger, smaller, or equal!</p>
+        </div>
+        <div class="symbol-box">
+            <div class="symbol-item greater">
+                <div class="sym">></div>
+                <div class="label" id="t0-greater">Greater Than</div>
+            </div>
+            <div class="symbol-item less">
+                <div class="sym"><</div>
+                <div class="label" id="t0-less">Less Than</div>
+            </div>
+            <div class="symbol-item equal">
+                <div class="sym">=</div>
+                <div class="label" id="t0-equal">Equal To</div>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t0-memo">Memory Tips</h2>
+            <div class="tip-box" id="t0-tip1"><span class="icon-emoji">🍎</span> <span id="t0-tip1-text">The big open part faces the GREATER number. 5 > 3 means 5 is greater than 3!</span></div>
+            <div class="tip-box" id="t0-tip2"><span class="icon-emoji">🐊</span> <span id="t0-tip2-text">Think of it like a hungry crocodile. The crocodile's mouth opens toward the bigger number!</span></div>
+        </div>
+    </div>
+    <div class="section" id="sec1">
+        <div class="section-title"><span class="dot"></span> <span id="t1-title">Comparison Rules</span></div>
+        <div class="card">
+            <h2 id="t1-pos">Comparing Positive Numbers</h2>
+            <div class="rules-box">
+                <div class="rule-item"><span class="rule-icon">📈</span><span class="rule-text" id="t1-pos-rule">On the number line, the number on the RIGHT is always GREATER. So 5 > 3 because 5 is to the right of 3.</span></div>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t1-neg">Comparing Negative Numbers</h2>
+            <div class="rules-box">
+                <div class="rule-item"><span class="rule-icon">❄️</span><span class="rule-text" id="t1-neg-rule">For negative numbers, the number closer to zero is GREATER. So -3 > -7 because -3 is closer to zero than -7.</span></div>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t1-mix">Comparing Positive and Negative</h2>
+            <div class="rules-box">
+                <div class="rule-item"><span class="rule-icon">☀️</span><span class="rule-text" id="t1-mix-rule1">Every POSITIVE number is greater than ZERO. Every NEGATIVE number is less than ZERO.</span></div>
+                <div class="rule-item"><span class="rule-icon">🌡️</span><span class="rule-text" id="t1-mix-rule2">So +5 > 0 > -5. Positive numbers are greater than negative numbers!</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="sec2">
+        <div class="section-title"><span class="dot"></span> <span id="t2-title">Examples</span></div>
+        <div class="card">
+            <h2 id="t2-pos">Positive vs Positive</h2>
+            <div class="example-row">
+                <span class="num pos">5</span>
+                <span class="sym" style="color:#7B1FA2">></span>
+                <span class="num pos">3</span>
+                <span class="result" id="t2-pos-ans">5 is greater than 3</span>
+            </div>
+            <div class="example-row">
+                <span class="num pos">2</span>
+                <span class="sym" style="color:#7B1FA2"><</span>
+                <span class="num pos">8</span>
+                <span class="result" id="t2-pos-ans2">2 is less than 8</span>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t2-neg">Negative vs Negative</h2>
+            <div class="example-row">
+                <span class="num neg">-3</span>
+                <span class="sym" style="color:#7B1FA2">></span>
+                <span class="num neg">-7</span>
+                <span class="result" id="t2-neg-ans">-3 is greater than -7</span>
+            </div>
+            <div class="example-row">
+                <span class="num neg">-5</span>
+                <span class="sym" style="color:#7B1FA2"><</span>
+                <span class="num neg">-1</span>
+                <span class="result" id="t2-neg-ans2">-5 is less than -1</span>
+            </div>
+        </div>
+        <div class="card">
+            <h2 id="t2-mix">Positive vs Negative</h2>
+            <div class="example-row">
+                <span class="num pos">5</span>
+                <span class="sym" style="color:#7B1FA2">></span>
+                <span class="num neg">-3</span>
+                <span class="result" id="t2-mix-ans">5 is greater than -3</span>
+            </div>
+            <div class="example-row">
+                <span class="num neg">-8</span>
+                <span class="sym" style="color:#7B1FA2"><</span>
+                <span class="num pos">2</span>
+                <span class="result" id="t2-mix-ans2">-8 is less than 2</span>
+            </div>
+        </div>
+        <div class="life-example">
+            <h4 id="t2-life">🏆 Competition</h4>
+            <p id="t2-life-desc">In a game, your score is +150 points and your friend's score is -50 points. Since +150 > -50, you are winning!</p>
+        </div>
+    </div>
+    <div class="section" id="sec3">
+        <div class="section-title"><span class="dot"></span> <span id="t3-title">Practice Quiz</span></div>
+        <div class="q-card">
+            <h3 id="q1-text">Q1. Which symbol makes this true: 7 ? 4</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1a"><</button>
+                <button class="ans-btn" onclick="mcq('q1',this,'correct','q1fb')" id="q1b">></button>
+                <button class="ans-btn" onclick="mcq('q1',this,'wrong','q1fb')" id="q1c">=</button>
+            </div>
+            <div class="feedback" id="q1fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q2-text">Q2. Which symbol makes this true: -3 ? -8</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q2',this,'correct','q2fb')" id="q2a">></button>
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2b"><</button>
+                <button class="ans-btn" onclick="mcq('q2',this,'wrong','q2fb')" id="q2c">=</button>
+            </div>
+            <div class="feedback" id="q2fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q3-text">Q3. Which is true?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3a">-5 > 2</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'correct','q3fb')" id="q3b">-5 < 2</button>
+                <button class="ans-btn" onclick="mcq('q3',this,'wrong','q3fb')" id="q3c">-5 = 2</button>
+            </div>
+            <div class="feedback" id="q3fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q4-text">Q4. Which symbol makes this true: 0 ? -10</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4a"><</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'wrong','q4fb')" id="q4b">=</button>
+                <button class="ans-btn" onclick="mcq('q4',this,'correct','q4fb')" id="q4c">></button>
+            </div>
+            <div class="feedback" id="q4fb"></div>
+        </div>
+        <div class="q-card">
+            <h3 id="q5-text">Q5. Which is the correct order from smallest to largest: -3, 5, -7, 2 ?</h3>
+            <div class="answer-row">
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5a">5, 2, -3, -7</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'wrong','q5fb')" id="q5b">-7, -3, 2, 5</button>
+                <button class="ans-btn" onclick="mcq('q5',this,'correct','q5fb')" id="q5c">-7, -3, 2, 5</button>
+            </div>
+            <div class="feedback" id="q5fb"></div>
+        </div>
+    </div>
+</div>
+<script>
+    let lang = 'en';
+    let score = 0, total = 0;
+    const answered = {};
+    const TX = {
+        en: {
+            htitle:'Comparing Integers', hsub:'Cambridge Grade 4 Mathematics — Numbers',
+            tab0:'Symbols', tab1:'Rules', tab2:'Examples', tab3:'Practice', score:'Score',
+            t0title:'Comparison Symbols', t0intro:'We use special symbols to compare numbers. These symbols help us show which number is bigger, smaller, or equal!',
+            t0greater:'Greater Than', t0less:'Less Than', t0equal:'Equal To',
+            t0memo:'Memory Tips', t0tip1:'The big open part faces the GREATER number. 5 > 3 means 5 is greater than 3!', t0tip2:'Think of it like a hungry crocodile. The crocodiles mouth opens toward the bigger number!',
+            t1title:'Comparison Rules', t1pos:'Comparing Positive Numbers', t1posrule:'On the number line, the number on the RIGHT is always GREATER. So 5 > 3 because 5 is to the right of 3.',
+            t1neg:'Comparing Negative Numbers', t1negrule:'For negative numbers, the number closer to zero is GREATER. So -3 > -7 because -3 is closer to zero than -7.',
+            t1mix:'Comparing Positive and Negative', t1mixrule1:'Every POSITIVE number is greater than ZERO. Every NEGATIVE number is less than ZERO.', t1mixrule2:'So +5 > 0 > -5. Positive numbers are greater than negative numbers!',
+            t2title:'Examples', t2pos:'Positive vs Positive', t2posans:'5 is greater than 3', t2posans2:'2 is less than 8',
+            t2neg:'Negative vs Negative', t2negans:'-3 is greater than -7', t2negans2:'-5 is less than -1',
+            t2mix:'Positive vs Negative', t2mixans:'5 is greater than -3', t2mixans2:'-8 is less than 2',
+            t2life:'Competition', t2lifedesc:'In a game, your score is +150 points and your friends score is -50 points. Since +150 > -50, you are winning!',
+            t3title:'Practice Quiz',
+            q1:'Q1. Which symbol makes this true: 7 ? 4', q1a:'<', q1b:'>', q1c:'=', q1cr:'Correct! 7 > 4', q1wr:'Wrong. 7 is greater than 4, so use >',
+            q2:'Q2. Which symbol makes this true: -3 ? -8', q2a:'>', q2b:'<', q2c:'=', q2cr:'Correct! -3 > -8 (closer to zero)', q2wr:'Wrong. -3 is closer to zero than -8, so -3 > -8',
+            q3:'Q3. Which is true?', q3a:'-5 > 2', q3b:'-5 < 2', q3c:'-5 = 2', q3cr:'Correct! -5 < 2 (negative is always less than positive)', q3wr:'Wrong. -5 is negative and 2 is positive, so -5 < 2',
+            q4:'Q4. Which symbol makes this true: 0 ? -10', q4a:'<', q4b:'=', q4c:'>', q4cr:'Correct! 0 > -10', q4wr:'Wrong. 0 is greater than -10',
+            q5:'Q5. Which is the correct order from smallest to largest: -3, 5, -7, 2?', q5a:'5, 2, -3, -7', q5b:'-7, -3, 2, 5', q5c:'-7, -3, 2, 5', q5cr:'Correct! -7 < -3 < 2 < 5', q5wr:'Wrong. Smallest to largest: -7, -3, 2, 5'
+        },
+        id: {
+            htitle:'Membandingkan Bilangan Bulat', hsub:'Matematika Cambridge Kelas 4 — Bilangan',
+            tab0:'Simbol', tab1:'Aturan', tab2:'Contoh', tab3:'Latihan', score:'Skor',
+            t0title:'Simbol Perbandingan', t0intro:'Kita pakai simbol khusus untuk membandingkan bilangan. Simbol ini membantu kita menunjukkan bilangan mana yang lebih besar, lebih kecil, atau sama!',
+            t0greater:'Lebih Besar', t0less:'Lebih Kecil', t0equal:'Sama Dengan',
+            t0memo:'Tips Memori', t0tip1:'Bagian terbuka besar menghadap bilangan yang LEBIH BESAR. 5 > 3 artinya 5 lebih besar dari 3!', t0tip2:'Bayangkan seperti buaya lapar. Mulut buaya terbuka ke arah bilangan yang lebih besar!',
+            t1title:'Aturan Perbandingan', t1pos:'Membandingkan Bilangan Positif', t1posrule:'Di garis bilangan, bilangan di KANAN selalu LEBIH BESAR. Jadi 5 > 3 karena 5 ada di kanan 3.',
+            t1neg:'Membandingkan Bilangan Negatif', t1negrule:'Untuk bilangan negatif, bilangan yang lebih dekat ke nol adalah LEBIH BESAR. Jadi -3 > -7 karena -3 lebih dekat ke nol dari -7.',
+            t1mix:'Membandingkan Positif dan Negatif', t1mixrule1:'Setiap bilangan POSITIF lebih besar dari NOL. Setiap bilangan NEGATIF lebih kecil dari NOL.', t1mixrule2:'Jadi +5 > 0 > -5. Bilangan positif lebih besar dari bilangan negatif!',
+            t2title:'Contoh', t2pos:'Positif vs Positif', t2posans:'5 lebih besar dari 3', t2posans2:'2 lebih kecil dari 8',
+            t2neg:'Negatif vs Negatif', t2negans:'-3 lebih besar dari -7', t2negans2:'-5 lebih kecil dari -1',
+            t2mix:'Positif vs Negatif', t2mixans:'5 lebih besar dari -3', t2mixans2:'-8 lebih kecil dari 2',
+            t2life:'Kompetisi', t2lifedesc:'Di game, skor kamu +150 poin dan skor temanmu -50 poin. Karena +150 > -50, kamu menang!',
+            t3title:'Latihan Soal',
+            q1:'S1. Simbol mana yang membuat ini benar: 7 ? 4', q1a:'<', q1b:'>', q1c:'=', q1cr:'Benar! 7 > 4', q1wr:'Salah. 7 lebih besar dari 4, jadi pakai >',
+            q2:'S2. Simbol mana yang membuat ini benar: -3 ? -8', q2a:'>', q2b:'<', q2c:'=', q2cr:'Benar! -3 > -8 (lebih dekat ke nol)', q2wr:'Salah. -3 lebih dekat ke nol dari -8, jadi -3 > -8',
+            q3:'S3. Mana yang benar?', q3a:'-5 > 2', q3b:'-5 < 2', q3c:'-5 = 2', q3cr:'Benar! -5 < 2 (negatif selalu lebih kecil dari positif)', q3wr:'Salah. -5 negatif dan 2 positif, jadi -5 < 2',
+            q4:'S4. Simbol mana yang membuat ini benar: 0 ? -10', q4a:'<', q4b:'=', q4c:'>', q4cr:'Benar! 0 > -10', q4wr:'Salah. 0 lebih besar dari -10',
+            q5:'S5. Urutan yang benar dari terkecil ke terbesar: -3, 5, -7, 2?', q5a:'5, 2, -3, -7', q5b:'-7, -3, 2, 5', q5c:'-7, -3, 2, 5', q5cr:'Benar! -7 < -3 < 2 < 5', q5wr:'Salah. Dari terkecil ke terbesar: -7, -3, 2, 5'
+        }
+    };
+    function t(k) { return TX[lang][k] || ''; }
+    function setLang(l) { lang = l; document.getElementById('btn-en').className = l==='en' ? 'active' : ''; document.getElementById('btn-id').className = l==='id' ? 'active' : ''; applyLang(); }
+    function applyLang() {
+        document.getElementById('h-title').textContent = t('htitle');
+        document.getElementById('h-sub').textContent = t('hsub');
+        document.getElementById('tab0').textContent = t('tab0');
+        document.getElementById('tab1').textContent = t('tab1');
+        document.getElementById('tab2').textContent = t('tab2');
+        document.getElementById('tab3').textContent = t('tab3');
+        document.getElementById('t0-title').textContent = t('t0title');
+        document.getElementById('t0-intro').textContent = t('t0intro');
+        document.getElementById('t0-greater').textContent = t('t0greater');
+        document.getElementById('t0-less').textContent = t('t0less');
+        document.getElementById('t0-equal').textContent = t('t0equal');
+        document.getElementById('t0-memo').textContent = t('t0memo');
+        document.getElementById('t0-tip1-text').textContent = t('t0tip1');
+        document.getElementById('t0-tip2-text').textContent = t('t0tip2');
+        document.getElementById('t1-title').textContent = t('t1title');
+        document.getElementById('t1-pos').textContent = t('t1pos');
+        document.getElementById('t1-pos-rule').textContent = t('t1posrule');
+        document.getElementById('t1-neg').textContent = t('t1neg');
+        document.getElementById('t1-neg-rule').textContent = t('t1negrule');
+        document.getElementById('t1-mix').textContent = t('t1mix');
+        document.getElementById('t1-mix-rule1').textContent = t('t1mixrule1');
+        document.getElementById('t1-mix-rule2').textContent = t('t1mixrule2');
+        document.getElementById('t2-title').textContent = t('t2title');
+        document.getElementById('t2-pos').textContent = t('t2pos');
+        document.getElementById('t2-pos-ans').textContent = t('t2posans');
+        document.getElementById('t2-pos-ans2').textContent = t('t2posans2');
+        document.getElementById('t2-neg').textContent = t('t2neg');
+        document.getElementById('t2-neg-ans').textContent = t('t2negans');
+        document.getElementById('t2-neg-ans2').textContent = t('t2negans2');
+        document.getElementById('t2-mix').textContent = t('t2mix');
+        document.getElementById('t2-mix-ans').textContent = t('t2mixans');
+        document.getElementById('t2-mix-ans2').textContent = t('t2mixans2');
+        document.getElementById('t2-life').textContent = t('t2life');
+        document.getElementById('t2-life-desc').textContent = t('t2lifedesc');
+        document.getElementById('t3-title').textContent = t('t3title');
+        for(let i=1; i<=5; i++) { document.getElementById('q'+i+'-text').textContent = t('q'+i); }
+        updateScore();
+    }
+    function showTab(idx) { document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active', i===idx)); document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active', i===idx)); }
+    function updateScore() { document.getElementById('score-label').textContent = t('score')+': '+score+' / '+total; const pct = total>0?Math.round(score/total*100):0; document.getElementById('prog').style.width=pct+'%'; document.getElementById('prog-label').textContent=pct+'%'; }
+    function mcq(qid, btn, res, fbid) { if(answered[qid]) return; answered[qid] = true; total++; const fb = document.getElementById(fbid); fb.className = 'feedback show '+res; if(res==='correct') { score++; fb.textContent = t(qid+'cr'); btn.classList.add('correct'); } else { fb.textContent = t(qid+'wr'); btn.classList.add('wrong'); } updateScore(); }
+</script>
+</body>
+</html>
