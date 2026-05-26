@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EZRALMS — Finance</title>
+  <link rel="stylesheet" href="/static/css/unified_spa.css"/>
+  <link rel="stylesheet" href="/blueprints/finance/static/finance.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     AUTH GATE — shown until valid password is entered
+═══════════════════════════════════════════════════════════ -->
+<div id="auth-gate">
+  <h2>🔒 EZRALMS Finance</h2>
+  <p style="color:#64748b;font-size:0.9rem;margin-bottom:1.5rem;">Enter your finance password to continue</p>
+  <div class="input-group">
+    <label for="pwd">Password</label>
+    <input type="password" id="pwd" placeholder="Enter password" autocomplete="off"/>
+  </div>
+  <div id="auth-error"></div>
+  <button id="auth-btn" onclick="doAuth()">Unlock Finance</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FINANCE CONTENT — revealed after auth
+═══════════════════════════════════════════════════════════ -->
+<div id="finance-content">
+
+  <!-- Header -->
+  <div class="finance-header">
+    <div>
+      <h1>💰 Finance Dashboard</h1>
+      <p class="subtitle">EZRALMS Financial Overview</p>
+    </div>
+    <div style="display:flex;gap:0.75rem;">
+      <button class="btn btn-outline" onclick="exportCSV()">📥 Download CSV</button>
+      <button class="btn btn-outline" onclick="location.reload()">🔄 Refresh</button>
+    </div>
+  </div>
+
+  <!-- Error banner -->
+  <div id="error-msg"></div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card income">
+      <div class="icon">📈</div>
+      <div class="label">Total Income</div>
+      <div class="value" id="kpi-income">—</div>
+      <div class="sub" id="kpi-income-sub">Loading…</div>
+    </div>
+    <div class="kpi-card expense">
+      <div class="icon">📉</div>
+      <div class="label">Total Expenses</div>
+      <div class="value" id="kpi-expense">—</div>
+      <div class="sub" id="kpi-expense-sub">Loading…</div>
+    </div>
+    <div class="kpi-card profit">
+      <div class="icon">⚖️</div>
+      <div class="label">Net Profit</div>
+      <div class="value" id="kpi-profit">—</div>
+      <div class="sub" id="kpi-profit-sub">Loading…</div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters">
+    <h3>Filter Transactions</h3>
+    <div class="filter-group">
+      <label for="f-start">From</label>
+      <input type="date" id="f-start"/>
+    </div>
+    <div class="filter-group">
+      <label for="f-end">To</label>
+      <input type="date" id="f-end"/>
+    </div>
+    <div class="filter-group">
+      <label for="f-cat">Category</label>
+      <select id="f-cat">
+        <option value="">All</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" onclick="loadData()">Apply</button>
+    <button class="btn btn-outline" onclick="resetFilters()">Reset</button>
+  </div>
+
+  <!-- Monthly Chart -->
+  <div class="chart-section">
+    <h3>Monthly Breakdown — <span id="chart-year"></span></h3>
+    <div class="chart-bars" id="chart-bars">
+      <div style="flex:1;text-align:center;color:#64748b;padding:4rem 0;">Loading chart…</div>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#16a34a"></div> Income</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#dc2626"></div> Expense</div>
+    </div>
+  </div>
+
+  <!-- Transactions Table -->
+  <div class="table-section">
+    <div class="table-header">
+      <h3>Transaction History</h3>
+      <span id="tx-count" style="color:#64748b;font-size:0.875rem;">—</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Reference</th>
+            <th style="text-align:right">Amount (IDR)</th>
+          </tr>
+        </thead>
+        <tbody id="tx-body">
+          <tr><td colspan="6" style="text-align:center;padding:2rem;color:#64748b;">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /finance-content -->
+
+<script>
+/* ── Auth state ─────────────────────────────────────────────────────── */
+let authHeader = null;
+
+function doAuth() {
+  const btn = document.getElementById('auth-btn');
+  const pwd = document.getElementById('pwd').value;
+  if (!pwd) { document.getElementById('auth-error').textContent = 'Password is required.'; return; }
+  btn.disabled = true;
+  btn.textContent = 'Verifying…';
+  authHeader = 'Basic ' + btoa('finance:' + pwd);
+  // Quick test — hit summary endpoint
+  fetch('/finance/summary', { headers: { 'Authorization': authHeader } })
+    .then(r => {
+      if (r.ok) {
+        document.getElementById('auth-gate').style.display = 'none';
+        document.getElementById('finance-content').style.display = 'block';
+        loadData();
+      } else {
+        authHeader = null;
+        document.getElementById('auth-error').textContent = 'Incorrect password. Try again.';
+        btn.disabled = false; btn.textContent = 'Unlock Finance';
+      }
+    })
+    .catch(() => {
+      authHeader = null;
+      document.getElementById('auth-error').textContent = 'Connection error. Is the server running?';
+      btn.disabled = false; btn.textContent = 'Unlock Finance';
+    });
+}
+
+// Enter key on password field
+document.getElementById('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') doAuth(); });
+
+/* ── Data loading ────────────────────────────────────────────────────── */
+const fmt = new Intl.NumberFormat('id-ID');
+
+function fmtIDR(n) { return 'IDR ' + fmt.format(n); }
+
+function loadData() {
+  if (!authHeader) return;
+  const sp = new URLSearchParams();
+  const s = document.getElementById('f-start').value;
+  const e = document.getElementById('f-end').value;
+  const c = document.getElementById('f-cat').value;
+  if (s) sp.set('start_date', s);
+  if (e) sp.set('end_date', e);
+  if (c) sp.set('category', c);
+  const qs = sp.toString();
+
+  showError('');
+
+  // Load summary + monthly in parallel
+  Promise.all([
+    fetch('/finance/summary' + (qs ? '?' + qs : ''), { headers: { 'Authorization': authHeader } }),
+    fetch('/finance/report' + (qs ? '?' + qs : ''),   { headers: { 'Authorization': authHeader } }),
+  ])
+  .then(([sumR, repR]) => Promise.all([sumR.json(), repR.json()]))
+  .then(([sum, rep]) => {
+    renderSummary(sum);
+    renderChart(sum.monthly || []);
+    renderTable(rep.transactions || []);
+  })
+  .catch(err => showError('Failed to load data: ' + err.message));
+}
+
+function renderSummary(s) {
+  document.getElementById('kpi-income').textContent  = fmtIDR(s.total_income);
+  document.getElementById('kpi-expense').textContent = fmtIDR(s.total_expenses);
+  document.getElementById('kpi-profit').textContent  = fmtIDR(s.net_profit);
+  const pct = s.total_income > 0 ? ((s.net_profit / s.total_income) * 100).toFixed(1) : 0;
+  document.getElementById('kpi-profit-sub').textContent = pct + '% net margin';
+}
+
+function renderChart(monthly) {
+  const year = new Date().getFullYear();
+  document.getElementById('chart-year').textContent = year;
+  if (!monthly.length) {
+    document.getElementById('chart-bars').innerHTML =
+      '<div style="flex:1;text-align:center;color:#64748b;padding:4rem 0;">No data for ' + year + '</div>';
+    return;
+  }
+  const NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const maxVal = Math.max(...monthly.map(m => Math.max(m.income, m.expense)), 1);
+
+  let html = '';
+  monthly.forEach((m, i) => {
+    const ih = Math.round((m.income  / maxVal) * 160);
+    const eh = Math.round((m.expense / maxVal) * 160);
+    html += '<div class="bar-group">';
+    html += '<div class="bar income" style="height:' + ih + 'px"><div class="bar-tooltip">' + fmtIDR(m.income) + '</div></div>';
+    html += '<div class="bar expense" style="height:' + eh + 'px"><div class="bar-tooltip">' + fmtIDR(m.expense) + '</div></div>';
+    html += '</div>';
+  });
+  // X-axis labels
+  let labels = '';
+  monthly.forEach((m, i) => { labels += '<div class="bar-label" style="flex:1;text-align:center">' + NAMES[i] + '</div>'; });
+  document.getElementById('chart-bars').innerHTML = html + '<div style="display:flex;width:100%;padding-top:4px">' + labels + '</div>';
+}
+
+function renderTable(txs) {
+  document.getElementById('tx-count').textContent = txs.length + ' transaction' + (txs.length !== 1 ? 's' : '');
+  if (!txs.length) {
+    document.getElementById('tx-body').innerHTML =
+      '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#64748b;">No transactions found</td></tr>';
+    return;
+  }
+  let html = '';
+  txs.forEach(t => {
+    const sign = t.category === 'income' ? '+' : '-';
+    const cls  = t.category === 'income' ? 'income' : 'expense';
+    html += '<tr>';
+    html += '<td style="white-space:nowrap">' + t.date + '</td>';
+    html += '<td><span class="badge ' + cls + '">' + t.category + '</span></td>';
+    html += '<td>' + (t.type || '—') + '</td>';
+    html += '<td>' + (t.description || '—') + '</td>';
+    html += '<td style="color:#64748b;font-size:0.8rem">' + (t.reference || '—') + '</td>';
+    html += '<td style="text-align:right"><span class="amount ' + cls + '">' + sign + fmtIDR(t.amount) + '</span></td>';
+    html += '</tr>';
+  });
+  document.getElementById('tx-body').innerHTML = html;
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  if (!msg) { el.style.display = 'none'; return; }
+  el.textContent = msg; el.style.display = 'block';
+}
+
+function resetFilters() {
+  document.getElementById('f-start').value = '';
+  document.getElementById('f-end').value   = '';
+  document.getElementById('f-cat').value   = '';
+  loadData();
+}
+
+function exportCSV() {
+  if (!authHeader) { alert('Please unlock first.'); return; }
+  const sp = new URLSearchParams();
+  const s = document.getElementById('f-start').value;
+  const e = document.getElementById('f-end').value;
+  const c = document.getElementById('f-cat').value;
+  if (s) sp.set('start_date', s);
+  if (e) sp.set('end_date', e);
+  if (c) sp.set('category', c);
+  window.open('/finance/report/csv' + (sp.toString() ? '?' + sp.toString() : ''), '_blank');
+}
+</script>
+</body>
+</html>

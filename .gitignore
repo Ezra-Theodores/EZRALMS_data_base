@@ -53,6 +53,7 @@ webui_out.log
 Shortcut
 __pycache__/
 .pytest_cache/
+finance_data.json
 node_modules/
 ServerMySQL/
 */node_modules/

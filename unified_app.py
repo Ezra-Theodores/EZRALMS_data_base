@@ -34,6 +34,7 @@ from blueprints.firebase_sync_bp import bp as firebase_sync_bp
 from blueprints.pipeline_bp import bp as pipeline_bp
 from blueprints.rag_bp import bp as rag_bp
 from blueprints.quiz_manager_bp import bp as quiz_manager_bp
+from blueprints.finance import finance_bp
 
 load_dotenv()
 
@@ -53,6 +54,7 @@ BLUEPRINTS = [
     pipeline_bp,
     rag_bp,
     quiz_manager_bp,
+    finance_bp,
 ]
 for bp in BLUEPRINTS:
     app.register_blueprint(bp)

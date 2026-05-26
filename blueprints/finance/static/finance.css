@@ -1,0 +1,178 @@
+/* ── Finance Dashboard Styles ─────────────────────────────────────────── */
+:root {
+  --ezra-blue:    #2563eb;
+  --ezra-dark:    #1e40af;
+  --ezra-accent:  #3b82f6;
+  --bg:           #f8fafc;
+  --surface:      #ffffff;
+  --border:       #e2e8f0;
+  --text:         #1e293b;
+  --muted:        #64748b;
+  --income-green: #16a34a;
+  --expense-red:  #dc2626;
+  --profit-gold:  #d97706;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+}
+
+/* ── Auth gate ───────────────────────────────────────────────────────── */
+#auth-gate {
+  max-width: 400px;
+  margin: 5rem auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+}
+#auth-gate h2 { margin-bottom: 1.5rem; color: var(--text); }
+.input-group { margin-bottom: 1rem; text-align: left; }
+.input-group label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--muted); }
+.input-group input {
+  width: 100%; padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 1rem; outline: none;
+}
+.input-group input:focus { border-color: var(--ezra-blue); }
+#auth-error { color: var(--expense-red); font-size: 0.875rem; margin-top: 0.5rem; min-height: 1.2rem; }
+#auth-btn {
+  margin-top: 1rem; width: 100%;
+  background: var(--ezra-blue); color: #fff;
+  border: none; border-radius: 8px;
+  padding: 0.75rem; font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+}
+#auth-btn:hover { background: var(--ezra-dark); }
+#auth-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Finance content (hidden until auth) ─────────────────────────────── */
+#finance-content { display: none; }
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.finance-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.finance-header h1 { font-size: 1.75rem; font-weight: 700; color: var(--text); }
+.finance-header .subtitle { font-size: 0.875rem; color: var(--muted); }
+
+/* ── KPI Cards ──────────────────────────────────────────────────────── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.kpi-card .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 600; margin-bottom: 0.5rem; }
+.kpi-card .value { font-size: 2rem; font-weight: 700; }
+.kpi-card.income  .value { color: var(--income-green); }
+.kpi-card.expense .value { color: var(--expense-red); }
+.kpi-card.profit  .value { color: var(--profit-gold); }
+.kpi-card .sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+.kpi-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+/* ── Filters ────────────────────────────────────────────────────────── */
+.filters {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+.filters h3 { font-size: 0.9rem; font-weight: 600; color: var(--muted); width: 100%; margin-bottom: 0.25rem; }
+.filter-group { display: flex; flex-direction: column; gap: 0.3rem; }
+.filter-group label { font-size: 0.75rem; font-weight: 600; color: var(--muted); }
+.filter-group input, .filter-group select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 0.875rem; outline: none;
+}
+.filter-group input:focus, .filter-group select:focus { border-color: var(--ezra-blue); }
+.btn {
+  padding: 0.55rem 1.25rem;
+  border: none; border-radius: 8px;
+  font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+}
+.btn-primary { background: var(--ezra-blue); color: #fff; }
+.btn-primary:hover { background: var(--ezra-dark); }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.btn-outline:hover { background: var(--bg); }
+
+/* ── Monthly Chart ───────────────────────────────────────────────────── */
+.chart-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.chart-section h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1.25rem; color: var(--text); }
+.chart-bars { display: flex; align-items: flex-end; gap: 6px; height: 180px; }
+.bar-group { flex: 1; display: flex; gap: 3px; align-items: flex-end; height: 100%; }
+.bar {
+  flex: 1; border-radius: 4px 4px 0 0;
+  min-width: 12px; max-width: 28px;
+  transition: opacity 0.2s; position: relative; cursor: default;
+}
+.bar:hover { opacity: 0.8; }
+.bar.income  { background: var(--income-green); }
+.bar.expense { background: var(--expense-red); }
+.bar-label { text-align: center; font-size: 0.7rem; color: var(--muted); margin-top: 4px; }
+.bar-tooltip {
+  position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+  background: #1e293b; color: #fff; padding: 4px 8px; border-radius: 6px;
+  font-size: 0.7rem; white-space: nowrap; pointer-events: none; opacity: 0;
+  transition: opacity 0.15s;
+}
+.bar:hover .bar-tooltip { opacity: 1; }
+.chart-legend { display: flex; gap: 1.5rem; margin-top: 0.75rem; justify-content: flex-end; }
+.legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--muted); }
+.legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+/* ── Transactions Table ─────────────────────────────────────────────── */
+.table-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.table-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.table-header h3 { font-size: 1rem; font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+thead { background: var(--bg); }
+th { padding: 0.75rem 1rem; text-align: left; font-weight: 600; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+td { padding: 0.85rem 1rem; border-top: 1px solid var(--border); }
+tr:hover td { background: #f1f5f9; }
+.badge {
+  display: inline-block; padding: 0.2rem 0.6rem;
+  border-radius: 999px; font-size: 0.75rem; font-weight: 600;
+}
+.badge.income  { background: #dcfce7; color: var(--income-green); }
+.badge.expense { background: #fee2e2; color: var(--expense-red); }
+.amount { font-weight: 600; font-variant-numeric: tabular-nums; }
+.amount.income  { color: var(--income-green); }
+.amount.expense { color: var(--expense-red); }
+
+/* ── Loading / Error states ────────────────────────────────────────── */
+#loading { text-align: center; padding: 3rem; color: var(--muted); font-size: 1rem; }
+#error-msg { background: #fee2e2; color: var(--expense-red); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: none; }
