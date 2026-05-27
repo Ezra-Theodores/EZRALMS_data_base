@@ -31,7 +31,7 @@
 
   // ── routing ───────────────────────────────────────────────────────────
   const VIEWS = ["dashboard", "users", "curriculum", "attendance", "student",
-                 "rag", "quizzes", "pipeline", "sync", "automation"];
+                 "rag", "quizzes", "pipeline", "sync", "automation", "finance"];
 
   const VIEW_TITLES = {
     student: "Student Progress Tracking",
@@ -110,16 +110,17 @@
       // Pull from leaderboard endpoint as a proxy (count of attempts in top 20).
       // Real count would need a new endpoint; deferred.
     },
-    async loadBlueprintHealth() {
+async loadBlueprintHealth() {
       const blueprints = [
         ["attendance",   "/api/attendance/ping"],
         ["curriculum",   "/api/curriculum/ping"],
         ["students",     "/api/students/ping"],
         ["automation",   "/api/automation/ping"],
-        ["firebase_sync","/api/sync/ping"],
+        ["firebase_sync", "/api/sync/ping"],
         ["pipeline",     "/api/pipeline/ping"],
         ["rag",          "/api/rag/ping"],
         ["quiz_manager", "/api/quizzes/ping"],
+        ["finance",      "/finance/health"],
       ];
       const results = await Promise.all(blueprints.map(([n, p]) => api(p)));
       $("#blueprint-health").innerHTML = blueprints.map(([name], i) => {
@@ -673,10 +674,135 @@
     },
   };
 
+  // ── FINANCE ───────────────────────────────────────────────────────────
+  const finance = {
+    _authKey: "finance_auth",
+    _authHeader() {
+      return "Basic " + btoa(sessionStorage.getItem("finance_user") + ":" + sessionStorage.getItem("finance_pass"));
+    },
+    _clearAuth() {
+      sessionStorage.removeItem("finance_user");
+      sessionStorage.removeItem("finance_pass");
+    },
+    _isAuthed() {
+      return !!(sessionStorage.getItem("finance_user") && sessionStorage.getItem("finance_pass"));
+    },
+    init() {
+      $("#finance-connect-btn").addEventListener("click", () => this.connect());
+      $("#finance-user").addEventListener("keyup", (e) => { if (e.key === "Enter") this.connect(); });
+      $("#finance-pass").addEventListener("keyup", (e) => { if (e.key === "Enter") this.connect(); });
+      $("#fin-search-btn").addEventListener("click", () => this.loadReport());
+      $("#fin-logout-btn").addEventListener("click", () => this.logout());
+    },
+    onShow() {
+      if (this._isAuthed()) {
+        this._showDashboard();
+        this.loadSummary();
+      } else {
+        this._showAuth();
+      }
+    },
+    _showAuth() {
+      $("#finance-auth").style.display = "block";
+      $("#finance-dashboard").style.display = "none";
+      $("#finance-auth-error").style.display = "none";
+    },
+    _showDashboard() {
+      $("#finance-auth").style.display = "none";
+      $("#finance-dashboard").style.display = "block";
+    },
+    connect() {
+      const user = $("#finance-user").value.trim();
+      const pass = $("#finance-pass").value;
+      if (!user || !pass) {
+        $("#finance-auth-error").textContent = "Please enter username and password.";
+        $("#finance-auth-error").style.display = "block";
+        return;
+      }
+      sessionStorage.setItem("finance_user", user);
+      sessionStorage.setItem("finance_pass", pass);
+      this._showDashboard();
+      this.loadSummary();
+    },
+    logout() {
+      this._clearAuth();
+      this._showAuth();
+      $("#finance-user").value = "";
+      $("#finance-pass").value = "";
+    },
+    async _api(path, opts = {}) {
+      const key = sessionStorage.getItem("finance_auth_key");
+      try {
+        const r = await fetch(path, {
+          ...opts,
+          headers: {
+            ...(opts.headers || {}),
+            "Authorization": this._authHeader(),
+          },
+        });
+        if (r.status === 401) {
+          this._clearAuth();
+          this._showAuth();
+          toast("Finance auth failed — please re-enter credentials", "err");
+          return { success: false, error: "Unauthorized" };
+        }
+        const json = await r.json();
+        return json;
+      } catch (e) {
+        return { success: false, error: e.message };
+      }
+    },
+    async loadSummary() {
+      const r = await this._api("/finance/summary");
+      if (!r.success) return;
+      const d = r.data || r;
+      $("#fin-income").textContent = this._fmt(d.total_income);
+      $("#fin-expense").textContent = this._fmt(d.total_expense);
+      const income = parseFloat(d.total_income) || 0;
+      const expense = parseFloat(d.total_expense) || 0;
+      $("#fin-balance").textContent = this._fmt(income - expense);
+      $("#fin-count").textContent = d.transaction_count ?? "–";
+    },
+    async loadReport() {
+      const start = $("#fin-start").value;
+      const end = $("#fin-end").value;
+      const qs = new URLSearchParams();
+      if (start) qs.set("start_date", start);
+      if (end) qs.set("end_date", end);
+      const tbody = $("#fin-table-body");
+      tbody.innerHTML = `<tr><td colspan="6" class="empty">Loading…</td></tr>`;
+      const r = await this._api(`/finance/report?${qs}`);
+      if (!r.success) {
+        tbody.innerHTML = `<tr><td colspan="6" class="empty">Error: ${escape(r.error)}</td></tr>`;
+        return;
+      }
+      const data = r.data || r.report || [];
+      if (!data.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="empty">No transactions found.</td></tr>`;
+        return;
+      }
+      tbody.innerHTML = data.map(tx => `
+        <tr>
+          <td>${escape(tx.date || tx.transaction_date || "—")}</td>
+          <td>${escape(tx.category || "—")}</td>
+          <td><span class="status-badge ${(tx.type || "").toLowerCase() === "income" ? "ok" : ""}">${escape(tx.type || "—")}</span></td>
+          <td style="color:${(tx.type || "").toLowerCase() === "income" ? "#4CAF50" : "#F44336"};font-weight:bold">${this._fmt(tx.amount)}</td>
+          <td>${escape(tx.description || "—")}</td>
+          <td><code>${escape(tx.reference || "—")}</code></td>
+        </tr>
+      `).join("");
+    },
+    _fmt(v) {
+      const n = parseFloat(v);
+      if (isNaN(n)) return "–";
+      return new Intl.NumberFormat("en-MY", { style: "currency", currency: "MYR" }).format(n);
+    },
+  };
+
   // ── REGISTRY + BOOT ───────────────────────────────────────────────────
   const MODULES = {
     dashboard, users, curriculum, attendance, student, rag,
-    quizzes: quizManager, pipeline, sync, automation,
+    quizzes: quizManager, pipeline, sync, automation, finance,
   };
 
   function bindSidebar() {

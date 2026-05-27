@@ -30,6 +30,7 @@
                 <li data-view="pipeline"><a href="#pipeline"><i class="fas fa-cloud-upload-alt"></i> Question Pipeline</a></li>
                 <li data-view="sync"><a href="#sync"><i class="fas fa-sync-alt"></i> Firebase Sync</a></li>
                 <li data-view="automation"><a href="#automation"><i class="fas fa-robot"></i> Automation Hub</a></li>
+                <li data-view="finance"><a href="#finance"><i class="fas fa-wallet"></i> Finance</a></li>
             </ul>
         </nav>
 
@@ -277,6 +278,52 @@
                         <p>Runs <code>autopilot_g8.js</code>. Requires the persistent browser to be online.</p>
                         <button class="btn btn-primary" id="autoAutopilotBtn"><i class="fas fa-rocket"></i> Launch Autopilot</button>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== FINANCE =================== -->
+        <section class="content-section view" id="view-finance" style="display:none;">
+            <!-- Auth gate -->
+            <div id="finance-auth" class="card" style="max-width:400px;margin:40px auto;text-align:center">
+                <div class="card-header"><h3><i class="fas fa-lock"></i> Finance Access</h3></div>
+                <div class="card-body">
+                    <p style="margin-bottom:16px">Enter your Finance credentials to view the dashboard.</p>
+                    <div class="form-group">
+                        <input type="text" id="finance-user" placeholder="Username" class="form-input" style="margin-bottom:8px">
+                        <input type="password" id="finance-pass" placeholder="Password" class="form-input" style="margin-bottom:12px">
+                        <button class="btn btn-primary" id="finance-connect-btn"><i class="fas fa-plug"></i> Connect</button>
+                    </div>
+                    <p id="finance-auth-error" style="color:var(--danger);margin-top:8px;display:none"></p>
+                </div>
+            </div>
+
+            <!-- Finance dashboard (hidden until authenticated) -->
+            <div id="finance-dashboard" style="display:none">
+                <!-- Summary cards -->
+                <div class="stats-grid" style="margin-bottom:24px">
+                    <div class="stat-card"><i class="fas fa-arrow-up" style="color:#4CAF50"></i><div class="stat-info"><h3 id="fin-income">–</h3><p>Total Income</p></div></div>
+                    <div class="stat-card"><i class="fas fa-arrow-down" style="color:#F44336"></i><div class="stat-info"><h3 id="fin-expense">–</h3><p>Total Expense</p></div></div>
+                    <div class="stat-card"><i class="fas fa-wallet"></i><div class="stat-info"><h3 id="fin-balance">–</h3><p>Net Balance</p></div></div>
+                    <div class="stat-card"><i class="fas fa-receipt"></i><div class="stat-info"><h3 id="fin-count">–</h3><p>Transactions</p></div></div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-bar wrap" style="margin-bottom:16px">
+                    <label style="margin-right:8px;align-self:center">From</label>
+                    <input type="date" id="fin-start" class="form-input">
+                    <label style="margin-right:8px;align-self:center">To</label>
+                    <input type="date" id="fin-end" class="form-input">
+                    <button class="btn btn-primary" id="fin-search-btn"><i class="fas fa-search"></i> Search</button>
+                    <button class="btn btn-outline" id="fin-logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+
+                <!-- Transaction table -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead><tr><th>Date</th><th>Category</th><th>Type</th><th>Amount</th><th>Description</th><th>Reference</th></tr></thead>
+                        <tbody id="fin-table-body"><tr><td colspan="6" class="empty">Click Search to load transactions.</td></tr></tbody>
+                    </table>
                 </div>
             </div>
         </section>

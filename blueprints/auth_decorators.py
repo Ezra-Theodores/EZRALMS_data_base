@@ -7,6 +7,10 @@ from functools import wraps
 from flask import request, jsonify
 
 
+def _get_finance_username():
+    return os.environ.get("FINANCE_USERNAME", "Imel")
+
+
 def _get_finance_password():
     pwd = os.environ.get("FINANCE_PASSWORD")
     if not pwd:
@@ -21,8 +25,9 @@ def require_finance_auth(f):
     """
     HTTP Basic Auth decorator for the finance blueprint.
     Checks Authorization: Basic <base64(username:password)> header.
-    The username is ignored; only the password is verified against FINANCE_PASSWORD.
-    Returns 401 + WWW-Authenticate header if missing or wrong.
+    The username must match FINANCE_USERNAME and the password must match
+    FINANCE_PASSWORD (both checked). Returns 401 + WWW-Authenticate
+    header if either is wrong or missing.
     """
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -46,9 +51,9 @@ def require_finance_auth(f):
                 {"WWW-Authenticate": 'Basic realm="EZRALMS Finance"'},
             )
 
-        if password != _get_finance_password():
+        if username != _get_finance_username() or password != _get_finance_password():
             return (
-                jsonify({"error": "Unauthorized", "message": "Incorrect password"}),
+                jsonify({"error": "Unauthorized", "message": "Incorrect username or password"}),
                 401,
                 {"WWW-Authenticate": 'Basic realm="EZRALMS Finance"'},
             )
