@@ -8,9 +8,13 @@ import sqlite3
 from datetime import datetime, timedelta
 from typing import Optional
 
-DB_PATH = os.environ.get(
-    "DATABASE_PATH",
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), "ezralms_unified.db")
+# Use DATABASE_PATH env first (for Railway/production), else
+# DB_PATH for local dev convenience. Defaults to ezralms_unified.db
+# in the project root so tests and dev servers all hit the same file.
+DB_PATH = os.environ.get("DATABASE_PATH") or os.environ.get(
+    "DB_PATH",
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
+                 "ezralms_unified.db")
 )
 
 SCHEMA = """
@@ -350,11 +354,14 @@ def get_student_payment_status() -> list[dict]:
     for s in students:
         row = {"student_id": s["student_id"], "name": s["name"], "grade": s["grade"],
                "school": s["school"], "monthly_amount": s["monthly_amount"], "status": s["status"]}
-        payments = dict(conn.execute(
-            "SELECT month, amount_paid FROM tuition_payments WHERE student_id=?",
-            [s["student_id"]]
-        ).fetchall())
-        row["payments"] = {m: payments.get(m, 0) for m in MONTHS}
+        payment_rows = {
+            r[0]: r[1]
+            for r in conn.execute(
+                "SELECT month, amount_paid FROM tuition_payments WHERE student_id=?",
+                [s["student_id"]]
+            ).fetchall()
+        }
+        row["payments"] = {m: payment_rows.get(m, 0) for m in MONTHS}
         result.append(row)
     conn.close()
     return result
@@ -364,10 +371,13 @@ def get_monthly_breakdown(month: str) -> dict:
     """Monthly breakdown for a specific month: expected vs paid per student."""
     conn = _get_conn()
     students = get_all_students(status="active")
-    rows_paid = dict(conn.execute(
-        "SELECT student_id, amount_paid, payment_date FROM tuition_payments WHERE month=?",
-        [month]
-    ).fetchall())
+    rows_paid = {
+        r[0]: (r[1], r[2])
+        for r in conn.execute(
+            "SELECT student_id, amount_paid, payment_date FROM tuition_payments WHERE month=?",
+            [month]
+        ).fetchall()
+    }
     total_expected = sum(s["monthly_amount"] for s in students)
     total_paid = sum(v[0] for v in rows_paid.values()) if rows_paid else 0
     conn.close()
